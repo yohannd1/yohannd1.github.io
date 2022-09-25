@@ -1,46 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- TODO: UTF-8 encoding & responsiveness-->
         <title>Projects - Yohanan's Website</title>
-        <style>
-            #project-cards {
-                margin: 1em;
-            }
 
-            .project-card {
-                display: float;
-                box-shadow: 0.1em 0.2em 0.5em 0.25em #00000030;
-                border-radius: 0.5em;
-                transition: 0.15s;
-                padding: 1em;
-            }
+        <!-- Responsiveness -->
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="HandheldFriendly" content="true"/>
 
-            .project-card:hover {
-                box-shadow: 0.1em 0.1em 0.5em 0.1em #00000050;
-            }
+        <!-- Encoding -->
+        <meta charset="UTF-8"/>
 
-            .project-title {
-                font-style: italic;
-                font-size: 1.5em;
-                margin-top: 0px;
-            }
-
-            .project-url {
-                font-size: 1em;
-            }
-
-            .project-taglist {
-                display: flex;
-            }
-
-            .project-taglist div {
-                margin: 0.2em;
-            }
-        </style>
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
 
     <body>
+        <h1>Projects</h1>
+
         <div id="project-cards">
             <div class="project-card">
                 <p class="project-title">Intertia</p>
@@ -51,7 +28,16 @@
                     <div>html</div>
                     <div>javascript</div>
                     <div>library</div>
-                </ul>
+                </div>
+            </div>
+            <div class="project-card">
+                <p class="project-title">Hopeless Keyshift</p>
+                <a class="project-url" href="https://swapxfo.bandcamp.com/album/hopeless-keyshift">On Bandcamp</a>
+                <a class="project-url" href="https://www.youtube.com/playlist?list=PLs9PG-E1jX2_mE8VgTxBHqLPPCFYauDDz">On Youtube</a>
+                <p class="project-description">My first album</p>
+                <div class="project-taglist">
+                    <div>music</div>
+                </div>
             </div>
             <!-- TODO: put mah music here :)) -->
         </div>

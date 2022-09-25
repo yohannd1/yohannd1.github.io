@@ -1,0 +1,45 @@
+:root {
+    --color-bg: #FFFFFF;
+    --color-bg-hover: #EEEEEE;
+}
+
+body {
+    font-style: system-ui;
+}
+
+#project-cards {
+    margin: 1em;
+}
+
+.project-card {
+    display: float;
+    background-color: var(--color-bg);
+    box-shadow: 0.1em 0.2em 0.5em 0.25em #00000030;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.project-card:hover {
+    background-color: var(--color-bg-hover);
+    box-shadow: 0.1em 0.1em 0.5em 0.1em #00000050;
+}
+
+.project-title {
+    font-style: italic;
+    font-size: 1.5em;
+    margin-top: 0px;
+}
+
+.project-url {
+    font-size: 1em;
+}
+
+.project-taglist {
+    display: flex;
+}
+
+.project-taglist div {
+    margin: 0.2em;
+    color: #444444;
+}
