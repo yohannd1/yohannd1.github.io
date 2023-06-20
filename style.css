@@ -1,29 +1,69 @@
 :root {
-    --color-bg: #FFFFFF;
-    --color-bg-hover: #EEEEEE;
+    --color-bg: #EEE;
+    --color-bg-alt: #DDD;
+    --color-bg-hover: #CCC;
+
+    --color-fg: #000;
+    --color-fg-alt: #444;
+
+    --color-link: #C2C;
+    --color-link-visited: #92C;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #222;
+        --color-bg-alt: #333;
+        --color-bg-hover: #555;
+
+        --color-fg: #DDD;
+        --color-fg-alt: #AAA;
+
+        --color-link: #88F;
+        --color-link-visited: #F8F;
+    }
+}
+
+a {
+    color: var(--color-link);
+}
+
+a:visited {
+    color: var(--color-link-visited);
+}
+
+a:hover {
+    background-color: var(--color-bg-hover);
 }
 
 body {
+    background-color: var(--color-bg);
     font-family: monospace;
-    font-size: 1.10em;
+    font-size: 1.2em;
+    color: var(--color-fg);
+    margin-right: 1em;
 }
 
-#project-cards {
-    margin: 1em;
+details > .subnode {
+    margin-left: 1em;
+}
+
+summary {
+    padding: 0.35em 0em 0.35em 0em;
+}
+
+summary:hover {
+    background-color: var(--color-bg-hover);
+    cursor: pointer;
 }
 
 .project-card {
     display: float;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg-alt);
     box-shadow: 0.1em 0.2em 0.5em 0.25em #00000030;
-    border-radius: 0.5em;
+    border-radius: 0.1em;
     padding: 1em;
-    margin-bottom: 1em;
-}
-
-.project-card:hover {
-    background-color: var(--color-bg-hover);
-    box-shadow: 0.1em 0.1em 0.5em 0.1em #00000050;
+    margin-bottom: 1.5em;
 }
 
 .project-title {
@@ -42,5 +82,5 @@ body {
 
 .project-taglist div {
     margin: 0.2em;
-    color: #444444;
+    color: var(--color-fg-alt);
 }
