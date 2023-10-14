@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial de C</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="HandheldFriendly" content="true"/>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" type="text/css" href="../style.css"/>
+    </head>
+
+    <body><main>
+        <details open>
+            <summary>Tutorial de C</summary>
+
+            <p class="subnode">Olá! Aqui eu vou tentar ajudar com algumas coisas de C.</p>
+            <p class="subnode">Não é muita coisa. É mais um ponto de referência p/ algumas dúvidas q eu ja tirei.</p>
+
+            <details class="subnode">
+                <summary>int main()</summary>
+
+<p><code>main()</code> é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca ali.</p>
+
+<p>Ela na verdade é o que chamamos de <b>função</b> (tenho que explicar isso direito depois<!-- TODO -->), mas basicamente é
+um pedaço de código que você pode chamar. Outras coisas que veremos mais na frente, como <code>printf()</code>, <code>scanf()</code> e
+<code>sqrt()</code>, são funções também, mas elas são definidas pelo compilador.</p>
+
+<p>O <code>main()</code> é a gente que define, e o computador começa a rodar o programa por ali.</p>
+
+<p>A partir daqui, a maioria dos códigos vai omitir o <code>int main()</code>, mas você precisa colocar o código dentro dele.</p>
+
+<p>Então isso:</p>
+
+<pre><code>int main() {
+    int a = 10 + 20;
+}
+</code></pre>
+
+<p>É a forma correta de escrever, enquanto isso:</p>
+
+<pre><code>int a = 10 + 20;
+</code></pre>
+
+<p>É o que vai aparecer.</p>
+            </details>
+
+            <details class="subnode">
+                <summary>criando variáveis (A FAZER)</summary>
+            </details>
+
+            <details class="subnode">
+                <summary>tipos de dados (A FAZER)</summary>
+            </details>
+
+            <details class="subnode">
+                <summary>mostrando coisas na tela (com printf)</summary>
+
+<p>O <code>printf</code> é uma função usada para mostrar coisas na tela.</p>
+<p>Para usar, você precisa colocar <code>#include &lt;stdio.h&gt;</code> no início do código, antes do <code>int main()</code>.</p>
+
+<p>Um exemplo de uso do printf seria:</p>
+
+<pre><code>printf("Olá, mundo!");
+</code></pre>
+
+<p>Basicamente, você passa um texto (entre aspas<!-- TODO: definir o que é uma string lá em cima -->) com uma mensagem para mostrar na tela.</p>
+
+<hr/>
+
+<p>Mas como mostrar, por exemplo, um número que foi calculado no programa?</p>
+
+<p>Para isso, você precisa usar os <code>%</code>s. Vejamos outro exemplo:</p>
+
+<pre><code>int x = 0;
+printf("O sucessor de x é %d", x+1);
+</code></pre>
+
+<p>Quando você usa o <code>%d</code> no texto do printf, a próxima coisa que você passar depois do texto vai ser colocada no lugar dele. Nesse caso, o programa mostraria <code>O sucessor de x é 1</code>.</p>
+
+<p>E você pode usar isso várias vezes:</p>
+
+<pre><code>int a = 1;
+int b = 3;
+printf("a=%d, b=%d, a+b=%d", a, b, a+b);
+</code></pre>
+
+<p>(Isso mostra <code>a=1, b=3, a+b=4</code>)</p>
+
+<hr/>
+
+<p>Agora cuidado: o <code>%d</code> é usado somente para <code>int</code>. Se você quiser passar outros tipos de valores, vai ter que usar outros códigos:</p>
+<ul>
+    <li>%d ou %i: int</li>
+    <li>%x: int, hexadecimal</li>
+    <li>%o: int, octal</li>
+    <li>%u: unsigned int</li>
+
+    <li>%c: char</li>
+    <li>%f: float</li>
+    <li>%lf: double (o código lf pq é abreviação "long float", que é equivalente)</li>
+</ul>
+            </details>
+
+            <details class="subnode">
+                <summary>lendo coisas digitadas (com scanf)</summary>
+
+<p>Além de saber como mostrar coisas na tela, é também muito útil saber sim ler coisas que o usuário digitar.</p>
+<p>Para isso temos o <code>scanf</code>. Ele funciona de uma maneira parecida com o printf, mas o texto é um formato do que o usuário vai digitar, e o que você passa depois são as variáveis pra onde essas coisas digitadas vão.</p>
+
+<p>Confuso? Enfim, um exemplo provavelmente ajuda mais:</p>
+
+<pre><code>int x;
+scanf("%d", &amp;x);
+</code></pre>
+
+<p>Aqui nós criamos uma variável <code>x</code> e usamos o scanf. Ao fazer isso, o programa vai parar até que o usuário digite algo e aperte enter. Ele então vai tentar pegar o texto que o usuário digitou, e, se for um número, colocar em <code>x</code>.</p>
+
+<p>Esse programa aqui então é uma mini calculadora:</p>
+
+<pre><code>int x;
+printf("Digite x: ");
+scanf("%d", &amp;x);
+printf("x*5=%d", x*5);
+</code></pre>
+
+<p>Se eu digitar <code>20</code>, o resultado vai ser <code>x*5=100</code>.</p>
+
+<hr/>
+
+<p>Lembre-se de, ao colocar a variável, colocar o <code>&amp;</code> logo antes. Isso siginifica que, ao invés de você passar o que tá dentro da variável x, você está passando o <b>endereço</b> dela. Talvez eu explique isso algum dia direito, mas uma maneira simples de entender é: toda variável, quando o programa tá rodando, tá em algum lugar específico da memória. Passar o endereço seria indicar ao scanf onde na memória tá essa variável, para ele poder ir lá e colocar o valor que o usuário digitou ali.
+
+<hr/>
+
+<p>Os tipos de % usados aqui são basicamente os mesmos que você usaria no printf, então pode olhar a tabela de códigos de lá mesmo.</p>
+
+            </details>
+        </details>
+    </main></body>
+</html>

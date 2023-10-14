@@ -57,6 +57,10 @@ summary:hover {
     cursor: pointer;
 }
 
+code {
+    background-color: var(--color-bg-alt);
+}
+
 .project-card {
     display: float;
     background-color: var(--color-bg-alt);
