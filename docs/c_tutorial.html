@@ -149,7 +149,6 @@ printf("x*5=%d", x*5);
 <p>Os tipos de % usados aqui são basicamente os mesmos que você usaria no printf, então pode olhar a tabela de códigos de lá mesmo.</p>
 
             </details>
-
             <details class="subnode">
                 <summary class="big todo">condições (if e else) (A FAZER)</summary>
             </details>
@@ -158,6 +157,47 @@ printf("x*5=%d", x*5);
                 <summary class="big todo">contando até 10 (com while) (A FAZER)</summary>
                 <!-- TODO: explicar o que são variáveis de controle -->
             </details>
+
+            <details class="subnode">
+                <summary class="big">Comentários (// e /* */)</summary>
+
+<p>Às vezes é bom poder anotar algo no código. Para isso, usamos os comentários.</p>
+<p>Um comentário é um texto que não vira código - ele é essencialmente ignorado pelo compilador.</p>
+
+<p>Em C, a maneira "clássica" de comentar é com o <code>/* */</code>. Você começa o comentário com <code>/*</code> e termina ele com <code>*/</code>.</p>
+
+<pre><code>int x; /* olá! isso aqui é um comentário. */
+scanf("%d", &amp;x); /* um comentário
+de múltiplas linhas
+:) */
+</code></pre>
+
+<p>O compilador ignora os comentários, então isso é equivalente a:</p>
+
+<pre><code>int x;
+scanf("%d", &amp;x);
+</code></pre>
+
+<p>Desde 1990(?) você pode também usar os comentários de uma-linha. Ao colocar o <code>//</code>, tudo até o fim daquela linha é ignorado.</p>
+
+<pre><code>int x; // olá! isso aqui é um comentário.
+scanf("%d", &amp;x);
+// como eu quero colocar
+// várias linhas, eu tenho
+// que usar o // no início de cada linha.
+</code></pre>
+
+<p>Mais uma vez, o compilador ignora os comentários, e resulta em:</p>
+
+<pre><code>int x;
+scanf("%d", &amp;x);
+</code></pre>
+
+<hr/>
+
+<p>Além de anotar coisas, comentários são úteis para ignorar um código por um tempo, sendo que você quer usar ele depois.</p>
+
+<p>Alguns editores até tem telas específicas para comentar o texto selecionado, o que deixa isso bem prático (no VSCode é Ctrl+K, eu acho?)</p>
         </details>
     </main></body>
 </html>

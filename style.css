@@ -61,6 +61,10 @@ code {
     background-color: var(--color-bg-alt);
 }
 
+pre code {
+    display: block;
+}
+
 .project-card {
     display: float;
     background-color: var(--color-bg-alt);
