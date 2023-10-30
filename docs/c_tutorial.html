@@ -1,4 +1,4 @@
-<!-- vim: foldmarker={{{,}}} foldenable foldmethod=marker
+<!-- vim: foldmarker={{{,}}} foldenable foldmethod=marker tw=130
 -->
 <!DOCTYPE html>
 <html>
@@ -35,11 +35,12 @@
 
             <details class="subnode"><summary class="big">int main()</summary> <!-- {{{ -->
 
-<p><code>main()</code> é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca ali.</p>
+<p><code>main()</code> é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca
+ali.</p>
 
-<p>Ela na verdade é o que chamamos de <b>função</b> (<a href="#s-funcoes">um pouco mais avançado - leia mais em baixo</a>), mas basicamente é
-um pedaço de código que você pode chamar. Outras coisas que veremos mais na frente, como <code>printf()</code>, <code>scanf()</code> e
-<code>sqrt()</code>, são funções também, mas elas são definidas pelo compilador.</p>
+<p>Ela na verdade é o que chamamos de <b>função</b> (<a href="#s-funcoes">um pouco mais avançado - leia mais em baixo</a>), mas
+basicamente é um pedaço de código que você pode rodar várias vezes. Outras coisas que veremos mais na frente, como
+<code>printf()</code>, <code>scanf()</code> e <code>sqrt()</code>, são funções também, mas elas são definidas pelo compilador.</p>
 
 <p>O <code>main()</code> é a gente que define, e o computador começa a rodar o programa por ali.</p>
 
@@ -142,7 +143,7 @@ printf("x*5=%d", x*5);
 <p>Os tipos de % usados aqui são basicamente os mesmos que você usaria no printf, então pode olhar a tabela de códigos de lá mesmo.</p>
 
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">Comentários (// e /* */)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big">comentários (// e /* */)</summary> <!-- {{{ -->
 
 <p>Às vezes é bom poder anotar algo no código. Para isso, usamos os comentários.</p>
 <p>Um comentário é um texto que não vira código - ele é essencialmente ignorado pelo compilador.</p>
@@ -191,7 +192,7 @@ scanf("%d", &amp;x);
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">if ternário (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big" id="s-time">Obtendo o tempo atual com <code>time()</code></summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big" id="s-time">obtendo o tempo atual com <code>time()</code></summary> <!-- {{{ -->
 <p>Por agora essa explicação de tempo aqui é só algo simples p/ poder usar com números aleatórios.</p>
 
 <p>Uma das maneiras mais básicas de obter informação sobre o tempo em C é usar a função <code>time()</code>, disponível no header <code>time.h</code>.</p>
@@ -225,7 +226,7 @@ printf("Segundos: %d\n", s);
 
 <p>Curiosidade: você poder usar tanto <code>x = time(NULL)</code> quanto <code>time(&amp;x)</code> é na verdade um legado de versões muito, muito velhas de C. Não vou explicar aqui mas consulte <a href="https://stackoverflow.com/questions/61432103/why-does-stdtime-have-an-unnecessary-parameter">essa pergunta no StackOverflow</a> se tiver com curiosidade.</p>
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">Geração de números aleatórios (com <code>rand()</code>)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big">geração de números aleatórios (com <code>rand()</code>)</summary> <!-- {{{ -->
 
 <p>Alguns tipos de programa precisam fazer coisas aleatórias acontecerem (como sortear cartas em um baralho, ou rolar um dado). Em computadores, podemos fazer algo parecido através da geração de números aleatórios.</p>
 
@@ -266,8 +267,144 @@ printf("%d\n", rand());
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">aplicação de números aleatórios: números dentro de um intervalo (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="todo" id="s-funcoes">funções e modularização (A FAZER)</summary> <!-- {{{ -->
-                A FAZER: mencionar caixa preta!!!
+            <details class="subnode"><summary class="big" id="s-funcoes">funções e modularização</summary> <!-- {{{ -->
+<p><i>Os exemplos desse capítulo são completos porque a gente vai mexer com coisas "fora" do <code>main()</code>.</i></p>
+
+<p>Como mencionado anteriormente, uma função é um pedaço de código que pode ser rodado várias vezes.</p>
+
+<p>Vamos explicar a importância delas com um exemplo - um programa que mostra um quadrado vazado, 5x5:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int i, j;
+
+    // mostrar o topo do quadrado (1 linha)
+    for (i = 0; i &lt; 5; i++)
+        printf("*");
+    printf("\n");
+
+    // mostrar o meio do quadrado (3 linhas)
+    for (i = 0; i &lt; 3; i++) {
+        printf("*");
+        for (j = 0; j &lt; 3; j++)
+            printf(" ");
+        printf("*\n");
+    }
+
+    // mostrar o topo do quadrado (1 linha)
+    for (i = 0; i &lt; 5; i++)
+        printf("*");
+    printf("\n");
+}
+</code></pre>
+
+<p>Ao rodar esse programa, a saída é:</p>
+
+<pre><code>*****
+*   *
+*   *
+*   *
+*****
+</code></pre>
+
+<p>Esse código tem cara de meio confuso, né? É difícil ler de cara o que ele faz. A gente pode adicionar comentários e tal, mas se
+começarmos a criar funções, conseguimos chegar a um nível ainda maior de "código compreensível", e conseguimos também diminuir a
+repetição de código.</p>
+
+<p>Para criar uma função, podemos fazer:</p>
+
+<pre><code>TIPO_RETORNO NOME_FUNCAO(ARGUMENTOS...) {
+    CODIGO_FUNCAO
+}
+</code></pre>
+
+<p>Isso cria uma função com o nome <code>NOME_FUNCAO</code>, que, quando usada (e você passa <code>ARGUMENTOS</code>), roda o
+código <code>CODIGO_FUNCAO</code> e retorna <code>TIPO_RETORNO</code>.</p>
+
+<p>Vamos criar uma função para mostrar uma linha de asteriscos, chamada <code>mostrarLinha</code>:</p>
+
+<pre><code>void mostrarLinha(int tamanho) {
+    int i;
+    for (i = 0; i &lt; tamanho; i++) {
+        printf("*");
+    }
+    printf("\n");
+}
+</code></pre>
+
+<p>Para usar ela, basta escrever, por exemplo, <code>mostrarLinha(5)</code>, e ele vai mostrar uma linha com
+<code>tamanho=5</code>.</p>
+
+<p>Ao fazer isso, o código fica muito mais simples:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+void mostrarLinha(int tamanho) {
+    int i;
+    for (i = 0; i &lt; tamanho; i++) {
+        printf("*");
+    }
+    printf("\n");
+}
+
+int main() {
+    int i, j;
+
+    mostrarLinha(5);
+
+    // mostrar o meio do quadrado (3 linhas)
+    for (i = 0; i &lt; 3; i++) {
+        printf("*");
+        for (j = 0; j &lt; 3; j++)
+            printf(" ");
+        printf("*\n");
+    }
+
+    mostrarLinha(5);
+}
+</code></pre>
+
+<p>E dá pra melhorar! Se a gente criar uma para mostrar as linhas vazadas também:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+void mostrarLinha(int tamanho) {
+    int i;
+    for (i = 0; i &lt; tamanho; i++) {
+        printf("*");
+    }
+    printf("\n");
+}
+
+void mostrarLinhaVazada(int tamanho) {
+    int i;
+    printf("*");
+    for (i = 0; i &lt; tamanho - 2; i++) {
+        printf(" ");
+    }
+    printf("*");
+    printf("\n");
+}
+
+int main() {
+    int i;
+
+    mostrarLinha(5);
+    for (i = 0; i &lt; 3; i++) mostrarLinhaVazada(5);
+    mostrarLinha(5);
+}
+</code></pre>
+
+<p>Eu diria que um dos melhores benefícios de criar funções é que você <b>modulariza</b> o programa. Você consegue separar o
+programa em pedaços pequenos que você consegue utilizar quando quiser, quantas vezes quiser, na ordem que quiser. E ainda você
+acaba não misturando as variáveis, porque o <code>i</code> em <code>mostrarLinha</code> não é o mesmo <code>i</code> de
+<code>mostrarLinhaVazada</code>.</p>
+
+<p>Inclusive, talvez a explicação de argumentos não tenha sido muito boa até agora. As coisas que você passa entre os parênteses,
+ao usar a função, vai para as variáveis na função, entre os parênteses também. Então, quando você faz
+<code>mostrarLinha(5)</code>, ele roda o código dentro de <code>mostrarLinha</code>, com <code>tamanho</code> sendo igual a
+<code>5</code>.</p>
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">documentação (A FAZER)</summary> <!-- {{{ -->
                 <p>A FAZER: a importância de headers (protótipos e macros)</p>
