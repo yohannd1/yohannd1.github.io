@@ -125,3 +125,16 @@ button:hover {
     margin: 0.2em;
     color: var(--color-fg-alt);
 }
+
+:target {
+    -webkit-animation: target-fade 1.5s 1;
+    -moz-animation: target-fade 1.5s 1;
+}
+@-webkit-keyframes target-fade {
+    100% { background-color: var(--color-bg); }
+    0% { background-color: var(--color-bg-hover);  }
+}
+@-moz-keyframes target-fade {
+    100% { background-color: var(--color-bg); }
+    0% { background-color: var(--color-bg-hover); }
+}
