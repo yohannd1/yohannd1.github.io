@@ -110,6 +110,8 @@ printf("a=%d, b=%d, a+b=%d", a, b, a+b);
     <li>%f: float</li>
     <li>%lf: double (o código lf pq é abreviação "long float", que é equivalente)</li>
 </ul>
+
+<p>A FAZER: %10d, %010d, %s</p>
             </details> <!-- }}} -->
             <details class="subnode"><summary class="big">lendo coisas digitadas (com scanf)</summary> <!-- {{{ -->
 
@@ -185,7 +187,19 @@ scanf("%d", &amp;x);
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">bibliotecas, headers e include (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="todo">constantes (A FAZER)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="todo">constantes (em progresso)</summary> <!-- {{{ -->
+<p>Às vezes, ao fazer o código, queremos representar valores constantes.</p>
+
+<p>A FAZER: por que msm?? uhhh</p>
+
+<pre><code>#define MINHA_CONSTANTE 5
+</code></pre>
+
+<pre><code>const int MINHA_CONSTANTE = 5;
+</code></pre>
+
+<p>A FAZER: diferença entre constantes com #define e const (uma é um valor que é substituído no código, a outra é uma variável
+mesmo)</p>
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">lembrete: funções dentro de funções (A FAZER)</summary> <!-- {{{ -->
                 explicar que srand(time(0)) é o mesmo que a=0, b=time(a), srand(b)
@@ -267,7 +281,63 @@ printf("%d\n", rand());
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">aplicação de números aleatórios: números dentro de um intervalo (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big" id="s-funcoes">funções e modularização</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big" id="s-funcoes">funções: introdução</summary> <!-- {{{ -->
+<p><i>Os exemplos desse capítulo são completos! As coisas aqui ficam fora do <code>main()</code>.</i></p>
+
+<p>Funções são "blocos de código" que podem ser rodados quando você quiser.</p>
+
+<p>Vamos começar com um exemplo:</p>
+
+<pre><code>float triplo(float x) {
+    return 3.0 * x;
+}</code></pre>
+
+<p>Aqui, temos uma função, de nome <code>triplo</code>, que recebe um número <code>x</code>, multiplica ele por <code>3.0</code> e
+retorna o resultado, que também é <code>float</code>.
+
+<p>Quando você quer usar ela, você pode fazer <code>triplo(num)</code>, e o resultado vai ser o triplo de num. Um exemplo:</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+float triplo(float x) {
+    return 3.0 * x;
+}
+
+int main() {
+    int x = 10;
+    printf("O triplo de 10 é %d\n", triplo(x));
+}
+</code></pre>
+
+<p>Esse programa vai mostrar <code>O triplo de 10 é 30</code>.</p>
+
+<hr/>
+
+<p>Uma forma mais genérica de definir uma função seria:</p>
+
+<pre><code>tipo_retorno nome_funcao(tipo_parametro parametro...) {
+    codigo...
+}</code></pre>
+
+<ul>
+    <li><code>tipo_retorno</code> é o tipo que a função retorna;</li>
+    <li><code>nome_funcao</code> é o nome da função;</li>
+    <li><code>parametro</code> é um parâmetro da função (algo que você passa pra ela, entre os parênteses - o <code>x</code> em <code>f(x)</code>);</li>
+    <li><code>tipo_parametro</code> é o tipo do parametro <code>parametro</code>;</li>
+</ul>
+
+<p>A FAZER: exemplo: vários argumentos</p>
+
+<p>A FAZER: return, e quando usar o printf vs. o return</p>
+
+<p>A FAZER: comportamento de funções (call stack, mas sem precisar explicar um stack)</p>
+
+<p>A FAZER: exemplo: funções com void</p>
+
+<p>A FAZER: protótipos</p>
+
+            </details> <!-- }}} -->
+            <details class="subnode"><summary class="big">funções: por que usar? (modularização)</summary> <!-- {{{ -->
 <p><i>Os exemplos desse capítulo são completos porque a gente vai mexer com coisas "fora" do <code>main()</code>.</i></p>
 
 <p>Como mencionado anteriormente, uma função é um pedaço de código que pode ser rodado várias vezes.</p>
@@ -311,16 +381,6 @@ int main() {
 <p>Esse código tem cara de meio confuso, né? É difícil ler de cara o que ele faz. A gente pode adicionar comentários e tal, mas se
 começarmos a criar funções, conseguimos chegar a um nível ainda maior de "código compreensível", e conseguimos também diminuir a
 repetição de código.</p>
-
-<p>Para criar uma função, podemos fazer:</p>
-
-<pre><code>TIPO_RETORNO NOME_FUNCAO(ARGUMENTOS...) {
-    CODIGO_FUNCAO
-}
-</code></pre>
-
-<p>Isso cria uma função com o nome <code>NOME_FUNCAO</code>, que, quando usada (e você passa <code>ARGUMENTOS</code>), roda o
-código <code>CODIGO_FUNCAO</code> e retorna <code>TIPO_RETORNO</code>.</p>
 
 <p>Vamos criar uma função para mostrar uma linha de asteriscos, chamada <code>mostrarLinha</code>:</p>
 
@@ -406,6 +466,32 @@ ao usar a função, vai para as variáveis na função, entre os parênteses tam
 <code>mostrarLinha(5)</code>, ele roda o código dentro de <code>mostrarLinha</code>, com <code>tamanho</code> sendo igual a
 <code>5</code>.</p>
             </details> <!-- }}} -->
+            <details class="subnode"><summary class="todo">pointers (A FAZER)</summary> <!-- {{{ -->
+            </details> <!-- }}} -->
+            <details class="subnode"><summary class="todo">vetores (A FAZER)</summary> <!-- {{{ -->
+<p>Vetores, ou <i>arrays</i>, são variáveis que, ao invés de armazenar um valor, armazena um conjunto de valores, um do lado do
+outro.</p>
+
+<pre><code>int a = 10;
+int b[3] = {11, 12, 15};
+</code></pre>
+
+<p>Podemos fazer uma representação gráfica dessas variáveis assim:</p>
+
+<pre><code>  a          b
+  |          |
+/---\  /-------------\
+[ 10 ] [ 11 | 12 | 15 ]
+</code></pre>
+
+                <p>A FAZER: pra que servem</p>
+                <p>A FAZER: inicialização</p>
+                <p>A FAZER: exemplos</p>
+                <p>A FAZER: ligar com pointers</p>
+                <p>A FAZER: out of bounds access</p>
+                <p>A FAZER: "subscript"</p>
+                <p>A FAZER: a[x] = *(a + x * sizeof(typeof(a)))</p>
+            </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">documentação (A FAZER)</summary> <!-- {{{ -->
                 <p>A FAZER: a importância de headers (protótipos e macros)</p>
                 <p>A FAZER: man pages, documentação online e mais</p>
@@ -413,24 +499,23 @@ ao usar a função, vai para as variáveis na função, entre os parênteses tam
             <details class="subnode"><summary class="todo">expressões separadas por vírgula (A FAZER)</summary> <!-- {{{ -->
                 isso é desde C89? parece tao estranho...
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="todo">pointers (A FAZER)</summary> <!-- {{{ -->
-            </details> <!-- }}} -->
             <!-- TALVEZ
-                - locale
-                - tempo melhorado (struct tm, time format... fusos horários etc)
-                - a necessidade do inglês
-                - aplicativos gráficos com... SDL? é bem ok mas acho que seria complexo dms pra eu ensinar aqui
-                - alocação de memória : stack vs. heap
-                - segmentation fault
-                - structs
-                - typedef
-                - early return
-                - variáveis globais e por que não usar
-                - compilando com gcc/clang/cc, e linking
-                - os tipos diferentes de main (argumentos CLI! e return codes)
-                - funções recursivas: quando usar, quais os benefícios e malefícios
-                - warnings: por que usar?
-                - níveis de otimização (-O1, -O2, -O3, -flto) ~ bons pra programas finais mais meio ruins pra testar
+                - A FAZER: locale
+                - A FAZER: tempo melhorado (struct tm, time format... fusos horários etc)
+                - A FAZER: a necessidade do inglês
+                - A FAZER: aplicativos gráficos com... SDL? é bem ok mas acho que seria complexo dms pra eu ensinar aqui
+                - A FAZER: alocação de memória : stack vs. heap
+                - A FAZER: segmentation fault
+                - A FAZER: structs
+                - A FAZER: typedef
+                - A FAZER: early return
+                - A FAZER: variáveis globais e por que não usar
+                - A FAZER: compilando com gcc/clang/cc, e linking
+                - A FAZER: os tipos diferentes de main (argumentos CLI! e return codes)
+                - A FAZER: funções recursivas: quando usar, quais os benefícios e malefícios
+                - A FAZER: warnings: por que usar?
+                - A FAZER: otimização: benefícios, e o quanto devemos confiar nelas
+                - A FAZER: níveis de otimização (-O1, -O2, -O3, -flto) ~ bons pra programas finais mais meio ruins pra testar
             -->
             </details>
         </details>
