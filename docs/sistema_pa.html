@@ -1,0 +1,137 @@
+<!-- vim: foldmarker={{{,}}} foldenable foldmethod=marker tw=130
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema Axiomático Pa (lógica)</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="HandheldFriendly" content="true"/>
+        <meta charset="UTF-8"/>
+
+        <link rel="stylesheet" type="text/css" href="../style.css"/>
+    </head>
+
+    <body><main>
+        <details open>
+            <summary>Sistema Axiomático Pa (Lógica)</summary>
+
+            <p class="subnode">Uma tentativa de tentar entender como isso funciona.</p>
+
+            <details class="subnode" open>
+                <summary>Definições</summary>
+                <p class="subnode">Antes de tudo é bom a gente ter algumas definições em mente.</p>
+                <p class="subnode">TODO: o que é Pa??</p>
+                <details class="subnode" open>
+                    <summary><b>Axioma</b> :: uma "afirmação" que é considerada verdadeira não porque pode ser provada, mas porque foi decidido que ela é verdadeira.</summary>
+                    <p class="subnode">Em um sistema, um axioma é usado como a base para todo o funcionamento do sistema.</p>
+                    <p class="subnode">Exemplo: eu não acho que 1+1=2 é um axioma, exatamente, mas ele pelo menos funciona com base em algum, porque a soma entre números não é algo que existe exatamente na natureza... ela foi inventada para poder auxiliar nos cálculos.</p>
+                </details>
+            </details>
+
+            <p class="subnode">O método "Pa" é um método <b>puramente sintático</b>, em contraste a alguns outros.</p>
+            <p class="subnode">TODO: eu não sei exatamente o que isso implicaria. Mas dá a ideia de que, mesmo sabendo que uma coisa implica em outra, você não pode simplesmente pular para aquilo, e tem que usar somente as regras definidas para esse método.</p>
+
+            <details class="subnode" open>
+                <summary>Antes de tudo, vamos definir <b>implicação</b>:</summary>
+                <p class="subnode">Tenhamos um conjunto de fórmulas C, e uma fórmula H.</p>
+                <p class="subnode">Ao dizer "C |- H", estamos afirmando que, sabendo que as fórmulas de C são verdadeiras, a fórmula H também será verdadeira.</p>
+                <p class="subnode">As fórmulas presentes em C são chamadas de <b>hipóteses</b>.</p>
+                <details class="subnode">
+                    <summary>Exemplo: C = {A -&gt; B, A} e H = B</summary>
+                    <p class="subnode">Ao dizer "C |- H", estamos afirmando que {A -&gt; B, A} |- B</p>
+                    <p class="subnode">Ou seja, se I[A -&gt; B] = T e I[A] = T, então I[B] = T</p>
+                </details>
+                <p class="subnode">Mas, se dissermos "|- H", estaremos afirmando que H é verdadeira, sem precisar saber de outras coisas - ou seja, H é sempre verdade, uma tautologia.</p>
+                <details class="subnode">
+                    <summary>Exemplo: H = P v ¬P</summary>
+                    <p class="subnode">Ao dizer "|- H", estamos afirmando que |- P v ¬P</p>
+                    <p class="subnode">Ou seja, I[P v ¬P], para qualquer I.</p>
+                    <p class="subnode">E essa afirmação está correta porque se I[P] = F, vamos ter [false v ¬false] = [false v true] = true</p>
+                    <p class="subnode">E, se I[P] = T, vamos ter [true v ¬true] = [true v false] = true</p>
+                </details>
+            </details>
+
+            <details class="subnode" open>
+                <summary>O sistema Pa tem três axiomas "base":</summary>
+                <p class="subnode">Ax1: |- (H v H) -&gt; H</p>
+                <p class="subnode">Ax2: |- G -&gt; (H v G)</p>
+                <p class="subnode">Ax3: |- (H v G) -&gt; ((E v H) -&gt; (E v G))</p>
+                <p class="subnode">Note como todas essas "afirmações" são no formato "|- H". Como falei anteriormente, isso quer dizer que elas são sempre verdades - ou seja, tautologias, e portanto podem ser usadas em qualquer situação.</p>
+                <details class="subnode" open>
+                    <summary>TODO: tentar explicar intuitivamente cada um dos axiomas</summary>
+                    TODO: E PORQUE ESCOLHERAM ESSES? PARECE HORRIVEL
+                </details>
+            </details>
+
+            <p class="subnode">Além dos três axiomas apresentados, ainda há algumas regras disponíveis:</p>
+
+            <details class="subnode">
+                <summary><b>Modus Ponens</b></summary>
+                <p class="subnode">Na verdade eu já acabei mostrando ela como exemplo, mas vou definir ela mais formalmente:</p>
+                <p class="subnode">Tenhamos duas fórmulas, H e G.</p>
+                <p class="subnode">i) H</p>
+                <p class="subnode">ii) H -&gt; G</p>
+                <p class="subnode">iii) Portanto, G</p>
+                <p class="subnode">Explicação intuitiva: se sabemos que H implica G, e sabemos que H é verdadeiro, então G tem que ser verdadeiro.</p>
+            </details>
+
+            <details class="subnode">
+                <summary><b>Regra da substituição</b></summary>
+                <p class="subnode">Tenhamos um conjunto de fórmulas C, e uma conclusão H, tal que C |- H.</p>
+                <p class="subnode">Se H não possui nenhum símbolo proposicional presente em C, então podemos também dizer que |- H, porque H é verdadeiro independentemente de C ser verdade ou não.</p>
+                <details class="subnode" open>
+                    <summary>Exemplo: C = {P -&gt; Q}, H = R v ¬R</summary>
+                    <p class="subnode">P -&gt; Q não tem como nos ajudar a concluir que R v ¬R, porque nem fala sobre R - fala sobre P e Q.</p>
+                    <p class="subnode">Portanto, R v ¬R é verdade, mas não por causa que P -&gt; Q é verdade, e portanto podemos concluir |- R v ¬R.</p>
+                </details>
+
+                <p class="subnode">E, quando sabemos que |- H, ao trocarmos qualquer símbolo presente em H por qualquer coisa, |- H ainda vai ser verdadeiro.</p>
+                <details class="subnode" open>
+                    <summary>Exemplo: |- (P ^ (P -&gt; Q)) -&gt; Q</summary>
+                    <p class="subnode">Dizer que isso é verdade é dizer que, se I[P] = T e I[P -&gt; Q] = T, então I[Q] = T. E faz sentido (é o modus ponens!)</p>
+                    <p class="subnode">E, se você trocar P por X e Q por J, teremos |- (X ^ (X -&gt; J)) -&gt; J, que ainda faz sentido.</p>
+                </details>
+
+                <p class="subnode">A regra da substituição pode ser, de certo modo, considerada um dos princípios (se não "o princípio") da álgebra, eu acho, que é que, quando você tem uma <i>variável livre</i> em uma afirmação, se vocẽ trocar ela por qualquer outra coisa (a grosso modo) a afirmação ainda vai ser verdadeira.</p>
+                <p class="subnode">Exemplo: x² &gt; 0. Se você trocar x por 1, é verdade. Se trocar por -1, é verdade.</p>
+            </details>
+
+            <details class="subnode" open>
+                <summary>Usando o sistema Pa para provar coisas</summary>
+                <p class="subnode">Para usar esse sistema para provar a afirmação C |- H, você basicamente faz uma lista numerada de afirmações, até conseguir afirmar C |- H.</p>
+                <p class="subnode">Lembrando que, se a afirmação é |- H, é a mesma coisa que dizer que C é vazio (C = {})</p>
+
+                <p class="subnode">As afirmações podem ser:</p>
+                <p class="subnode">- Um modus ponens de duas afirmações anteriores;</p>
+                <p class="subnode">- Uma das hipóteses disponíveis (no conjunto C, ou, no caso de uma questão, que o professor disponibilizou);</p>
+                <p class="subnode">- Um dos três axiomas (você pode usar a regra da substituição para trocar os H/G/E de lá);</p>
+
+                <p class="subnode">Lembre sempre de anotar quais passos foram feitos naquela linha (geralmente à direita).</p>
+
+                <details class="subnode">
+                    <summary>Exemplo: C |- R, onde C = {P, P -&gt; (Q -&gt; R), (Q v Q)}</summary>
+                    <table class="subnode">
+                        <tr><td>1.</td><td>C |- P</td><td>do conjunto C</td></tr>
+                        <tr><td>2.</td><td>C |- (Q v Q)</td><td>do conjunto C</td></tr>
+                        <tr><td>3.</td><td>C |- (Q v Q) -&gt; Q</td><td>Ax1, onde H = Q</td></tr>
+                        <tr><td>4.</td><td>C |- Q</td><td>Modus ponens de 2. e 3.</td></tr>
+                        <tr><td>5.</td><td>C |- P -&gt; (Q -&gt; R)</td><td>do conjunto C</td></tr>
+                        <tr><td>6.</td><td>C |- Q -&gt; R</td><td>Modus ponens de 1. e 5.</td></tr>
+                        <tr><td>7.</td><td>C |- R</td><td>Modus ponens de 4. e 6.</td></tr>
+                    </table>
+                    <p class="subnode">C.Q.D.</p>
+                </details>
+            </details>
+
+            <details class="subnode">
+                <summary>Bibliografia</summary>
+                <p class="subnode">- Aulas na universidade [...];</p>
+                <p class="subnode">- <a href="https://pt.wikipedia.org/wiki/Axioma">Axiomas - Wikipédia</a>;</p>
+                <p class="subnode">- <a href="https://www.facom.ufu.br/~logica/apresenta%E7%F5es%20de%20l%F3gica/Capitulo6.ppt">"Capítulo 6" - Lógica para Computação</a>;</p>
+                <p class="subnode">- <a href="https://www.yumpu.com/pt/document/read/14383267/um-sistema-axiomatico-na-logica-proposicional-universidade-">"Um sistema axiomático na lógica proposicional"</a>;</p>
+            </details>
+        </details>
+    </main></body>
+</html>
