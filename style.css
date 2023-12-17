@@ -36,12 +36,39 @@ a:hover {
     background-color: var(--color-bg-hover);
 }
 
+main {
+    margin: auto 5% auto 5%;
+}
+
 body {
     background-color: var(--color-bg);
     font-family: monospace;
     font-size: 1.2em;
     color: var(--color-fg);
     margin-right: 1em;
+}
+
+.big1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.big2 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav {
+    margin: 0.5em 0em;
+    background-color: var(--color-bg-alt);
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    text-align: center;
+    padding: 0.5em 0.8em;
+    text-decoration: none;
 }
 
 details > .subnode {

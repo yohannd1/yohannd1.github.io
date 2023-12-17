@@ -13,11 +13,6 @@
         <link rel="stylesheet" type="text/css" href="../style.css"/>
 
         <style>
-            summary.big {
-                font-size: 1.1em;
-                font-weight: bold;
-            }
-
             summary.todo {
                 font-size: 0.9em;
                 font-weight: lighter;
@@ -28,12 +23,12 @@
 
     <body><main>
         <details open>
-            <summary>Tutorial de C</summary>
+            <summary class="big1">Tutorial de C</summary>
 
             <p class="subnode">Olá! Aqui eu vou tentar ajudar com algumas coisas de C.</p>
             <p class="subnode">Não é muita coisa. É mais um ponto de referência p/ algumas dúvidas q eu ja tirei.</p>
 
-            <details class="subnode"><summary class="big">int main()</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">int main()</summary> <!-- {{{ -->
 
 <p><code>main()</code> é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca
 ali.</p>
@@ -64,7 +59,7 @@ basicamente é um pedaço de código que você pode rodar várias vezes. Outras 
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">tipos de dados (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">mostrando coisas na tela (com printf)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">mostrando coisas na tela (com printf)</summary> <!-- {{{ -->
 
 <p>O <code>printf</code> é uma função usada para mostrar coisas na tela.</p>
 <p>Para usar, você precisa colocar <code>#include &lt;stdio.h&gt;</code> no início do código, antes do <code>int main()</code>.</p>
@@ -113,7 +108,7 @@ printf("a=%d, b=%d, a+b=%d", a, b, a+b);
 
 <p>A FAZER: %10d, %010d, %s</p>
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">lendo coisas digitadas (com scanf)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">lendo coisas digitadas (com scanf)</summary> <!-- {{{ -->
 
 <p>Além de saber como mostrar coisas na tela, é também muito útil saber sim ler coisas que o usuário digitar.</p>
 <p>Para isso temos o <code>scanf</code>. Ele funciona de uma maneira parecida com o printf, mas o texto é um formato do que o usuário vai digitar, e o que você passa depois são as variáveis pra onde essas coisas digitadas vão.</p>
@@ -145,7 +140,7 @@ printf("x*5=%d", x*5);
 <p>Os tipos de % usados aqui são basicamente os mesmos que você usaria no printf, então pode olhar a tabela de códigos de lá mesmo.</p>
 
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">comentários (// e /* */)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">comentários (// e /* */)</summary> <!-- {{{ -->
 
 <p>Às vezes é bom poder anotar algo no código. Para isso, usamos os comentários.</p>
 <p>Um comentário é um texto que não vira código - ele é essencialmente ignorado pelo compilador.</p>
@@ -206,7 +201,7 @@ mesmo)</p>
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">if ternário (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big" id="s-time">obtendo o tempo atual com <code>time()</code></summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2" id="s-time">obtendo o tempo atual com <code>time()</code></summary> <!-- {{{ -->
 <p>Por agora essa explicação de tempo aqui é só algo simples p/ poder usar com números aleatórios.</p>
 
 <p>Uma das maneiras mais básicas de obter informação sobre o tempo em C é usar a função <code>time()</code>, disponível no header <code>time.h</code>.</p>
@@ -240,7 +235,7 @@ printf("Segundos: %d\n", s);
 
 <p>Curiosidade: você poder usar tanto <code>x = time(NULL)</code> quanto <code>time(&amp;x)</code> é na verdade um legado de versões muito, muito velhas de C. Não vou explicar aqui mas consulte <a href="https://stackoverflow.com/questions/61432103/why-does-stdtime-have-an-unnecessary-parameter">essa pergunta no StackOverflow</a> se tiver com curiosidade.</p>
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">geração de números aleatórios (com <code>rand()</code>)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">geração de números aleatórios (com <code>rand()</code>)</summary> <!-- {{{ -->
 
 <p>Alguns tipos de programa precisam fazer coisas aleatórias acontecerem (como sortear cartas em um baralho, ou rolar um dado). Em computadores, podemos fazer algo parecido através da geração de números aleatórios.</p>
 
@@ -281,7 +276,7 @@ printf("%d\n", rand());
             </details> <!-- }}} -->
             <details class="subnode"><summary class="todo">aplicação de números aleatórios: números dentro de um intervalo (A FAZER)</summary> <!-- {{{ -->
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big" id="s-funcoes">funções: introdução</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2" id="s-funcoes">funções: introdução</summary> <!-- {{{ -->
 <p><i>Os exemplos desse capítulo são completos! As coisas aqui ficam fora do <code>main()</code>.</i></p>
 
 <p>Funções são "blocos de código" que podem ser rodados quando você quiser.</p>
@@ -337,7 +332,7 @@ int main() {
 <p>A FAZER: protótipos</p>
 
             </details> <!-- }}} -->
-            <details class="subnode"><summary class="big">funções: por que usar? (modularização)</summary> <!-- {{{ -->
+            <details class="subnode"><summary class="big2">funções: por que usar? (modularização)</summary> <!-- {{{ -->
 <p><i>Os exemplos desse capítulo são completos porque a gente vai mexer com coisas "fora" do <code>main()</code>.</i></p>
 
 <p>Como mencionado anteriormente, uma função é um pedaço de código que pode ser rodado várias vezes.</p>
