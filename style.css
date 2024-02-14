@@ -36,14 +36,17 @@ a:hover {
     background-color: var(--color-bg-hover);
 }
 
-main {
+html {
+    background-color: var(--color-bg);
+}
+
+body {
     margin: auto 5% auto 5%;
 }
 
 body {
-    background-color: var(--color-bg);
     font-family: system-ui;
-    font-size: 1.2em;
+    font-size: 1em;
     color: var(--color-fg);
     margin-right: 1em;
 }
