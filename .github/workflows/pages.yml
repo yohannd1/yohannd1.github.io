@@ -42,7 +42,7 @@ jobs:
           cmd-deps: janet -v
           cmd-pre-test: janet -v
           cmd-test: |
-            mkdir -p build
+            /usr/bin/mkdir -p build
             janet src/main.janet > build/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
