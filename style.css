@@ -41,14 +41,12 @@ html {
 }
 
 body {
-    margin: auto 5% auto 5%;
-}
-
-body {
     font-family: system-ui;
     font-size: 1em;
     color: var(--color-fg);
-    margin-right: 1em;
+
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 .big1 {
@@ -75,6 +73,10 @@ nav a {
 }
 
 details > .subnode {
+    margin-left: 1em;
+}
+
+details > .node-contents {
     margin-left: 1em;
 }
 
