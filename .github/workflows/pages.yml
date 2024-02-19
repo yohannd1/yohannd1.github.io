@@ -36,7 +36,7 @@ jobs:
         with:
           # i am being cruel
           # TODO: copy part of the action to here? it would get rid of this
-          janet-ver: '1.30.0'
+          janet-ver: 'v1.33.0'
           os: 'linux'
           cmd-pre-deps: echo ignore this
           cmd-deps: echo ignore this
