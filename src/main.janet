@@ -6,7 +6,7 @@
   (def here (path/dirname exec))
 
   (def pages-to-gen
-    ["index"])
+    ["index" "404"])
 
   (def pages-path (path/join here "pages"))
 
