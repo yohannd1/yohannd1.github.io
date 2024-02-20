@@ -1,9 +1,9 @@
 (import ../common)
 
-# common "controls" used here
 (def -fold common/make-fold)
 (def -summary common/make-summary)
 (def -link common/make-link)
+(def -script common/make-script)
 (defn -project-field [name & content]
   ['p {:class (string "project-" name)} ;content])
 (defn -project-taglist [& tags]
@@ -11,7 +11,13 @@
 (defn -project-description [& content]
   ['div {:class "project-description"} ;content])
 
-(def body
+(def- head
+  [
+   ['title `Yohanan's Website`]
+   (-script `index.js`)
+   ])
+
+(def- body
   [
    ['h1 `I AM FIXING SOME STUFF. SOME PAGES WONT WORK SORRY LOL`]
    (-fold {:open true} (-summary 1 `Hey there!`)
@@ -63,16 +69,18 @@
      )
 
      (-fold {} (-summary 2 `Small apps`)
-       ['p (-link `apps/key_tester.html` `Key tester`) `(uses JS to track key presses)`]
+       ['p (-link `key-tester.html` `Key tester`) `(uses JS to track key presses)`]
        )
 
      (-fold {} (-summary 2 `Notes and documents`)
        ['p `While I don't have my personal wiki, I guess this suffices?`]
        ['p (-link `docs/c_tutorial.html` `Mini tutorial de C`) `(wip) (pt-br)`]
-       ['p (-link `docs/sistema_pa` `Sistema Pa`) `(lógica) (pt-br)`]
+       ['p (-link `sistema-pa.html` `Sistema Pa`) `(lógica) (pt-br)`]
        )
 
      ['p {:style `font-style: italic;`} `I guess this works as a portfolio?`]
    )])
 
-(def root (common/make-page :body body))
+(def root
+  (common/make-page :head head
+                    :body body))

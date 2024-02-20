@@ -56,14 +56,14 @@
       (= v true) (buf-push-all buf " " k)
       (= v false) nil
       (buf-push-all buf " " k `="` (escape-html v) `"`)))
-  (buf-push-all buf ">" "\n")
+  (buf-push-all buf ">")
 
   # children
   (loop [i :range [children-start-idx (length node)]]
     (to-html (get node i) buf))
 
   # close tag
-  (buf-push-all buf "</" tag ">" "\n"))
+  (buf-push-all buf "</" tag ">"))
 
 (varfn to-html [x buf]
   (cond

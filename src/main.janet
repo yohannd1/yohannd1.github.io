@@ -6,7 +6,7 @@
   (def here (path/dirname exec))
 
   (def pages-to-gen
-    ["index"])
+    ["index" "key-tester" "sistema-pa"])
 
   (def pages-path (path/join here "pages"))
 
@@ -17,12 +17,14 @@
     (def page-mod (dofile (path/join pages-path (string page ".janet"))
                           :exit true))
     (def page-out-path (path/join out-path (string page ".html")))
+    (:write stderr (string "building " page ".janet to " page-out-path "\n"))
     (with [fd (file/open page-out-path :w)]
       (:write fd (webgen/gen (-> page-mod (get 'root) (get :value)))))
     )
 
   # copy resources
-  (each x ["img" "index.js" "style.css"]
-    (sh/copy (path/join here ".." x) (path/join out-path x)))
+  (each filename (os/dir (path/join here "../res"))
+    (sh/copy (path/join here "../res" filename)
+             (path/join out-path filename)))
 
   )

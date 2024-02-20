@@ -11,7 +11,6 @@
        (meta {:name "HandheldFriendly" :content "true"})
        (meta {:charset "UTF-8"})
        (link {:rel "stylesheet" :type "text/css" :href "style.css"})
-       (script {:src "index.js"})
        )
      (body
        # TODO: a nav maybe?
@@ -41,7 +40,23 @@
   )
 
 (defn make-summary [size text]
-  ['summary {:class (string "big" size)} text])
+  (def attrs (if (nil? size)
+               {}
+               {:class (string "big" size)}))
+  ['summary attrs text])
 
 (defn make-link [href text]
   ['a {:href href} text])
+
+(defn make-script [script-uri]
+  ['script {:src script-uri}])
+
+(defn make-table-simple [head & rows]
+  ['table
+   ;(if (nil? head)
+      []
+      [['tr (map |['th ;$] head)]])
+   ;(map
+      (fn [row] ['tr ;(map |['td $] row)])
+      rows)
+   ])
