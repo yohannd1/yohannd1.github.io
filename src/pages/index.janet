@@ -63,14 +63,14 @@
      )
 
      (-fold {} (-summary 2 `Small apps`)
-            ['p (-link `apps/key_tester.html` `Key tester`) `(uses JS to track key presses)`]
-            )
+       ['p (-link `apps/key_tester.html` `Key tester`) `(uses JS to track key presses)`]
+       )
 
      (-fold {} (-summary 2 `Notes and documents`)
-            ['p `While I don't have my personal wiki, I guess this suffices?`]
-            ['p (-link `docs/c_tutorial.html` `Mini tutorial de C`) `(wip) (pt-br)`]
-            ['p (-link `docs/sistema_pa` `Sistema Pa`) `(lógica) (pt-br)`]
-            )
+       ['p `While I don't have my personal wiki, I guess this suffices?`]
+       ['p (-link `docs/c_tutorial.html` `Mini tutorial de C`) `(wip) (pt-br)`]
+       ['p (-link `docs/sistema_pa` `Sistema Pa`) `(lógica) (pt-br)`]
+       )
 
      ['p {:style `font-style: italic;`} `I guess this works as a portfolio?`]
    )])
