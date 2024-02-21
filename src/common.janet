@@ -39,11 +39,11 @@
                  ,;children))
   )
 
-(defn make-summary [size text]
+(defn make-summary [size & content]
   (def attrs (if (nil? size)
                {}
                {:class (string "big" size)}))
-  ['summary attrs text])
+  ['summary attrs ;content])
 
 (defn make-link [href text]
   ['a {:href href} text])
@@ -60,3 +60,9 @@
       (fn [row] ['tr ;(map |['td $] row)])
       rows)
    ])
+
+(defn make-code-inline [& content]
+  ['code ;content])
+
+(defn make-code-block [& content]
+  ['pre ['code ;content]])

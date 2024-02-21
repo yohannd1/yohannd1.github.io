@@ -19,7 +19,6 @@
 
 (def- body
   [
-   ['h1 `I AM FIXING SOME STUFF. SOME PAGES WONT WORK SORRY LOL`]
    (-fold {:open true} (-summary 1 `Hey there!`)
      ['p `This is one of the places I currently put my stuff.`]
      ['p `I am a mostly-self-taught programmer (loosely studying since 2013, got a hang on 2018), and I also do music!`]
@@ -74,8 +73,8 @@
 
      (-fold {} (-summary 2 `Notes and documents`)
        ['p `While I don't have my personal wiki, I guess this suffices?`]
-       ['p (-link `docs/c_tutorial.html` `Mini tutorial de C`) `(wip) (pt-br)`]
-       ['p (-link `sistema-pa.html` `Sistema Pa`) `(lógica) (pt-br)`]
+       ['p (-link `tutorial-c.html` `Mini tutorial de C`) ` (wip) (pt-br)`]
+       ['p (-link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`]
        )
 
      ['p {:style `font-style: italic;`} `I guess this works as a portfolio?`]

@@ -39,6 +39,24 @@
 (defn- text-to-html [text buf]
   (buf-push-all buf (escape-html text)))
 
+(defn- void-tag? [tag]
+  (match tag
+    'area true
+    'base true
+    'br true
+    'col true
+    'embed true
+    'hr true
+    'img true
+    'input true
+    'link true
+    'meta true
+    'param true
+    'source true
+    'track true
+    'wbr true
+    _ false))
+
 (defn node-to-html [node buf]
   (def tag (get node 0))
 
@@ -49,6 +67,9 @@
         [2 x]
         [1 {}])))
 
+  (def self-close? (and (>= children-start-idx (length node))
+                        (void-tag? tag)))
+
   # tag and attributes
   (buf-push-all buf "<" tag)
   (each [k v] (pairs attrs)
@@ -56,14 +77,16 @@
       (= v true) (buf-push-all buf " " k)
       (= v false) nil
       (buf-push-all buf " " k `="` (escape-html v) `"`)))
-  (buf-push-all buf ">")
+  (buf-push-all buf (if self-close? "/>" ">"))
 
-  # children
-  (loop [i :range [children-start-idx (length node)]]
-    (to-html (get node i) buf))
+  (unless self-close?
+    # children
+    (loop [i :range [children-start-idx (length node)]]
+      (to-html (get node i) buf))
 
-  # close tag
-  (buf-push-all buf "</" tag ">"))
+    # close tag
+    (buf-push-all buf "</" tag ">"))
+  )
 
 (varfn to-html [x buf]
   (cond
@@ -72,6 +95,6 @@
     (error (string "Expected string, array or tuple, found " x))))
 
 (defn gen [node]
-  (def buf @"")
+  (def buf @"<!DOCTYPE html>\n")
   (to-html node buf)
   buf)
