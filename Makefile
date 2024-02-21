@@ -1,4 +1,7 @@
-# this makefile is just for testing...
+# This makefile is just for testing locally, as github already deploys automaticaly through the action in .github/workflows.
+
+BUILD_DIR := build
 
 run:
-	janet src/main.janet build
+	rm -r $(BUILD_DIR)
+	janet src/main.janet $(BUILD_DIR)

@@ -27,4 +27,7 @@
     (sh/copy (path/join here "../res" filename)
              (path/join out-path filename)))
 
+  (sh/copy (path/join here "../img")
+           (path/join out-path "img"))
+
   )

@@ -1,3 +1,5 @@
-My current website. Hello there!
+## [yohanandiamond.github.io](https://yohanandiamond.github.io/)
 
-URL: https://yohanandiamond.github.io/
+My current website, generated through a little Janet static page framework I made.
+
+For building it, see the `Makefile` or `~/.github/workflows/pages.yml`.
