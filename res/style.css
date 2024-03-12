@@ -41,7 +41,7 @@ html {
 }
 
 body {
-    font-family: system-ui;
+    font-family: "monospace";
     font-size: 1em;
     color: var(--color-fg);
 
@@ -171,4 +171,9 @@ button:hover {
 @-moz-keyframes target-fade {
     100% { background-color: var(--color-bg); }
     0% { background-color: var(--color-bg-hover); }
+}
+
+.little-cards > a {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
 }

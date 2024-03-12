@@ -20,8 +20,10 @@
        ,;footer
        (noscript {:style `font-style: italic;`}
                  `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`)
-       (a {:href "https://openmpt.org/"}
-          (img {:src "img/openmpt-button-1.png"}))
+       (div {:class "little-cards"}
+         (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
+         (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"}))
+         )
        )
      )
   )

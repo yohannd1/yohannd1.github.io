@@ -68,7 +68,7 @@
      )
 
      (-fold {} (-summary 2 `Small apps`)
-       ['p (-link `key-tester.html` `Key tester`) `(uses JS to track key presses)`]
+       ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`]
        )
 
      (-fold {} (-summary 2 `Notes and documents`)
