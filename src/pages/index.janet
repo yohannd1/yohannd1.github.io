@@ -25,8 +25,11 @@
 
      ['p `If you want to check out my work:`]
      (-fold {:open true} (-summary 2 `Links`)
-       ['p (-link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp)`)]
+       ['p (-link `https://github.com/YohananDiamond/` `My GitHub`)]
+       ['p (-link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp - organized + you can pay me if you want!!1)`)]
        ['p (-link `https://youtube.com/@SwapXFO` `My music (on YouTube - updated more frequently)`)]
+       ['p (-link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
+                  `My music (on Archive.org - in progress but has the module/project files)`)]
        )
 
      (-fold {:id "projects-list"} (-summary 2 `Projects`)
@@ -65,6 +68,14 @@
           ['p `It was pretty fun to work on, and I hope to do more of this in the future.`]
           ['p `P.S.: And sorry for not having an executable build... they forgot to give the Jam license lol`])
         (-project-taglist "game" "game-jam" "music")]
+
+       ['div {:class "project-card"}
+        (-project-field "title" `This website`)
+        (-project-description
+          ['p `This in itself could be considered a project, I guess!`]
+          ['p `Right now it's a static website, generated in Janet in somewhat-of-a-DSL, and it's really cool.`]
+          ['p `Adds a lot of convenience to making a website for the tradeoff of a (right now at least) negligible compile time.`])
+        (-project-taglist "meta" "website")]
      )
 
      (-fold {} (-summary 2 `Small apps`)
