@@ -21,21 +21,23 @@
 
      (-fold {} (-summary 2 `int main()`) # <<<
        ['p (-code-i `main()`) ` é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca ali.`]
-       ['p `Ela na verdade é o que chamamos de ` ['b `função`] ` (` (-link `#s-funcoes` `um pouco mais avançado - leia mais em baixo`) `),`
+       ['p `Ela na verdade é o que chamamos de ` ['b `função`] ` (` (-link `#s-funcoes` `um pouco mais avançado - leia mais em baixo`) `), `
         `mas basicamente é um pedaço de código que você pode rodar várias vezes. Outras coisas que veremos mais na frente, como `
-        (-code-i `printf()`) `, ` (-code-i `scanf()`) ` e ` (-code-i `sqrt()`) `, são funções também, mas elas são definidas pelo compilador.`]
-       ['p `O ` (-code-i `main()`) ` é a gente que define, e o computador começa a rodar o programa por ali.`]
+        (-code-i `printf()`) `, ` (-code-i `scanf()`) ` e ` (-code-i `sqrt()`) `, são funções também, mas elas meio que... "já são definidas pelo compilador".`]
+       ['p `O ` (-code-i `main()`) `, porém, deve ser definido por nós, e é nele onde deve ficar o nosso código.`]
        ['p `A partir daqui, a maioria dos códigos vai omitir o ` (-code-i `int main()`) `, mas você precisa colocar o código dentro dele.`]
        ['p `Então isso:`]
-       (-code-b ```
-                int main() {
-                    int a = 10 + 20;
-                }
-                ```)
+       (-code-b
+         ```
+         int main() {
+             int a = 10 + 20;
+         }
+         ```)
        ['p `É a forma correta de escrever, enquanto isso:`]
-       (-code-b ```
-                int a = 10 + 20;
-                ```)
+       (-code-b
+         ```
+         int a = 10 + 20;
+         ```)
        ['p `É o que vai aparecer.`]
        ) # >>>
 
@@ -56,7 +58,7 @@
        ['hr]
 
        ['p `Mas como mostrar, por exemplo, um número que foi calculado no programa?`]
-       ['p `Para isso, você precisa usar os ` (-code-i `%`) `s. Vejamos outro exemplo:`]
+       ['p `Para isso, você precisa usar os %. Vejamos outro exemplo:`]
        (-code-b ```
                 int x = 0;
                 printf("O sucessor de x é %d", x+1);
@@ -74,13 +76,14 @@
 
        ['p `Agora cuidado: o ` (-code-i `%d`) ` é usado somente para ` (-code-i `int`) `. Se você quiser passar outros tipos de valores, vai ter que usar outros códigos:`]
        ['ul
-        ['li `%d ou %i: int`]
-        ['li `%x: int, hexadecimal`]
-        ['li `%o: int, octal`]
-        ['li `%u: unsigned int`]
-        ['li `%c: char`]
+        ['li `%d ou %i: int (normal)`]
+        ['li `%x: int (em hexadecimal - base 16)`]
+        ['li `%o: int (em octal - base 8)`]
+        ['li `%u: unsigned int (normal)`]
+        ['li `%c: char (em forma de caractere)`]
         ['li `%f: float`]
-        ['li `%lf: double (o código lf pq é abreviação "long float", que é equivalente)`]]
+        ['li `%lf: double (o código lf pq é abreviação "long float", que é equivalente)`]
+        ]
 
        # TODO: %10d, %010d, %s
        ) # >>>
@@ -125,7 +128,7 @@
         ['p `Em C, a maneira "clássica" de comentar é com o ` (-code-i `/* */`) `. Você começa o comentário com ` (-code-i `/*`) ` e termina ele com ` (-code-i `*/`) `.`]
         (-code-b ```
                  int x; /* olá! isso aqui é um comentário. */
-                 scanf("%d", &amp;x); /* um comentário
+                 scanf("%d", &x); /* um comentário
                  de múltiplas linhas
                  */
                  ```)
@@ -133,7 +136,7 @@
         ['p `O compilador ignora os comentários, então isso é equivalente a:`]
         (-code-b ```
                  int x;
-                 scanf("%d", &amp;x);
+                 scanf("%d", &x);
                  ```)
 
         ['p `Desde 1990(?) você pode também usar os comentários de uma-linha. Ao colocar o ` (-code-i `//`) `, tudo até o fim daquela linha é ignorado.`]
@@ -141,7 +144,7 @@
         (-code-b
           ```
           int x; // olá! isso aqui é um comentário.
-          scanf("%d", &amp;x);
+          scanf("%d", &x);
           // como eu quero colocar
           // várias linhas, eu tenho
           // que usar o // no início de cada linha.
@@ -151,7 +154,7 @@
 
         (-code-b ```
                  int x;
-                 scanf("%d", &amp;x);
+                 scanf("%d", &x);
                  ```)
 
         ['hr]
@@ -160,6 +163,203 @@
 
         ['p `Alguns editores até tem telas específicas para comentar o texto selecionado, o que deixa isso bem prático (no VSCode é Ctrl+K, eu acho?)`]
         ) # >>>
+
+     (-fold {:id "s-funcoes"} (-summary 2 `funções: introdução`) # <<<
+       ['p ['i `Os exemplos desse capítulo são completos! As coisas aqui ficam fora do ` (-code-i `main()`) `.`]]
+
+       ['p `Funções são "blocos de código" que podem ser rodados quando você quiser.`]
+
+       ['p `Vamos começar com um exemplo:`]
+
+       (-code-b
+         ```
+         float triplo(float x) {
+             return 3.0 * x;
+         }
+         ```)
+
+       ['p `Aqui, temos uma função, de nome ` (-code-i `triplo`) `, que recebe um número `
+        (-code-i `x`) `, multiplica ele por ` (-code-i `3.0`) ` e retorna o resultado, que também é ` (-code-i `float`) `.`]
+
+       ['p `Quando você quer usar ela, você pode fazer ` (-code-i `triplo(num)`) `, e o resultado vai ser o triplo de num. Um exemplo:`]
+
+       (-code-b
+         ```
+         #include <stdio.h>
+
+         float triplo(float x) {
+             return 3.0 * x;
+         }
+
+         int main() {
+             int x = 10;
+             printf("O triplo de 10 é %d\n", triplo(x));
+         }
+         ```)
+
+       ['p `Esse programa vai mostrar ` (-code-i `O triplo de 10 é 30`) `.`]
+
+       ['hr]
+
+       ['p `Uma forma mais genérica de definir uma função seria:`]
+
+       (-code-b
+         ```
+         tipo_retorno nome_funcao(tipo_parametro parametro...) {
+             codigo...
+         }
+         ```)
+
+       ['ul
+        ['li (-code-i `tipo_retorno`) ` é o tipo que a função retorna;`]
+        ['li (-code-i `nome_funcao`) ` é o nome da função;`]
+        ['li (-code-i `parametro`) ` é um parâmetro da função (algo que você passa pra ela, entre os parênteses - o ` (-code-i `x`) ` em ` (-code-i `f(x)`) `);`]
+        ['li (-code-i `tipo_parametro`) ` é o tipo do parametro ` (-code-i `parametro`) `;`]
+        ]
+
+       # TODO: exemplo: vários argumentos
+       # TODO: return, e quando usar o printf vs. o return
+       # TODO: comportamento de funções (call stack, mas sem precisar explicar um stack)
+       # TODO: exemplo: funções com void
+       # TODO: protótipos
+      ) # >>>
+
+     (-fold {} (-summary 2 `funções: por que usar? (modularização)`) # <<<
+       ['p ['i `Os exemplos desse capítulo são completos porque a gente vai mexer com coisas "fora" do ` (-code-i `main()`) `.`]]
+       ['p `Como mencionado anteriormente, uma função é um pedaço de código que pode ser rodado várias vezes.`]
+       ['p `Vamos explicar a importância delas com um exemplo - um programa que mostra um quadrado vazado, 5x5:`]
+       (-code-b
+         ```
+         #include <stdio.h>
+
+         int main() {
+             int i, j;
+
+             // mostrar o topo do quadrado (1 linha)
+             for (i = 0; i < 5; i++)
+                 printf("*");
+             printf("\n");
+
+             // mostrar o meio do quadrado (3 linhas)
+             for (i = 0; i < 3; i++) {
+                 printf("*");
+                 for (j = 0; j < 3; j++)
+                     printf(" ");
+                 printf("*\n");
+             }
+
+             // mostrar o topo do quadrado (1 linha)
+             for (i = 0; i < 5; i++)
+                 printf("*");
+             printf("\n");
+         }
+         ```)
+
+       ['p `Ao rodar esse programa, a saída é:`]
+
+       (-code-b
+         ```
+         *****
+         *   *
+         *   *
+         *   *
+         *****
+         ```)
+
+       ['p `Esse código tem cara de meio confuso, né? É difícil ler de cara o que ele faz. A gente pode adicionar comentários e tal, mas se
+       começarmos a criar funções, conseguimos chegar a um nível ainda maior de "código compreensível", e conseguimos também diminuir a
+       repetição de código.`]
+
+       ['p `Vamos criar uma função para mostrar uma linha de asteriscos, chamada ` (-code-i `mostrarLinha`) `:`]
+
+       (-code-b
+         ```
+         void mostrarLinha(int tamanho) {
+             int i;
+             for (i = 0; i < tamanho; i++) {
+                 printf("*");
+             }
+             printf("\n");
+         }
+         ```)
+
+       ['p `Para usar ela, basta escrever, por exemplo, ` (-code-i `mostrarLinha(5)`) `, e ele vai mostrar uma linha com `
+        (-code-i `tamanho=5`) `.`]
+
+       ['p `Ao fazer isso, o código fica muito mais simples:`]
+
+       (-code-b
+         ```
+         #include <stdio.h>
+
+         void mostrarLinha(int tamanho) {
+             int i;
+             for (i = 0; i < tamanho; i++) {
+                 printf("*");
+             }
+             printf("\n");
+         }
+
+         int main() {
+             int i, j;
+
+             mostrarLinha(5);
+
+             // mostrar o meio do quadrado (3 linhas)
+             for (i = 0; i < 3; i++) {
+                 printf("*");
+                 for (j = 0; j < 3; j++)
+                     printf(" ");
+                 printf("*\n");
+             }
+
+             mostrarLinha(5);
+         }
+         ```)
+
+       ['p `E dá pra melhorar! Se a gente criar uma para mostrar as linhas vazadas também:`]
+
+       (-code-b
+         ```
+         #include <stdio.h>
+
+         void mostrarLinha(int tamanho) {
+             int i;
+             for (i = 0; i < tamanho; i++) {
+                 printf("*");
+             }
+             printf("\n");
+         }
+
+         void mostrarLinhaVazada(int tamanho) {
+             int i;
+             printf("*");
+             for (i = 0; i < tamanho - 2; i++) {
+                 printf(" ");
+             }
+             printf("*");
+             printf("\n");
+         }
+
+         int main() {
+             int i;
+
+             mostrarLinha(5);
+             for (i = 0; i < 3; i++) mostrarLinhaVazada(5);
+             mostrarLinha(5);
+         }
+         ```)
+
+       ['p `Eu diria que um dos melhores benefícios de criar funções é que você ` ['b `modulariza`] ` o programa. Você consegue separar o `
+        `programa em pedaços pequenos que você consegue utilizar quando quiser, quantas vezes quiser, na ordem que quiser. E ainda você `
+        ` acaba não misturando as variáveis, porque o ` (-code-i `i`) ` em ` (-code-i `mostrarLinha`) ` não é o mesmo ` (-code-i `i`) ` de `
+        (-code-i `mostrarLinhaVazada`) `.`]
+
+       ['p `Inclusive, talvez a explicação de argumentos não tenha sido muito boa até agora. As coisas que você passa entre os parênteses, `
+        `ao usar a função, vai para as variáveis na função, entre os parênteses também. Então, quando você faz `
+        (-code-i `mostrarLinha(5)`) `, ele roda o código dentro de ` (-code-i `mostrarLinha`) `, com ` (-code-i `tamanho`) ` sendo igual a `
+        (-code-i `5`) `.`]
+      ) # >>>
 
      # TODO: bibliotecas, headers e include
 
@@ -298,13 +498,13 @@
        (-code-b
          ```
          time_t s;
-         time(&amp;s);
+         time(&s);
          printf("Segundos: %d\n", s);
          ```)
 
-       ['p `Aqui você vai estar passando o ` (-code-i `&amp;`) ` (endereço) da variável ` (-code-i `s`) ` e isso vai fazer com que o ` (-code-i `time()`) ` coloque o valor nela, mesmo sem você ter usado o ` (-code-i `=`) `. É tipo o ` (-code-i `scanf()`) `.`]
+       ['p `Aqui você vai estar passando o ` (-code-i `&`) ` (endereço) da variável ` (-code-i `s`) ` e isso vai fazer com que o ` (-code-i `time()`) ` coloque o valor nela, mesmo sem você ter usado o ` (-code-i `=`) `. É tipo o ` (-code-i `scanf()`) `.`]
 
-       ['p `Curiosidade: você poder usar tanto ` (-code-i `x = time(NULL)`) ` quanto ` (-code-i `time(&amp;x)`) ` é na verdade um legado de versões muito, muito velhas de C. Não vou explicar aqui mas consulte <a href="https://stackoverflow.com/questions/61432103/why-does-stdtime-have-an-unnecessary-parameter">essa pergunta no StackOverflow</a> se tiver com curiosidade.`]
+       ['p `Curiosidade: você poder usar tanto ` (-code-i `x = time(NULL)`) ` quanto ` (-code-i `time(&x)`) ` é na verdade um legado de versões muito, muito velhas de C. Não vou explicar aqui mas consulte <a href="https://stackoverflow.com/questions/61432103/why-does-stdtime-have-an-unnecessary-parameter">essa pergunta no StackOverflow</a> se tiver com curiosidade.`]
        ) # >>>
 
      (-fold {} (-summary 2 `geração de números aleatórios (com ` (-code-i `rand()`) `)`) # <<<
@@ -348,213 +548,18 @@
        ['p `Agora funciona.`]
        ) #>>>
 
+     # TODO: pointers
      # TODO: aplicação de números aleatórios: dados (sorteio)
      # TODO: aplicação de números aleatórios: números dentro de um intervalo
-
-     (-fold {:id "s-funcoes"} (-summary 2 `funções: introdução`) # <<<
-       ['p ['i `Os exemplos desse capítulo são completos! As coisas aqui ficam fora do ` (-code-i `main()`) `.`]]
-
-       ['p `Funções são "blocos de código" que podem ser rodados quando você quiser.`]
-
-       ['p `Vamos começar com um exemplo:`]
-
-       (-code-b
-         ```
-         float triplo(float x) {
-             return 3.0 * x;
-         }
-         ```)
-
-       ['p `Aqui, temos uma função, de nome ` (-code-i `triplo`) `, que recebe um número `
-        (-code-i `x`) `, multiplica ele por ` (-code-i `3.0`) ` e retorna o resultado, que também é ` (-code-i `float`) `.`]
-
-       ['p `Quando você quer usar ela, você pode fazer ` (-code-i `triplo(num)`) `, e o resultado vai ser o triplo de num. Um exemplo:`]
-
-       (-code-b
-         ```
-         #include <stdio.h>
-
-         float triplo(float x) {
-             return 3.0 * x;
-         }
-
-         int main() {
-             int x = 10;
-             printf("O triplo de 10 é %d\n", triplo(x));
-         }
-         ```)
-
-       ['p `Esse programa vai mostrar ` (-code-i `O triplo de 10 é 30`) `.`]
-
-       ['hr]
-
-       ['p `Uma forma mais genérica de definir uma função seria:`]
-
-       (-code-b
-         ```
-         tipo_retorno nome_funcao(tipo_parametro parametro...) {
-             codigo...
-         }
-         ```)
-
-       ['ul
-        ['li (-code-i `tipo_retorno`) ` é o tipo que a função retorna;`]
-        ['li (-code-i `nome_funcao`) ` é o nome da função;`]
-        ['li (-code-i `parametro`) ` é um parâmetro da função (algo que você passa pra ela, entre os parênteses - o ` (-code-i `x`) ` em ` (-code-i `f(x)`) `);`]
-        ['li (-code-i `tipo_parametro`) ` é o tipo do parametro ` (-code-i `parametro`) `;`]
-        ]
-
-       # TODO: exemplo: vários argumentos
-       # TODO: return, e quando usar o printf vs. o return
-       # TODO: comportamento de funções (call stack, mas sem precisar explicar um stack)
-       # TODO: exemplo: funções com void
-       # TODO: protótipos
-      ) # >>>
-
-     (-fold {} (-summary 2 `funções: por que usar? (modularização)`) # <<<
-       ['p ['i `Os exemplos desse capítulo são completos porque a gente vai mexer com coisas "fora" do ` (-code-i `main()`) `.`]]
-       ['p `Como mencionado anteriormente, uma função é um pedaço de código que pode ser rodado várias vezes.`]
-       ['p `Vamos explicar a importância delas com um exemplo - um programa que mostra um quadrado vazado, 5x5:`]
-       (-code-b
-         ```
-         #include <stdio.h>
-
-         int main() {
-             int i, j;
-
-             // mostrar o topo do quadrado (1 linha)
-             for (i = 0; i < 5; i++)
-                 printf("*");
-             printf("\n");
-
-             // mostrar o meio do quadrado (3 linhas)
-             for (i = 0; i < 3; i++) {
-                 printf("*");
-                 for (j = 0; j < 3; j++)
-                     printf(" ");
-                 printf("*\n");
-             }
-
-             // mostrar o topo do quadrado (1 linha)
-             for (i = 0; i < 5; i++)
-                 printf("*");
-             printf("\n");
-         }
-         ```)
-
-       ['p `Ao rodar esse programa, a saída é:`]
-
-       (-code-b
-         ```
-         *****
-         *   *
-         *   *
-         *   *
-         *****
-         ```)
-
-       ['p `Esse código tem cara de meio confuso, né? É difícil ler de cara o que ele faz. A gente pode adicionar comentários e tal, mas se
-       começarmos a criar funções, conseguimos chegar a um nível ainda maior de "código compreensível", e conseguimos também diminuir a
-       repetição de código.`]
-
-       ['p `Vamos criar uma função para mostrar uma linha de asteriscos, chamada ` (-code-i `mostrarLinha`) `:`]
-
-       (-code-b
-         ```
-         void mostrarLinha(int tamanho) {
-           int i;
-           for (i = 0; i < tamanho; i++) {
-               printf("*");
-           }
-           printf("\n");
-         }
-         ```)
-
-       ['p `Para usar ela, basta escrever, por exemplo, ` (-code-i `mostrarLinha(5)`) `, e ele vai mostrar uma linha com `
-        (-code-i `tamanho=5`) `.`]
-
-       ['p `Ao fazer isso, o código fica muito mais simples:`]
-
-       (-code-b
-         ```
-         #include <stdio.h>
-
-         void mostrarLinha(int tamanho) {
-             int i;
-             for (i = 0; i < tamanho; i++) {
-                 printf("*");
-             }
-             printf("\n");
-         }
-
-         int main() {
-             int i, j;
-
-             mostrarLinha(5);
-
-             // mostrar o meio do quadrado (3 linhas)
-             for (i = 0; i < 3; i++) {
-                 printf("*");
-                 for (j = 0; j < 3; j++)
-                     printf(" ");
-                 printf("*\n");
-             }
-
-             mostrarLinha(5);
-         }
-         ```)
-
-       ['p `E dá pra melhorar! Se a gente criar uma para mostrar as linhas vazadas também:`]
-
-       (-code-b
-         ```
-         #include <stdio.h>
-
-         void mostrarLinha(int tamanho) {
-             int i;
-             for (i = 0; i < tamanho; i++) {
-                 printf("*");
-             }
-             printf("\n");
-         }
-
-         void mostrarLinhaVazada(int tamanho) {
-             int i;
-             printf("*");
-             for (i = 0; i < tamanho - 2; i++) {
-                 printf(" ");
-             }
-             printf("*");
-             printf("\n");
-         }
-
-         int main() {
-             int i;
-
-             mostrarLinha(5);
-             for (i = 0; i < 3; i++) mostrarLinhaVazada(5);
-             mostrarLinha(5);
-         }
-         ```)
-
-       ['p `Eu diria que um dos melhores benefícios de criar funções é que você ` ['b `modulariza`] ` o programa. Você consegue separar o `
-        `programa em pedaços pequenos que você consegue utilizar quando quiser, quantas vezes quiser, na ordem que quiser. E ainda você `
-        ` acaba não misturando as variáveis, porque o ` (-code-i `i`) ` em ` (-code-i `mostrarLinha`) ` não é o mesmo ` (-code-i `i`) ` de `
-        (-code-i `mostrarLinhaVazada`) `.`]
-
-       ['p `Inclusive, talvez a explicação de argumentos não tenha sido muito boa até agora. As coisas que você passa entre os parênteses, `
-        `ao usar a função, vai para as variáveis na função, entre os parênteses também. Então, quando você faz `
-        (-code-i `mostrarLinha(5)`) `, ele roda o código dentro de ` (-code-i `mostrarLinha`) `, com ` (-code-i `tamanho`) ` sendo igual a `
-        (-code-i `5`) `.`]
-      ) # >>>
-
-     # TODO: pointers
      # TODO: arrays ("vetores") (o que são, para que servem, como inicializar, exemploes, pointers, out of bounds, subscript, cálculo alternativo sem [])
      # TODO: documentação - a importância de comentar e fazer headers
      # TODO: documentação - pesquisando (online, man pages etc.)
      # TODO: expressões separada por vírgula (é desde C89? parece tão alien...)
      # TODO: call stack
      # TODO: funções recursivas
+     # TODO: o que é o compilador
+     # TODO: instalando o gcc (linux) ou outro
+     # TODO: atualizar exemplos p/ C99 porque não tem fucking necessidade de C89
     )
    ])
 
