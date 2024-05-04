@@ -44,7 +44,7 @@
      # TODO: criando variáveis
      # TODO: tipos de dados
 
-     (-fold {} (-summary 2 `mostrando coisas na tela (printf)`) # <<<
+     (-fold {} (-summary 2 `mostrando coisas na tela (com printf())`) # <<<
        ['p `O ` (-code-i `printf`) ` é uma função usada para mostrar coisas na tela.`]
        ['p `Para usar, você precisa colocar ` (-code-i `#include <stdio.h>`) ` no início do código, antes do ` (-code-i `int main()`) `.`]
        ['p `Um exemplo de uso do printf seria:`]
@@ -88,16 +88,17 @@
        # TODO: %10d, %010d, %s
        ) # >>>
 
-     (-fold {} (-summary 2 `recebendo dados digitados (com scanf)`) # <<<
+     (-fold {} (-summary 2 `recebendo dados digitados (com scanf())`) # <<<
        ['p `Além de saber como mostrar coisas na tela, é também muito útil saber sim ler coisas que o usuário digitar.`]
        ['p `Para isso temos o ` (-code-i `scanf`) `. Ele funciona de uma maneira parecida com o printf, mas o texto é um formato do que o usuário vai digitar, e o que você passa depois são as variáveis pra onde essas coisas digitadas vão.`]
 
        ['p `Confuso? Enfim, um exemplo provavelmente ajuda mais:`]
 
-       (-code-b ```
-                int x;
-                scanf("%d", &x);
-                ```)
+       (-code-b
+         ```
+         int x;
+         scanf("%d", &x);
+         ```)
 
        ['p `Aqui nós criamos uma variável ` (-code-i `x`) ` e usamos o scanf. Ao fazer isso, o programa vai parar até que o usuário digite algo e aperte enter. Ele então vai tentar pegar o texto que o usuário digitou, e, se for um número, colocar em ` (-code-i `x`) `.`]
 
@@ -361,6 +362,36 @@
         (-code-i `5`) `.`]
       ) # >>>
 
+     (-fold {} (-summary 2 `estudo de caso: expressões mais complexas`)
+       ['p `Tenhamos um pequeno exemplo - vamos tentar analisar ele para ver o que está acontecendo:`]
+       (-code-b
+         ```
+         #include <stdio.h>
+
+         int dobro(int x) {
+             return x * 2;
+         }
+
+         int metade(int x) {
+             return x / 2;
+         }
+
+         int main() {
+             int x = 4;
+             printf("%d\n", dobro(5) + metade(x + 2));
+         }
+         ```)
+       ['p `Se você rodar esse código, o resultado é 13.`]
+       ['p `O printf está sendo chamado com os argumentos: ` (-code-i `"%d\n"`) `, ` (-code-i `dobro(5) + metade(x + 2)`)]
+       ['p `O argumento ` (-code-i `dobro(5) + metade(x + 2)`) ` precisa ser calculado - então (o computador) vai calcular ` (-code-i `dobro(5)`) ` e ` (-code-i `metade(x + 2)`) `, e depois somar:`]
+       ['p (-code-i `dobro(5)`) ` tem como resultado 10;`]
+       ['p (-code-i `metade(x+2)`) ` primeiro tem o x+2 calculado, que dá 6, e depois é calculado: ` (-code-i `metade(6)`) ` = 3;`]
+       ['p `No fim das contas, temos 10 + 3, que dá 13.`]
+       ['p `O printf então foi chamado com os argumentos: ` (-code-i `"%d\n"`) `, ` (-code-i `13`)]
+       ['p `E então ele mostra um 13 na tela.`]
+       ['p `Uma maneira de analisar expressões complexas assim é começar pelo que está mais dentro de parênteses (nesse caso o ` (-code-i `x + 2`) `) e ir seguindo a partir daí até chegar nos valores mais de fora.`]
+     )
+
      # TODO: bibliotecas, headers e include
 
      (-fold {} (-summary 2 `constantes`) # <<<
@@ -469,7 +500,7 @@
      # TODO: nested function calls (srand(time(0)) é o mesmo que a=0, b=time(a), srand(b))
      # TODO: if ternário
 
-     (-fold {:id "s-time"} (-summary 2 `obtendo o tempo atual com ` (-code-i `time()`)) # <<<
+     (-fold {:id "s-time"} (-summary 2 `obtendo o tempo atual (com time())`) # <<<
        ['p `Por agora essa explicação de tempo aqui é só algo simples p/ poder usar com números aleatórios.`]
        ['p `Uma das maneiras mais básicas de obter informação sobre o tempo em C é usar a função ` (-code-i `time()`) `, disponível no header ` (-code-i `time.h`) `.`]
        ['p `Eu peguei um protótipo dessa função (encontrei em ` (-code-i `/usr/include/time.h`) ` no meu computador) e simplifiquei:`]
@@ -507,7 +538,7 @@
        ['p `Curiosidade: você poder usar tanto ` (-code-i `x = time(NULL)`) ` quanto ` (-code-i `time(&x)`) ` é na verdade um legado de versões muito, muito velhas de C. Não vou explicar aqui mas consulte <a href="https://stackoverflow.com/questions/61432103/why-does-stdtime-have-an-unnecessary-parameter">essa pergunta no StackOverflow</a> se tiver com curiosidade.`]
        ) # >>>
 
-     (-fold {} (-summary 2 `geração de números aleatórios (com ` (-code-i `rand()`) `)`) # <<<
+     (-fold {} (-summary 2 `geração de números aleatórios (com rand())`) # <<<
        ['p `Alguns tipos de programa precisam fazer coisas aleatórias acontecerem (como sortear cartas em um baralho, ou rolar um dado). Em computadores, podemos fazer algo parecido através da geração de números aleatórios.`]
 
        ['p `Para gerar números aleatórios podemos utilizar a função ` (-code-i `rand()`) `, disponível em ` (-code-i `stdlib.h`)]
