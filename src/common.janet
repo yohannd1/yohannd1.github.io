@@ -68,3 +68,6 @@
 
 (defn make-code-block [& content]
   ['pre ['code ;content]])
+
+(defn make-small-note-p [& content]
+  ['p ['small ['i ;content]]])

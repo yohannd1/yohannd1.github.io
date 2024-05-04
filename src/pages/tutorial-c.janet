@@ -5,6 +5,7 @@
 (def -fold common/make-fold)
 (def -summary common/make-summary)
 (def -link common/make-link)
+(def -small-note-p common/make-small-note-p)
 (def -code-i common/make-code-inline)
 (def -code-b common/make-code-block)
 
@@ -362,7 +363,7 @@
         (-code-i `5`) `.`]
       ) # >>>
 
-     (-fold {} (-summary 2 `estudo de caso: expressões mais complexas`)
+     (-fold {} (-summary 2 `estudo de caso: expressões mais complexas`) # <<<
        ['p `Tenhamos um pequeno exemplo - vamos tentar analisar ele para ver o que está acontecendo:`]
        (-code-b
          ```
@@ -390,7 +391,7 @@
        ['p `O printf então foi chamado com os argumentos: ` (-code-i `"%d\n"`) `, ` (-code-i `13`)]
        ['p `E então ele mostra um 13 na tela.`]
        ['p `Uma maneira de analisar expressões complexas assim é começar pelo que está mais dentro de parênteses (nesse caso o ` (-code-i `x + 2`) `) e ir seguindo a partir daí até chegar nos valores mais de fora.`]
-     )
+     ) # >>>
 
      # TODO: bibliotecas, headers e include
 
@@ -580,6 +581,31 @@
        ) #>>>
 
      # TODO: pointers
+
+     (-fold {} (-summary 2 `o stack e seus limites`) # <<<
+       ['p `Quando um programa está rodando, ele tem uma região na memória chamada de "stack", o que traduz para português como "pilha".`]
+       ['p `E esse nome é uma boa analogia mesmo - o jeito que isso é usado é que nele ficam salvos as variáveis atuais e, quando alguma função é chamada, é colocado no stack o lugar para onde o processador deve voltar depois de executar a função, e também é colocada as variáveis da nova função que vai ser criada.`]
+       # FIXME: uma explicação melhor e mais concisa (talvez gráfica?)
+
+       ['p `O problema do stack é que ele não é muito flexível - como ele está sendo modificado constantemente, e sendo usado do jeito que ele é usado, ter valores muito grandes ou que mudam de tamanho não é muito eficiente, e portanto é comum a memória do stack ser bem pequena.`]
+       (-small-note-p `Por "pequena" eu quero dizer "pequena comparada à memória total", porque na minha máquina (12GB RAM) cada programa parece ter em média 8MB de memória reservada para o stack.`)
+
+       ['p `Por causa disso, quando um programa precisa de muita memória, ou até mesmo só de uma memória que mude de tamanho, o heap é uma região muito mais útil.`]
+       ) # >>>
+
+     (-fold {} (-summary 2 `o heap e alocadores`) # <<<
+       ['p `O heap é o nome dado à região de um programa que é controlada por alocadores.`]
+       (-small-note-p `Dando uma pesquisada eu também descobri que o heap é o nome de uma estrutura de dados! Não vou falar sobre ela porque eu honestamente não sei como ela funciona...`)
+
+       ['p `Um alocador, por sua vez, é o responsável por "achar" partes livres da memória que podem ser usadas para o programa fazer algo. Por causa disso, o heap é muito mais dinâmico que o stack, e tem uma flexibilidade que permite um programa usar muito mais memória que outro, e que isso mude ao decorrer desses programas.`]
+
+       ['p `Em C, isso é primariamente feito pelas funções malloc(), realloc() e free(), que estão disponíveis no <stdlib.h>.`]
+
+       ['p `<<incompleto>>`]
+       # TODO: falar sobre como usar alocação de memória em C
+       # TODO: ênfase no conceito de memory leaks e como um programa pode acabar acumulando memória usada por esse fenômeno e atrapalhar o funcionamento do sistema
+       ) # >>>
+
      # TODO: aplicação de números aleatórios: dados (sorteio)
      # TODO: aplicação de números aleatórios: números dentro de um intervalo
      # TODO: arrays ("vetores") (o que são, para que servem, como inicializar, exemploes, pointers, out of bounds, subscript, cálculo alternativo sem [])
