@@ -29,5 +29,4 @@
 
   (sh/copy (path/join here "../img")
            (path/join out-path "img"))
-
   )

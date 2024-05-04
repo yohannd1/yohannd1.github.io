@@ -78,7 +78,8 @@
         (-project-taglist "meta" "website")]
      )
 
-     (-fold {} (-summary 2 `Small apps`)
+     (-fold {} (-summary 2 `Web apps`)
+       ['p `I'm not the biggest web app fan but it is a decent tool for some quick-n-dirty web apps.`]
        ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`]
        )
 

@@ -612,7 +612,7 @@
              const int tamanho = 64;
              int *arr = malloc(tamanho * sizeof(int));
 
-             // criando um loop e colocando vários elementos
+             // colocando vários elementos no array (e mostrando eles)
              for (int i = 0; i < tamanho; i++) {
                  arr[i] = i*2;
                  printf("Elemento %d: %d\n", i, arr[i]);
