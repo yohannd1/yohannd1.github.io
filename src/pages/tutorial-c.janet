@@ -163,21 +163,107 @@
 
      # TODO: bibliotecas, headers e include
 
-     (-fold {} (-summary 2 `constantes [em progresso]`) # <<<
-       ['p `Às vezes, ao fazer o código, queremos representar valores constantes.`]
-       # TODO: pq msm?? uhh
+     (-fold {} (-summary 2 `constantes`) # <<<
+       ['p `Muitas vezes, ao escrever código, temos valores que não queremos que sejam alterados. Geralmente, podemos fazer que isso seja uma realidade usando as ` ['b `constantes`] `.`]
 
+       ['p `Como exemplo, vejamos o código:`]
        (-code-b
          ```
-         #define MINHA_CONSTANTE 5
-         ```)
+         int quant_elementos = 5;
+         int elementos[quant_elementos];
 
+         // vamos preencher o array `elementos` com números
+         for (int i = 0; i < quant_elementos; i++) {
+             elementos[i] = i;
+         }
+
+         // whoops!
+         quant_elementos = 20;
+
+         // vamos agora mostrar os elementos
+         for (int i = 0; i < quant_elementos; i++) {
+             printf("%d ", elementos[i]);
+         }
+         printf("\n");
+         ```)
+       ['p ['small `Eu devo admitir que esse exemplo não é muito prático, já que não teve motivo para mudar o quant_elementos (eu mudei só pra mostrar o problema mesmo), mas ainda assim...`]]
+       ['p `O resultado vai ser algo como isso aqui:`]
        (-code-b
          ```
-         const int MINHA_CONSTANTE = 5;
+         0 1 2 3 4 32676 0 0 0 0 0 5 12 20 4 0 736875264 32766 -761248256 -543001068
+         ```)
+       ['p `Isso aconteceu porque criamos um array de 5 elementos, mas depois mudamos o tamanho para 20 elementos. Isso é um problema que devemos perceber, mas uma maneira de fazer o compilador ajudar a gente a não cometer erros como esse é utilizando constantes.`]
+       ['p `Temos dois métodos para constantes em C: utilizando a palavra-chave ` ['code `const`] ` ou a diretiva ` ['code `#define`] `.`]
+
+       ['hr]
+
+       ['p `Com o ` ['code `const`] ` nós fazemos uma variável não poder ser alterada, tendo o mesmo valor desde o início.`]
+       (-code-b
+         ```
+         const int x = 5;
+         x = 8; // isso aqui dá erro!
+         ```)
+       ['p `Aplicando isso ao código original:`]
+       (-code-b
+         ```
+         const int quant_elementos = 5;
+         int elementos[quant_elementos];
+
+         // vamos preencher o array `elementos` com números
+         for (int i = 0; i < quant_elementos; i++) {
+             elementos[i] = i;
+         }
+
+         // isso aqui vai dar erro, forçando a gente a não fazer isso
+         quant_elementos = 20;
+
+         // vamos agora mostrar os elementos
+         for (int i = 0; i < quant_elementos; i++) {
+             printf("%d ", elementos[i]);
+         }
+         printf("\n");
          ```)
 
-       # TODO: diferença entre constantes com #define e const (uma é um valor que é substituído no código, a outra é uma variável mesmo)
+       ['hr]
+
+       ['p `Com o ` ['code `#define`] ` nós não estamos nem criando uma variável - o que é criado é na verdade um macro, que é um nome especial que é substituído pelo seu valor em qualquer lugar que você usar. Faríamos, então:`]
+       (-code-b
+         ```
+         #define X 5
+
+         int main() {
+             X = 8; // isso aqui dá erro! mas o erro é mais críptico
+             return 0;
+         }
+         ```)
+       ['p `No original, ficaria:`]
+       (-code-b
+         ```
+         #define QUANT_ELEMENTOS 5
+
+         int elementos[QUANT_ELEMENTOS];
+
+         // vamos preencher o array `elementos` com números
+         for (int i = 0; i < quant_elementos; i++) {
+             elementos[i] = i;
+         }
+
+         // isso aqui vai dar um erro críptico que previne que o código compile
+         QUANT_ELEMENTOS = 20;
+
+         // vamos agora mostrar os elementos
+         for (int i = 0; i < quant_elementos; i++) {
+             printf("%d ", elementos[i]);
+         }
+         printf("\n");
+         ```)
+       ['p `Lembre-se que macros sempre podem ser usados em qualquer função, e que eles não são variáveis propriamente ditas e por isso podem causar alguns erros de sintaxe confusos.`]
+
+       ['hr]
+
+       ['p `Qual se deve usar então?`]
+       ['p `Eu não tenho uma opinião muito definida sobre isso, mas em geral eu recomendaria usar const, e só usar o define caso for necessário - e costumam haver várias situações onde o define pode ser necessário ou pelo menos mais útil, mas se você quer só um valor que não possa ser alterado eu acho que vale mais a pena usar o const.`]
+       # FIXME: mds explicação confusa.
        ) # >>>
 
      # TODO: nested function calls (srand(time(0)) é o mesmo que a=0, b=time(a), srand(b))
@@ -463,7 +549,7 @@
       ) # >>>
 
      # TODO: pointers
-     # TODO: vetores (o que são, para que servem, como inicializar, exemploes, pointers, out of bounds, subscript, cálculo alternativo sem [])
+     # TODO: arrays ("vetores") (o que são, para que servem, como inicializar, exemploes, pointers, out of bounds, subscript, cálculo alternativo sem [])
      # TODO: documentação - a importância de comentar e fazer headers
      # TODO: documentação - pesquisando (online, man pages etc.)
      # TODO: expressões separada por vírgula (é desde C89? parece tão alien...)
@@ -473,5 +559,6 @@
    ])
 
 (def root
-  (common/make-page :head head
-                    :body body))
+  (common/make-page
+    :head head
+    :body body))
