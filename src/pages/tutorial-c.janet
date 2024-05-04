@@ -593,7 +593,7 @@
        ['p `Por causa disso, quando um programa precisa de muita memória, ou até mesmo só de uma memória que mude de tamanho, o heap é uma região muito mais útil.`]
        ) # >>>
 
-     (-fold {} (-summary 2 `o heap e alocadores`) # <<<
+     (-fold {} (-summary 2 `o heap e alocação de memória`) # <<<
        ['p `O heap é o nome dado à região de um programa que é controlada por alocadores.`]
        (-small-note-p `Dando uma pesquisada eu também descobri que o heap é o nome de uma estrutura de dados! Não vou falar sobre ela porque eu honestamente não sei como ela funciona...`)
 
@@ -601,9 +601,40 @@
 
        ['p `Em C, isso é primariamente feito pelas funções malloc(), realloc() e free(), que estão disponíveis no <stdlib.h>.`]
 
-       ['p `<<incompleto>>`]
-       # TODO: falar sobre como usar alocação de memória em C
+       ['p `Um exemplo:`]
+       (-code-b
+         ```
+         #include <stdio.h>
+         #include <stdlib.h>
+
+         int main(void) {
+             // criando o array usando malloc()
+             const int tamanho = 64;
+             int *arr = malloc(tamanho * sizeof(int));
+
+             // criando um loop e colocando vários elementos
+             for (int i = 0; i < tamanho; i++) {
+                 arr[i] = i*2;
+                 printf("Elemento %d: %d\n", i, arr[i]);
+             }
+
+             // liberando o array com free()
+             free(arr);
+         }
+         ```)
+
+       ['p `Aqui estamos criando um array de tamanho (64) elementos, utilizando o malloc.`]
+       ['p `A função malloc() recebe um único argumento, que é a quantidade de bytes a serem alocados.`]
+       ['p `O sizeof(int) retorna o tamanho do tipo int, que é 4 bytes (na minha máquina, pelo menos).`]
+       ['p `Como estamos multiplicando o tamanho por sizeof(int), estamos alocando 4 bytes para cada elemento.`]
+       ['p `O resultado é retornado em forma de um ponteiro, que colocamos na variável arr.`]
+
+       ['p `Logo depois, estamos passando pelo array e preenchendo seus elementos (o dobro do valor do índice), e mostrando na tela.`]
+
+       ['p `Por último, nós usamos o free() para sinalizar que a memória para onde arr aponta não vai ser mais usada por nós (e que outro programa pode usar).`]
+
        # TODO: ênfase no conceito de memory leaks e como um programa pode acabar acumulando memória usada por esse fenômeno e atrapalhar o funcionamento do sistema
+       # TODO: falar sobre realloc()
        ) # >>>
 
      # TODO: aplicação de números aleatórios: dados (sorteio)
@@ -612,7 +643,6 @@
      # TODO: documentação - a importância de comentar e fazer headers
      # TODO: documentação - pesquisando (online, man pages etc.)
      # TODO: expressões separada por vírgula (é desde C89? parece tão alien...)
-     # TODO: call stack
      # TODO: funções recursivas
      # TODO: o que é o compilador
      # TODO: instalando o gcc (linux) ou outro
