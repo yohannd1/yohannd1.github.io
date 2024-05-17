@@ -25,7 +25,7 @@
 
      ['p `If you want to check out my work:`]
      (-fold {:open true} (-summary 2 `Links`)
-       ['p (-link `https://github.com/YohananDiamond/` `My GitHub`)]
+       ['p (-link `https://github.com/yohannd1/` `My GitHub`)]
        ['p (-link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp - organized + you can pay me if you want!!1)`)]
        ['p (-link `https://youtube.com/@SwapXFO` `My music (on YouTube - updated more frequently)`)]
        ['p (-link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
@@ -35,8 +35,8 @@
      (-fold {:id "projects-list"} (-summary 2 `Projects`)
        ['div {:class "project-card"}
         (-project-field "title" `Intertia`)
-        (-project-field "url" (-link `https://yohanandiamond.github.io/intertia` `Website`))
-        (-project-field "url" (-link `https://github.com/YohananDiamond/intertia` `Github Repo`))
+        (-project-field "url" (-link `https://yohannd1.github.io/intertia` `Website`))
+        (-project-field "url" (-link `https://github.com/yohannd1/intertia` `Github Repo`))
         (-project-description ``A simplistic HTML5 slides tool``)
         (-project-taglist "web-frontend" "library")]
 
