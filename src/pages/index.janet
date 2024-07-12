@@ -34,6 +34,13 @@
 
      (-fold {:id "projects-list"} (-summary 2 `Projects`)
        ['div {:class "project-card"}
+        (-project-field "title" `Acrylic`)
+        (-project-field "url" (-link `https://github.com/yohannd1/acrylic.vim` `Vim plugin`))
+        (-project-field "url" (-link `https://github.com/yohannd1/acrylic_parser` `Parser + HTML exporter`))
+        (-project-description ``An... "up-and-coming" file format of mine for plain-text notetaking, trying to combine the convenience of Markdown with the outlining power of org-mode, along with a (somewhat) easy-to understand syntax and (hopefully) consistent rules.``)
+        (-project-taglist "format" "library" "tool")]
+
+       ['div {:class "project-card"}
         (-project-field "title" `Intertia`)
         (-project-field "url" (-link `https://yohannd1.github.io/intertia` `Website`))
         (-project-field "url" (-link `https://github.com/yohannd1/intertia` `Github Repo`))
@@ -74,7 +81,7 @@
         (-project-description
           ['p `This in itself could be considered a project, I guess!`]
           ['p `Right now it's a static website, generated in Janet in somewhat-of-a-DSL, and it's really cool.`]
-          ['p `Adds a lot of convenience to making a website for the tradeoff of a (right now at least) negligible compile time.`])
+          ['p `Adds a lot of convenience to making a website for the tradeoff of a negligible (at least for now) compile time.`])
         (-project-taglist "meta" "website")]
      )
 

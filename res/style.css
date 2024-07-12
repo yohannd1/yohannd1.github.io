@@ -41,8 +41,8 @@ html {
 }
 
 body {
-    font-family: "monospace";
-    font-size: 1em;
+    font-family: sans-serif;
+    font-size: 1.05em;
     color: var(--color-fg);
 
     margin-left: 8%;
