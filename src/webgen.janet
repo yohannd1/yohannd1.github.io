@@ -1,6 +1,6 @@
 # TODO: figure out "single tags"
 #
-# Or just do something like:
+# Or just do something like (for <meta .../>):
 #  (/ meta {...})
 # I guess that kinda conveys it? It's akward but it works.
 
@@ -39,23 +39,24 @@
 (defn- text-to-html [text buf]
   (buf-push-all buf (escape-html text)))
 
+(def- void-tags
+  {'area true
+   'base true
+   'br true
+   'col true
+   'embed true
+   'hr true
+   'img true
+   'input true
+   'link true
+   'meta true
+   'param true
+   'source true
+   'track true
+   'wbr true})
+
 (defn- void-tag? [tag]
-  (match tag
-    'area true
-    'base true
-    'br true
-    'col true
-    'embed true
-    'hr true
-    'img true
-    'input true
-    'link true
-    'meta true
-    'param true
-    'source true
-    'track true
-    'wbr true
-    _ false))
+  (-> void-tags (in tag) (truthy?)))
 
 (defn node-to-html [node buf]
   (def tag (get node 0))
