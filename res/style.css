@@ -41,7 +41,7 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: monospace;
     font-size: 1.05em;
     color: var(--color-fg);
 
@@ -177,4 +177,9 @@ button:hover {
 .little-cards > a {
     margin-left: 0.25em;
     margin-right: 0.25em;
+}
+
+td {
+    background-color: var(--color-bg-alt);
+    padding: 1em;
 }

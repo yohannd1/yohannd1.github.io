@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
     btn_clear.innerText = "Clear";
     proj_list.insertBefore(btn_clear, btn_search.nextSibling);
 
-    const cards = proj_list.querySelectorAll(".project-card");
+    const cards = proj_list.querySelectorAll(".project-row");
     const updateList = () => {
         const query = textbox.value;
         const words = query.split(/\s+/).map(x => x.toLowerCase());
