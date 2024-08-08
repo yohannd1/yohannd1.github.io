@@ -29,7 +29,7 @@
    (-fold
      {:open true} (-summary 1 `Hey there!`)
      ['p `This is one of the places I currently put my stuff.`]
-     ['p `I am a mostly-self-taught programmer (loosely studying since 2013, got a hang on 2018), and I also do music!`]
+     ['p `I am a mostly-self-taught programmer (and currently pursuing a CS degree). I also do music!`]
 
      ['p `If you want to check out my work:`]
      (-fold
@@ -39,7 +39,7 @@
        ['p (-link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp - organized + you can pay me if you want!!1)`)]
        ['p (-link `https://youtube.com/@SwapXFO` `My music (on YouTube - updated more frequently)`)]
        ['p (-link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
-                  `My music (on Archive.org - in progress but has the module/project files)`)]
+                  `My music (on Archive.org - inconsistent uploads but I put module/project files over there)`)]
        )
 
      (-fold
@@ -115,7 +115,7 @@
 
      (-fold
        {} (-summary 2 `Web apps`)
-       ['p `I'm not the biggest web app fan but it is a decent tool for some quick-n-dirty web apps.`]
+       ['p `I'm not the biggest web app enthusiast but I recognize it can be a good tool.`]
        ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`]
        )
 
@@ -126,8 +126,9 @@
        ['p (-link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`]
        )
 
-     ['p {:style `font-style: italic;`} `I guess this works as a portfolio?`]
-     )])
+     ['p ['small ['i `I suppose this works as a portfolio?`]]]
+     )]
+)
 
 (def root
   (common/make-page

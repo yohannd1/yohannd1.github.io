@@ -15,8 +15,8 @@
 (def- body
   [
    (-fold {:open true} (-summary 1 `Key Tester`)
-     ['p `This is a small keyboard """polyphony""" tester.`]
-     ['p `Just press any key and it'll appear on the list below; when released, it'll disappear.`]
+     ['p `This is a small keyboard "polyphony" tester - useful for checking which keys are pressed (and their names).`]
+     ['p `Just press any key and it should appear on the list below; when released, it'll disappear.`]
 
      (-fold {:open true :id "pressed-keys-list"} (-summary nil `Pressed keys:`)
        ['noscript `Sorry, but this page is useless without javascript.`]))
