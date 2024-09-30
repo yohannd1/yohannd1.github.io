@@ -47,6 +47,18 @@
 
        ['table
         (-project-row
+          `ConquestVM`
+          (-project-description ``In-progress 32-bit pseudo-architecture, compiler and emulator, mostly inspired by Uxn.``)
+          (-project-field "url" (-link `https://github.com/yohannd1/conquest-vm` `Repo URL`))
+          (-project-taglist "fantasy" "in-progress"))
+
+        (-project-row
+          `dotcfg`
+          (-project-description ``A very lightweight configuration daemon for use with my dotfiles. Works as an alternative to xrdb (Xresources) and can be used even out of graphical displays.``)
+          (-project-field "url" (-link `https://github.com/yohannd1/dotcfg` `Repo URL`))
+          (-project-taglist "tool"))
+
+        (-project-row
           [`Intrepid Normalization` ~(p (small ` (2024)`))]
           (-project-description ``My third album - a challenge I took upon myself of making a few tracks in pure LMMS (only stock plugins and samples from the app). Smaller in track count, but with longer tracks (~5mins).``)
           (-project-field "url" (-link `https://swapxfo.bandcamp.com/album/intrepid-normalization` `On Bandcamp`))
@@ -116,6 +128,7 @@
      (-fold
        {} (-summary 2 `Web apps`)
        ['p `I'm not the biggest web app enthusiast but I recognize it can be a good tool.`]
+       ['p `Here I am putting forth some small tools (only one at the moment) that I think might be useful.`]
        ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`]
        )
 
