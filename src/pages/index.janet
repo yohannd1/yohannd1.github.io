@@ -59,13 +59,11 @@
   [
    ['h1 {:class "big1" :id "s-start"} `hey there!`]
 
-   ['p
-    `This is one of the places I currently put my stuff.`
-    ['br]
-    `I am an aspiring programmer, currently pursuing a CS degree, and also a musician.`
-    ['br]
-    ['i `psst: I'm still organizing this, but I hope to make it in a portfolio of some kind later. Partially, I mean.`]
-    ]
+   ~(p
+     `This is one of the places I currently put my stuff.` (br)
+     `I am an aspiring programmer, currently pursuing a CS degree, and also a musician.` (br)
+     (small (i `psst: I'm still organizing this, but I hope to make it in a portfolio of some kind later. Partially, I mean.`))
+     )
 
   (-> updates/all-updates (in 0) (format-update))
 
