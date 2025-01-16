@@ -190,11 +190,18 @@
           ))
 
   (-fold
-    {:open true :id "s-todos"} (-summary 2 `Public to-do list`)
+    {:open true :id "s-todos"} (-summary 2 `To-dos`)
 
-    ['p `Make the website slightly more mobile friendly`]
-    ['p `Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`]
-    ['p `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`]
+    ['p `The website still needs some tweaks:`]
+
+    ~(ul
+       (li `Make the website slightly more mobile friendly`)
+       (li `Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`)
+       (li `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
+       (li `Dedicated music page (with info about songs and filtering the project list)`)
+       (li `Make a favicon`)
+       )
+
     )
 
   ])
