@@ -31,12 +31,13 @@
 
 (def- head
   [
-   ['title `Yohanan's Website`]
+   ['title `yohannd1 :)`]
    (-script `index.js`)
    ])
 
 (def- sidebar
   [
+   ['p ['a {:href "#s-start"} "Start"]]
    ['p ['a {:href "#s-links"} "Links"]]
    ['p ['a {:href "#projects-list"} "Projects"]]
    ['p ['a {:href "#s-apps"} "Mini apps"]]
@@ -48,7 +49,7 @@
 
 (def- body
   [
-   (-h1 `hey there!`)
+   ['h1 {:class "big1" :id "s-start"} `hey there!`]
 
    ['p
     `This is one of the places I currently put my stuff.`
@@ -70,6 +71,7 @@
     ['p (-link `https://youtube.com/@SwapXFO` `My music (on YouTube - updated more frequently)`)]
     ['p (-link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
                `My music (on Archive.org - inconsistent uploads but I put module/project files over there)`)]
+    ['p (-link `https://swapxfo.newgrounds.com/` `Newgrounds page (at the moment it's mostly music as well)`)]
     )
 
  (-fold
