@@ -6,8 +6,10 @@
     --color-fg: #000;
     --color-fg-alt: #444;
 
-    --color-link: #C2C;
-    --color-link-visited: #92C;
+    --color-link: #A8F;
+    --color-link-visited: #94D;
+
+    --sidebar-width: 12em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +28,7 @@
 
 a {
     color: var(--color-link);
+    text-decoration: none;
 }
 
 a:visited {
@@ -174,7 +177,11 @@ button:hover {
     0% { background-color: var(--color-bg-hover); }
 }
 
-.little-cards > a {
+.little-cards {
+    text-align: center;
+}
+
+.little-cards a {
     margin-left: 0.25em;
     margin-right: 0.25em;
 }
@@ -182,4 +189,22 @@ button:hover {
 td {
     background-color: var(--color-bg-alt);
     padding: 1em;
+}
+
+div.sidebar {
+    height: 100%;
+    padding: 0em 0.8em 0em 0.8em;
+    width: var(--sidebar-width);
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg-alt);
+    overflow-x: hidden;
+    position: fixed;
+}
+
+main {
+    left: var(--sidebar-width);
+    position: absolute;
+    padding-left: 3em;
+    max-width: 60vw;
 }

@@ -1,7 +1,26 @@
+(def- all-pages-sidebar-items [])
+
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
   (def body (-> args (get :body) (or [])))
   (def footer (-> args (get :footer) (or [])))
+  (def sidebar-items (-> args (get :sidebar-items) (or [])))
+
+  (def side-final @[])
+
+  (array/push side-final '(p {:class "big2"} "OVERVIEW"))
+  (if (empty? sidebar-items)
+    (array/push side-final '(p "..."))
+    (each item sidebar-items
+      (array/push side-final item))
+    )
+
+  (array/push side-final '(p {:class "big2"} "WEBSITE"))
+  (if (empty? all-pages-sidebar-items)
+    (array/push side-final '(p "..."))
+    (each item all-pages-sidebar-items
+      (array/push side-final item))
+    )
 
   ~(html
      (head
@@ -12,17 +31,23 @@
        (meta {:charset "UTF-8"})
        (link {:rel "stylesheet" :type "text/css" :href "style.css"})
        )
+
      (body
-       # TODO: a nav maybe?
+       (div {:class "sidebar"}
+         ,;side-final)
+
        (main
-         ,;body))
-     (footer
-       ,;footer
-       (noscript {:style `font-style: italic;`}
-                 `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`)
-       (div {:class "little-cards"}
-         (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
-         (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"}))
+         ,;body
+
+         (footer
+           ,;footer
+           (noscript {:style `font-style: italic;`}
+                     `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`)
+           (div {:class "little-cards"}
+             (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
+             (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"}))
+             )
+           )
          )
        )
      )
