@@ -1,19 +1,20 @@
 window.addEventListener("load", () => {
     const proj_list = document.getElementById("projects-list");
+    const sb_div = proj_list.querySelector("#search-bar-div");
 
     const textbox = document.createElement("input");
     textbox.className = "search-bar";
     textbox.type = "text";
     textbox.placeholder = "Search...";
-    proj_list.prepend(textbox);
+    sb_div.appendChild(textbox);
 
     const btn_search = document.createElement("button");
     btn_search.innerText = "Search";
-    proj_list.insertBefore(btn_search, textbox.nextSibling);
+    sb_div.appendChild(btn_search);
 
     const btn_clear = document.createElement("button");
     btn_clear.innerText = "Clear";
-    proj_list.insertBefore(btn_clear, btn_search.nextSibling);
+    sb_div.appendChild(btn_clear);
 
     const cards = proj_list.querySelectorAll(".project-row");
     const updateList = () => {

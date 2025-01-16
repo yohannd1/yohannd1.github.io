@@ -6,11 +6,20 @@
 (def -link common/make-link)
 (def -script common/make-script)
 
+(defn interpolate [ds sep]
+  (def ret @[])
+  (loop [[i val] :pairs ds]
+    (array/push ret val)
+    (unless (-> ds (length) (dec) (= i))
+      (array/push ret sep))
+    )
+  ret)
+
 (defn format-update [u]
-  ['div
-   ['p ['i (in u :time)]]
-   ['p (in u :message)]
-   ])
+  ~(table
+     (tr (td (i ,(in u :time))))
+     (tr (td ,(in u :message)))
+     ))
 
 (defn -project-row [title & content]
   (def title-arr (if (string? title) [title] title))
@@ -37,15 +46,14 @@
 
 (def- sidebar
   [
-   ['p ['a {:href "#s-start"} "Start"]]
-   ['p ['a {:href "#s-links"} "Links"]]
-   ['p ['a {:href "#projects-list"} "Projects"]]
-   ['p ['a {:href "#s-apps"} "Mini apps"]]
-   ['p ['a {:href "#s-documents"} "Notes & documents"]]
-   ['p ['a {:href "#s-updates"} "Updates"]]
-   ['p ['a {:href "#s-todos"} "To-dos"]]
-   ]
-  )
+   ['p (-link "#s-start" "Start")]
+   ['p (-link "#s-links" "Links")]
+   ['p (-link "#projects-list" "Projects")]
+   ['p (-link "#s-apps" "Mini apps")]
+   ['p (-link "#s-documents" "Notes & documents")]
+   ['p (-link "#s-updates" "Updates")]
+   ['p (-link "#s-todos" "To-dos")]
+   ])
 
 (def- body
   [
@@ -59,8 +67,6 @@
     ['i `psst: I'm still organizing this, but I hope to make it in a portfolio of some kind later. Partially, I mean.`]
     ]
 
-  # TODO: make this a little floating box / some boxy table
-  (-h2 `Latest update:`)
   (-> updates/all-updates (in 0) (format-update))
 
   (-fold
@@ -76,6 +82,12 @@
 
  (-fold
    {:open true :id "projects-list"} (-summary 2 `Projects`)
+
+   ~(p `Here is an attempt at a somewhat comprehensible list of projects I've worked on.` (br)
+       `As I've already worked in many, there will probably a lot of them not included here.` (br)
+       `But I'll be trying to put the most important ones.`)
+
+   ['div {:id "search-bar-div"}]
 
    ['table
     (-project-row
@@ -174,13 +186,17 @@
   (-fold
     {:id "s-updates"} (-summary 2 `Updates`)
 
-    ;(->> updates/all-updates (map format-update)))
+    ;(as-> updates/all-updates .x
+          (map format-update .x)
+          (interpolate .x ~(br))
+          ))
 
   (-fold
     {:open true :id "s-todos"} (-summary 2 `Public to-do list`)
 
     ['p `Make the website slightly more mobile friendly`]
     ['p `Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`]
+    ['p `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`]
     )
 
   ])

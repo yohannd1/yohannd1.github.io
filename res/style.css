@@ -186,9 +186,13 @@ button:hover {
     margin-right: 0.25em;
 }
 
+table {
+    width: 100%;
+}
+
 td {
     background-color: var(--color-bg-alt);
-    padding: 1em;
+    padding: 0.5em;
 }
 
 div.sidebar {
