@@ -15,6 +15,8 @@
     )
   ret)
 
+(def- commits-url `https://github.com/yohannd1/yohannd1.github.io/commits/main/`)
+
 (defn format-update [u]
   ~(table
      (tr (td (i ,(in u :time))))
@@ -90,7 +92,7 @@
    ['table
     (-project-row
       `ConquestVM`
-      (-project-description ``In-progress 32-bit pseudo-architecture, compiler and emulator, mostly inspired by Uxn.``)
+      (-project-description ``32-bit fantasy computer, mostly inspired by Uxn. Includes a compiler and emulator.``)
       (-project-field "url" (-link `https://github.com/yohannd1/conquest-vm` `Repo URL`))
       (-project-taglist "fantasy" "in-progress"))
 
@@ -108,7 +110,7 @@
       (-project-taglist "music"))
 
     (-project-row
-      [`J.C. Experiment OST` ~(p (small ` (2024)`))]
+      [`J.C. Experiment OST` ~(p (small ` (2024-2025)`))]
       (-project-description ``A soundtrack for Ruvyzvat's J.C. Experiment.``)
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX281IGlKSImBSwveHi0aRGJd` `On Youtube`))
       (-project-field "url" (-link `https://www.roblox.com/games/14797253047/J-C-Experiment` `Check the game out on Roblox`))
@@ -184,6 +186,12 @@
   (-fold
     {:id "s-updates"} (-summary 2 `Updates`)
 
+    ~(p `A short update log. I'm lazy so I probably won't update this always.` (br)
+        `If you want a thorough list, check out the `
+        ,(-link commits-url `git log`)
+        ` instead.`
+        )
+
     ;(as-> updates/all-updates .x
           (map format-update .x)
           (interpolate .x ~(br))
@@ -192,18 +200,30 @@
   (-fold
     {:open true :id "s-todos"} (-summary 2 `To-dos`)
 
-    ['p `The website still needs some tweaks:`]
+    '(p `Turns out I still have a lot to do with this website. I plan to make it one of my main "outlets" to the internet, though I'm still not fully sure if I'd make it the main one.` (br)
+        `Well, here's a general list of stuff I need to do:`
+        )
 
-    ~(ul
+    '(ul
        (li `Make the website slightly more mobile friendly`)
        (li `Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`)
        (li `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
        (li `Dedicated music page (with info about songs and filtering the project list)`)
        (li `Make a favicon`)
+       (li `Blog + RSS feed + count them in the updates list`)
+       (li `Add contact info`)
+       (li `Make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
        )
 
-    )
+    '(p `And here's also a list of more codebase-related to-dos I guess...`)
 
+    '(ul
+       (li `Figure a simple way to batch-import functions in each page (I'm lazy).`)
+       (li `Fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
+       (li `Improve github workflow file (bending pyrmont/action-janet-test@v5 against its will)`)
+       (li `Integrate acrylic wiki here... somehow`)
+       )
+    )
   ])
 
 (def root
