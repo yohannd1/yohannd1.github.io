@@ -14,10 +14,14 @@
 
   # generate pages
   (each page pages-to-gen
-    (def page-mod (dofile (path/join pages-path (string page ".janet"))
-                          :exit true))
-    (def page-out-path (path/join out-path (string page ".html")))
-    (:write stderr (string "building " page ".janet to " page-out-path "\n"))
+    (def jn-filename (string page ".janet"))
+    (def html-filename (string page ".html"))
+
+    (def page-mod
+      (dofile (path/join pages-path jn-filename) :exit true))
+
+    (def page-out-path (path/join out-path html-filename))
+    (:write stderr (string "building " jn-filename ".janet to " page-out-path "\n"))
     (with [fd (file/open page-out-path :w)]
       (:write fd (webgen/gen (-> page-mod (get 'root) (get :value)))))
     )

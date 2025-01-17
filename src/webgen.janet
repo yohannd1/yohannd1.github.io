@@ -60,6 +60,7 @@
 
 (defn node-to-html [node buf]
   (def tag (get node 0))
+  (assert (symbol? tag) (string/format "Provided value %j is not a symbol"))
 
   # get attributes if we have them. whether we have them will affect where the children index starts, so we have to calculate that as well.
   (def [children-start-idx attrs]
@@ -93,7 +94,7 @@
   (cond
     (string? x) (text-to-html x buf)
     (or (array? x) (tuple? x)) (node-to-html x buf)
-    (error (string "Expected string, array or tuple, found " x))))
+    (error (string/format "Expected string, array or tuple, found %j" x))))
 
 (defn gen [node]
   (def buf @"<!DOCTYPE html>\n")

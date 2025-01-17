@@ -67,9 +67,12 @@
   )
 
 (defn make-summary [size & content]
-  (def attrs (if (nil? size)
-               {}
-               {:class (string "big" size)}))
+  (def attrs @{})
+
+  (unless (nil? size)
+    (assert (number? size))
+    (set (attrs :class) (string "big" size)))
+
   ['summary attrs ;content])
 
 (defn make-link [href text]
