@@ -1,19 +1,11 @@
 (import ../common)
 (import ../data/updates)
+(import ../utils)
 
 (def -fold common/make-fold)
 (def -summary common/make-summary)
 (def -link common/make-link)
 (def -script common/make-script)
-
-(defn interpolate [ds sep]
-  (def ret @[])
-  (loop [[i val] :pairs ds]
-    (array/push ret val)
-    (unless (-> ds (length) (dec) (= i))
-      (array/push ret sep))
-    )
-  ret)
 
 (def- commits-url `https://github.com/yohannd1/yohannd1.github.io/commits/main/`)
 
@@ -194,7 +186,7 @@
 
     ;(as-> updates/all-updates .x
           (map format-update .x)
-          (interpolate .x ~(br))
+          (utils/interpolate .x ~(br))
           ))
 
   (-fold
@@ -210,7 +202,7 @@
        (li `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
        (li `Dedicated music page (with info about songs and filtering the project list)`)
        (li `Make a favicon`)
-       (li `Blog + RSS feed + count them in the updates list`)
+       (li `Blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
        (li `Add contact info`)
        (li `Make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
        )
