@@ -27,7 +27,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -35,15 +34,11 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Setup Janet
-        uses: ./.github/actions/at.yml
+        uses: ./.github/actions/janet_run
         with:
-          # TODO: copy part of the action to here instead of using it? it would get rid of me using the parameters against their purpose
           janet-ver: 'v1.33.0'
           os: 'linux'
-          cmd-pre-deps: janet -v # pain
-          cmd-deps: jpm install spork
-          cmd-pre-test: janet -v # pain
-          cmd-test: janet -v # pain
+          cmd: jpm install spork
 
       - name: Generate the website
         run: |
