@@ -1,4 +1,11 @@
-(def- all-pages-sidebar-items [])
+(defn make-link [href text]
+  ['a {:href href} text])
+
+(def- all-pages-sidebar-items
+  [
+   ~(p ,(make-link `index.html` `Index`))
+   ~(p ,(make-link `music.html` `Music`))
+   ])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
@@ -60,10 +67,10 @@
       (or (array? summary) (tuple? summary)) summary
       (error (string "Expected string, array or tuple, got " summary))))
 
-  ~(details ,attrs
-            ,summary-node
-            (div {:class "node-contents"}
-                 ,;children))
+  ~(details
+     ,attrs
+     ,summary-node
+     (div {:class "node-contents"} ,;children))
   )
 
 (defn make-summary [size & content]
@@ -74,9 +81,6 @@
     (set (attrs :class) (string "big" size)))
 
   ['summary attrs ;content])
-
-(defn make-link [href text]
-  ['a {:href href} text])
 
 (defn make-script [script-uri]
   ['script {:src script-uri}])

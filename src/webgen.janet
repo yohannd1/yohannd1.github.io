@@ -9,7 +9,7 @@
     (buffer/push-string buf (string x))))
 
 (defn replacer
-  `Creates a peg that replaces instances of patt with subst.
+  `Creates a PEG that replaces instances of patt with subst.
 
   Source: https://janet-lang.org/docs/peg.html`
   [patt subst]
@@ -97,6 +97,8 @@
     (error (string/format "Expected string, array or tuple, found %j" x))))
 
 (defn gen [node]
+  "Generates"
+
   (def buf @"<!DOCTYPE html>\n")
   (to-html node buf)
   buf)

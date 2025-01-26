@@ -6,7 +6,7 @@
   (def here (path/dirname exec))
 
   (def pages-to-gen
-    ["index" "key-tester" "sistema-pa" "tutorial-c"])
+    ["index" "key-tester" "sistema-pa" "tutorial-c" "music"])
 
   (def pages-path (path/join here "pages"))
 

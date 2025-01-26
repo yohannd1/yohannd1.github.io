@@ -40,13 +40,13 @@
 
 (def- sidebar
   [
-   ['p (-link "#s-start" "Start")]
-   ['p (-link "#s-links" "Links")]
-   ['p (-link "#projects-list" "Projects")]
-   ['p (-link "#s-apps" "Mini apps")]
-   ['p (-link "#s-documents" "Notes & documents")]
-   ['p (-link "#s-updates" "Updates")]
-   ['p (-link "#s-todos" "To-dos")]
+   ~(p ,(-link "#s-start" "Start"))
+   ~(p ,(-link "#s-links" "Links"))
+   ~(p ,(-link "#projects-list" "Projects"))
+   ~(p ,(-link "#s-apps" "Mini apps"))
+   ~(p ,(-link "#s-documents" "Notes & documents"))
+   ~(p ,(-link "#s-updates" "Updates"))
+   ~(p ,(-link "#s-todos" "To-dos"))
    ])
 
 (def- body
@@ -197,23 +197,26 @@
         )
 
     '(ul
-       (li `Make the website slightly more mobile friendly`)
-       (li `Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`)
-       (li `Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
-       (li `Dedicated music page (with info about songs and filtering the project list)`)
-       (li `Make a favicon`)
-       (li `Blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
-       (li `Add contact info`)
-       (li `Make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
+       (li `TODO: Make the website slightly more mobile friendly (probably hide the sidebar and make it a popup...)`)
+       (li `TODO: Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`)
+       (li `TODO: Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
+       (li `TODO: Dedicated music page (with info about songs and filtering the project list)`)
+       (li `TODO: Dedicated programming page (could be kind of a portfolio ig)`)
+       (li `TODO: Blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
+       (li `TODO: Add contact info`)
+       (li `TODO: Make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
+       (li `TODO: Make a favicon`)
        )
 
     '(p `And here's also a list of more codebase-related to-dos I guess...`)
 
     '(ul
-       (li `Figure a simple way to batch-import functions in each page (I'm lazy).`)
-       (li `Fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
-       (li `Improve github workflow file (bending pyrmont/action-janet-test@v5 against its will)`)
-       (li `Integrate acrylic wiki here... somehow`)
+       (li `TODO: Restructure the page code so each page expostes a single function that returns the contents`)
+       (li `TODO: Make the page list a map with the name and its info. Would help with page titles and automatic sidebar.`)
+       (li `TODO: Figure a simple way to batch-import functions in each page (I'm lazy).`)
+       (li `TODO: Fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
+       (li `TODO: Tag system: make each word some sort of command. Must be easy to parse though ffs`)
+       (li `TODO: Integrate acrylic wiki here... somehow`)
        )
     )
   ])
