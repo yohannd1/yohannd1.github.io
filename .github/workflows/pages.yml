@@ -1,4 +1,4 @@
-name: Generate website and deploy it to Pages
+name: "Generate website and deploy it to Pages"
 
 on:
   # Runs on pushes targeting the default branch

@@ -1,8 +1,7 @@
 name: "Test Janet project"
+author: "yohannd1, Michael Camilleri"
 
-author: Michael Camilleri
-
-description: "Build and test a Janet project"
+description: "Run a Janet+JPM project"
 
 branding:
   icon: 'check-square'
@@ -17,23 +16,10 @@ inputs:
     description: "The OS to use"
     required: false
     default: "linux"
-  cmd-pre-deps:
-    description: "The command to execute before installing dependencies"
+  cmd:
+    description: "The command to execute"
     require: false
     default: "jpm clean"
-  cmd-deps:
-    description: "The command to execute to install dependencies"
-    require: false
-    default: "jpm deps"
-  cmd-pre-test:
-    description: "The command to execute before running tests"
-    require: false
-    default: "jpm clean"
-  cmd-test:
-    description: "The command to execute to run tests"
-    require: false
-    default: "jpm test"
-
 
 runs:
   using: "composite"
@@ -84,15 +70,6 @@ runs:
   - name: "return to workspace directory"
     run: cd $GITHUB_WORKSPACE
     shell: bash
-  - name: "prepare to install dependencies"
-    run: $PREFIX/bin/${{ inputs.cmd-pre-deps }}
-    shell: bash
-  - name: "install dependencies"
-    run: $PREFIX/bin/${{ inputs.cmd-deps }}
-    shell: bash
-  - name: "prepare to run tests"
-    run: $PREFIX/bin/${{ inputs.cmd-pre-test }}
-    shell: bash
   - name: "run tests"
-    run: $PREFIX/bin/${{ inputs.cmd-test }}
+    run: ${{ inputs.cmd }}
     shell: bash
