@@ -2,6 +2,7 @@
     --color-bg: #EEE;
     --color-bg-alt: #DDD;
     --color-bg-hover: #CCC;
+    --color-bg-click: #AAA;
 
     --color-fg: #000;
     --color-fg-alt: #444;
@@ -193,10 +194,25 @@ td {
     padding: 0.8em;
 }
 
+.sidebar {
+    height: 100%;
+    padding: 0em 0.8em 0em 0.8em;
+    width: var(--sidebar-width);
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg-alt);
+    overflow-x: hidden;
+    position: fixed;
+}
+
 /* small screens */
 @media (max-width: 55em) {
     .sidebar {
         display: none;
+    }
+
+    .sidebar[data-sidebar-on="true"] {
+        display: block;
     }
 
     body {
@@ -207,20 +223,13 @@ td {
 
 /* wide screens */
 @media (min-width: 55em) {
-    .sidebar {
-        height: 100%;
-        padding: 0em 0.8em 0em 0.8em;
-        width: var(--sidebar-width);
-        top: 0;
-        left: 0;
-        background-color: var(--color-bg-alt);
-        overflow-x: hidden;
-        position: fixed;
-    }
-
     body {
         margin-left: 8%;
         margin-right: 8%;
+    }
+
+    #sidebar-toggle {
+        display: none;
     }
 
     main {

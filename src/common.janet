@@ -44,6 +44,8 @@
          ,;side-final)
 
        (main
+         (button {:id `sidebar-toggle`} `Open sidebar...`)
+
          ,;body
 
          (footer
