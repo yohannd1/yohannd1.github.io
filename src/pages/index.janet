@@ -197,8 +197,6 @@
         )
 
     '(ul
-       (li `TODO: Make the website slightly more mobile friendly (probably hide the sidebar and make it a popup...)`)
-       (li `TODO: Test compatibility in like, idk, a 2000s browser (don't care for full compatibility but I want readability)`)
        (li `TODO: Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
        (li `TODO: Dedicated music page (with info about songs and filtering the project list)`)
        (li `TODO: Dedicated programming page (could be kind of a portfolio ig)`)
