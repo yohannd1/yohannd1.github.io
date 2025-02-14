@@ -16,16 +16,22 @@
      ))
 
 (defn -project-row [title & content]
-  (def title-arr (if (string? title) [title] title))
   ~(tr
      {:class "project-row"}
-     (td ,;title-arr)
+     (td ,title)
      (td ,;content)))
 
 (defn -project-field [name & content]
   ['p {:class (string "project-" name)} ;content])
+
 (defn -project-taglist [& tags]
-  ['div {:class "project-taglist"} ;(map |['div $] tags)])
+  (def arr @[])
+  (each t tags
+    (array/push arr ~(span {:class "project-tag-clickable"} ,t))
+    (array/push arr '(:raw "&nbsp;"))
+    )
+  ~(div {:class "project-taglist"} ,;arr))
+
 (defn -project-description [& content]
   ['div {:class "project-description"} ;content])
 
@@ -34,7 +40,7 @@
 
 (def- head
   [
-   ['title `yohannd1 :)`]
+   '(title `yohannd1 :)`)
    (-script `index.js`)
    ])
 
@@ -95,14 +101,14 @@
       (-project-taglist "tool"))
 
     (-project-row
-      [`Intrepid Normalization` ~(p (small ` (2024)`))]
+      '(span `Intrepid Normalization` (p (small ` (2024)`)))
       (-project-description ``My third album - a challenge I took upon myself of making a few tracks in pure LMMS (only stock plugins and samples from the app). Smaller in track count, but with longer tracks (~5mins).``)
       (-project-field "url" (-link `https://swapxfo.bandcamp.com/album/intrepid-normalization` `On Bandcamp`))
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX28bVXitlj4DaLLTLR9Oy9Lg` `On Youtube`))
       (-project-taglist "music"))
 
     (-project-row
-      [`J.C. Experiment OST` ~(p (small ` (2024-2025)`))]
+      '(span `J.C. Experiment OST` (p (small ` (2024-2025)`)))
       (-project-description ``A soundtrack for Ruvyzvat's J.C. Experiment.``)
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX281IGlKSImBSwveHi0aRGJd` `On Youtube`))
       (-project-field "url" (-link `https://www.roblox.com/games/14797253047/J-C-Experiment` `Check the game out on Roblox`))
@@ -131,7 +137,7 @@
       (-project-taglist "meta" "website"))
 
     (-project-row
-      [`Atmospheric Mind` ~(p (small ` (2023)`))]
+      '(span `Atmospheric Mind` (p (small ` (2023)`)))
       (-project-field "url" (-link `https://swapxfo.bandcamp.com/album/atmospheric-mind` `On Bandcamp`))
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX28aVldSTgiHP3Ky7io3U5uJ` `On Youtube`))
       (-project-description
@@ -141,7 +147,7 @@
       (-project-taglist "music"))
 
     (-project-row
-      [`Endless Life, Endless Death (ELED)` ~(p (small ` (2023)`))]
+      '(span `Endless Life, Endless Death (ELED)` (p (small ` (2023)`)))
       (-project-field "url" (-link `https://forum.gamemaker.io/index.php?threads/the-springing-gmc-jam-49-games-topic.103727/#post-626100` `GMC 49 Jam URL`))
       (-project-field "url" (-link `https://gx.games/games/5o5585/endless-life-endless-death/` `Play on GX.Games (chromium only, I think)`))
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX29Kx_Yqmyn9gglOQi3aAYNH` `Soundtrack (on YouTube, PCMD8+VirtualBoy)`))
@@ -153,7 +159,7 @@
       (-project-taglist "game" "game-jam" "music"))
 
     (-project-row
-      [`Hopeless Keyshift` ~(p (small ` (2022)`))]
+      '(span `Hopeless Keyshift` (p (small ` (2022)`)))
       (-project-description ``My first released album.``)
       (-project-field "url" (-link `https://swapxfo.bandcamp.com/album/hopeless-keyshift` `On Bandcamp`))
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX2_mE8VgTxBHqLPPCFYauDDz` `On Youtube`))
@@ -193,28 +199,27 @@
     {:open true :id "s-todos"} (-summary 2 `To-dos`)
 
     '(p `Turns out I still have a lot to do with this website. I plan to make it one of my main "outlets" to the internet, though I'm still not fully sure if I'd make it the main one.` (br)
-        `Well, here's a general list of stuff I need to do:`
-        )
+        `Well, here's a general list of stuff I need to do:`)
 
     '(ul
-       (li `TODO: Improve project tags (fix alignment on Firefox 5.0; and define a strict set of tags)`)
-       (li `TODO: Dedicated music page (with info about songs and filtering the project list)`)
-       (li `TODO: Dedicated programming page (could be kind of a portfolio ig)`)
-       (li `TODO: Blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
-       (li `TODO: Add contact info`)
-       (li `TODO: Make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
-       (li `TODO: Make a favicon`)
+       (li `TODO: define a strict set of tags for the projects`)
+       (li `TODO: dedicated music page (with info about songs and filtering the project list)`)
+       (li `TODO: dedicated programming page (could be kind of a portfolio ig)`)
+       (li `TODO: blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
+       (li `TODO: add contact info`)
+       (li `TODO: make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
+       (li `TODO: make a favicon`)
        )
 
     '(p `And here's also a list of more codebase-related to-dos I guess...`)
 
     '(ul
-       (li `TODO: Restructure the page code so each page expostes a single function that returns the contents`)
-       (li `TODO: Make the page list a map with the name and its info. Would help with page titles and automatic sidebar.`)
-       (li `TODO: Figure a simple way to batch-import functions in each page (I'm lazy).`)
-       (li `TODO: Fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
-       (li `TODO: Tag system: make each word some sort of command. Must be easy to parse though ffs`)
-       (li `TODO: Integrate acrylic wiki here... somehow`)
+       (li `TODO: restructure the page code so each page exposes a single function that takes some export info and returns the contents`)
+       (li `TODO: make the page list a map with the name and its info. Would help with page titles and automatic sidebar.`)
+       (li `TODO: figure a simple way to batch-import functions in each page (I'm lazy).`)
+       (li `TODO: fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
+       (li `TODO: tag system: make each word some sort of command. Must be easy to parse though ffs`)
+       (li `TODO: integrate acrylic wiki here... somehow`)
        )
     )
   ])

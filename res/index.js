@@ -53,8 +53,7 @@ const initProjectList = () => {
 
     for (const card of cards) {
         const tags = card.querySelector(".project-taglist");
-        if (tags !== undefined) for (const tag of tags.querySelectorAll("div")) {
-            tag.className += " project-tag-clickable";
+        if (tags !== undefined) for (const tag of tags.querySelectorAll(".project-tag-clickable")) {
             tag.addEventListener("click", () => {
                 textbox.value = tag.innerText;
                 textbox.focus();

@@ -60,7 +60,7 @@
 
 (defn node-to-html [node buf]
   (def tag (get node 0))
-  (assert (symbol? tag) (string/format "Provided value %j is not a symbol"))
+  (assert (symbol? tag) (string/format "Provided value %j is not a symbol" tag))
 
   # get attributes if we have them. whether we have them will affect where the children index starts, so we have to calculate that as well.
   (def [children-start-idx attrs]
@@ -69,8 +69,9 @@
         [2 x]
         [1 {}])))
 
-  (def self-close? (and (>= children-start-idx (length node))
-                        (void-tag? tag)))
+  (def self-close?
+    (and (>= children-start-idx (length node))
+         (void-tag? tag)))
 
   # tag and attributes
   (buf-push-all buf "<" tag)
@@ -87,17 +88,28 @@
       (to-html (get node i) buf))
 
     # close tag
-    (buf-push-all buf "</" tag ">"))
+    (buf-push-all buf "</" tag ">")
+    )
   )
 
 (varfn to-html [x buf]
   (cond
-    (string? x) (text-to-html x buf)
-    (or (array? x) (tuple? x)) (node-to-html x buf)
-    (error (string/format "Expected string, array or tuple, found %j" x))))
+    (string? x)
+    (text-to-html x buf)
+
+    (or (array? x) (tuple? x))
+    (cond
+      (-> x (get 0) (= :raw))
+      (buf-push-all buf (in x 1))
+
+      (node-to-html x buf)
+      )
+
+    (-> "Expected string, array or tuple, found %j" (string/format x) (error))
+    ))
 
 (defn gen [node]
-  "Generates"
+  "Generates..."
 
   (def buf @"<!DOCTYPE html>\n")
   (to-html node buf)
