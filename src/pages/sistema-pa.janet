@@ -20,7 +20,7 @@
        ['p `TODO: o que é Pa??`]
 
        (-fold {:open true}
-              ['summary ['b `Axioma`] ` :: uma "afirmação" que é considerada verdadeira não porque pode ser provada, mas porque foi decidido que ela é verdadeira.`]
+         ['summary ['b `Axioma`] ` :: uma "afirmação" que é considerada verdadeira não porque pode ser provada, mas porque foi decidido que ela é verdadeira.`]
          ['p `Em um sistema, um axioma é usado como a base para todo o funcionamento do sistema.`]
          ['p `Exemplo: eu não acho que 1+1=2 é um axioma, exatamente, mas ele pelo menos funciona com base em algum, porque a soma entre números não é algo que existe exatamente na natureza... ela foi inventada para poder auxiliar nos cálculos.`]))
 
@@ -117,5 +117,6 @@
    ])
 
 (def root
-  (common/make-page :head head
-                    :body body))
+  (common/make-page
+    :head head
+    :body body))

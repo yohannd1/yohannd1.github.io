@@ -23,5 +23,6 @@
    ])
 
 (def root
-  (common/make-page :head head
-                    :body body))
+  (common/make-page
+    :head head
+    :body body))
