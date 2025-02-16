@@ -5,6 +5,9 @@
 
 (def all-updates
   [
+   (sm "2025/02/16 17:54 -03:00"
+       `Reworked the project tag system. Now I have a strict set of tags, so I can't get lost in them...`)
+
    (sm "2025/01/16 22:21 -03:00"
        `Hadn't realized I would get so many ideas for my website. Feeling happy lol`)
 
