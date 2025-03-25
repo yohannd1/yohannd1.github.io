@@ -44,7 +44,7 @@
   (do
     (def arr
       ["music" "tool" "library" "game" "game-jam"
-       "in-progress"
+       "in-progress" "discarded"
        # not sure about these:
        "standard" "website"
        ])
@@ -200,6 +200,12 @@
       (-project-field "url" (-link `https://swapxfo.bandcamp.com/album/hopeless-keyshift` `On Bandcamp`))
       (-project-field "url" (-link `https://www.youtube.com/playlist?list=PLs9PG-E1jX2_mE8VgTxBHqLPPCFYauDDz` `On Youtube`))
       (-project-taglist "music"))
+
+    (-project-row
+      (-project-title `tq` 2019)
+      (-project-description ``A small task format I was tinkering with, mostly inspired by todo.txt and sjl's t. Somewhat of a precursor to acrylic, I think, and one of my first successful parsing projects. TODO: add link to tq.vim and perhaps tq.rs here too!``)
+      (-project-field "url" (-link `https://github.com/yohannd1/tq` `Main code`))
+      (-project-taglist "tool" "discarded"))
     ]
    )
 
