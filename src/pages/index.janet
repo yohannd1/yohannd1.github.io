@@ -93,7 +93,7 @@
 
 (def- body
   [
-   ['h1 {:class "big1" :id "s-start"} `hey there!`]
+   '(h1 {:class "big1" :id "s-start"} `hey there!`)
 
    ~(p
      `This is one of the places I currently put my stuff.` (br)
@@ -251,6 +251,7 @@
        (li `TODO: add contact info`)
        (li `TODO: make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
        (li `TODO: make a favicon`)
+       (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`)
        )
 
     '(p `And here's also a list of more codebase-related to-dos I guess...`)
