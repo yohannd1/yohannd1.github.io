@@ -5,6 +5,14 @@
 
 (def all-updates
   [
+   {:time "2025/03/25 22:37 -03:00"
+    :message
+    ~(div
+       `Was going to add a QR code generator page here.` (br)
+       `But the library I was gonna use was too outdated and I realized that way too late. :(` (br)
+       `So have ` (a {:href "https://nuintun.github.io/qrcode/#/encode"} `this instead`) `. It's pretty nice! Will use it myself.`
+       )}
+
    (sm "2025/02/16 17:54 -03:00"
        `Reworked the project tag system. Now I have a strict set of tags, so I can't get lost in them...`)
 
@@ -14,11 +22,10 @@
    {:time "2025/01/15 21:03 -03:00"
     :message
     ~(div
-       (span `Website redesign mostly done!` (br)
-          `Kinda broke mobile-friendliness in the process but I'll fix that later.` (br)
-          `Design inspired by ` (a {:href "https://msx.horse/"} `em's website`) ` cuz it looked really cool.`
-          ))
-    }
+       `Website redesign mostly done!` (br)
+       `Kinda broke mobile-friendliness in the process but I'll fix that later.` (br)
+       `Design inspired by ` (a {:href "https://msx.horse/"} `em's website`) ` cuz it looked really cool.`
+       )}
 
    (sm "2025/01/15 20:12 -03:00"
        `Trying to make this work`)
