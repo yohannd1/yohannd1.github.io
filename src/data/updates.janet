@@ -5,6 +5,9 @@
 
 (def all-updates
   [
+   (sm "2025/08/01 17:36 -03:00"
+       `Spent quite a while working on Acrylic and cuca(sv) this week. I am terribly exhausted but I'm really proud of what I did managed to do :3`)
+
    {:time "2025/03/25 22:37 -03:00"
     :message
     ~(div
