@@ -203,7 +203,7 @@
 
     (-project-row
       (-project-title `tq` 2019)
-      (-project-description ``A small task format I was tinkering with, mostly inspired by todo.txt and sjl's t. Somewhat of a precursor to acrylic, I think, and one of my first successful parsing projects. TODO: add link to tq.vim and perhaps tq.rs here too!``)
+      (-project-description ``A small task format I was tinkering with, mostly inspired by todo.txt and sjl's t. Somewhat of a precursor to acrylic, I think, and one of my first successful attempts at parsing, I think. TODO: add link to tq.vim and perhaps tq.rs here too!``)
       (-project-field "url" (-link `https://github.com/yohannd1/tq` `Main code`))
       (-project-taglist "tool" "discarded"))
     ]

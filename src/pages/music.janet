@@ -20,9 +20,14 @@
 (def- body
   [
    '(h1 {:class "big1" :id "s-start"} `music`)
-   '(p `I started doing music in 2021, I think. I have some things from 2018 and 2019, I think, but not anything really that considerable.`)
-   '(p `TODO: explain where my music is, and the strategy I use for publishing them atm`)
-   '(p `TODO: a place to put old tunes?`)
+   '(p `So yeah, I'm also a musician.`)
+   '(p `I started doing music in 2021, I think. I have some things from 2018 and 2019, but not anything notable.`)
+   '(p `At the moment I publish my music at:`)
+   ~(ul
+      (li `My ` ,(-link "https://youtube.com/@SwapXFO" "youtube channel") ` (main place at the moment)`)
+      (li `TODO: the rest`))
+   '(p `TODO: list all songs and albums here, with links to where they are uploaded`)
+   '(p `TODO: a page with old tunes? might be cool`)
    ])
 
 (def root
