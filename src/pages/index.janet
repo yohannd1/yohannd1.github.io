@@ -125,6 +125,12 @@
 
    ['table
     (-project-row
+      (-project-title `cuca(sv)`)
+      (-project-description ``Attempt at a SystemVerilog implementation of a set of architectures proposed by a teacher of mine.``)
+      (-project-field "url" (-link `https://github.com/yohannd1/cuca-sv` `Repo URL`))
+      (-project-taglist "in-progress"))
+
+    (-project-row
       (-project-title `ConquestVM`)
       (-project-description ``32-bit fantasy computer, mostly inspired by Uxn. Includes a compiler and emulator.``)
       (-project-field "url" (-link `https://github.com/yohannd1/conquest-vm` `Repo URL`))
@@ -153,9 +159,9 @@
     (-project-row
       (-project-title `Acrylic`)
       (-project-description ``An... "up-and-coming" file format of mine for plain-text notetaking, trying to combine the convenience of Markdown with the outlining power of org-mode, along with a (somewhat) easy-to understand syntax and (hopefully) consistent rules.``)
+      (-project-field "url" (-link `https://github.com/yohannd1/acrylic` `Main repository`))
       (-project-field "url" (-link `https://github.com/yohannd1/acrylic.vim` `Vim plugin`))
-      (-project-field "url" (-link `https://github.com/yohannd1/acrylic_parser` `Parser + HTML exporter`))
-      (-project-taglist "standard" "library" "tool"))
+      (-project-taglist "standard" "library" "tool" "in-progress"))
 
     (-project-row
       (-project-title `Intertia`)
