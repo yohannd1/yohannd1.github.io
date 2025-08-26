@@ -19,15 +19,13 @@
   (if (empty? sidebar-items)
     (array/push side-final '(p "..."))
     (each item sidebar-items
-      (array/push side-final item))
-    )
+      (array/push side-final item)))
 
   (array/push side-final '(p {:class "big2"} "WEBSITE"))
   (if (empty? all-pages-sidebar-items)
     (array/push side-final '(p "..."))
     (each item all-pages-sidebar-items
-      (array/push side-final item))
-    )
+      (array/push side-final item)))
 
   ~(html
      (head
@@ -36,8 +34,7 @@
        (meta {:http-equiv "X-UA-Compatible" :content "IE=edge,chrome=1"})
        (meta {:name "HandheldFriendly" :content "true"})
        (meta {:charset "UTF-8"})
-       (link {:rel "stylesheet" :type "text/css" :href "style.css"})
-       )
+       (link {:rel "stylesheet" :type "text/css" :href "style.css"}))
 
      (body
        (div {:class "sidebar"}
@@ -50,13 +47,9 @@
 
          (footer
            ,;footer
-           (noscript {:style `font-style: italic;`}
-                     `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`)
-           (div {:class "little-cards"}
-             (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
-             (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"}))
-             )
-           )
+           (noscript
+             {:style `font-style: italic;`}
+             `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`))
          )
        )
      )

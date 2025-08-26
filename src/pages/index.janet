@@ -257,8 +257,7 @@
        (li `TODO: add contact info`)
        (li `TODO: make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
        (li `TODO: make a favicon`)
-       (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`)
-       )
+       (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`))
 
     '(p `And here's also a list of more codebase-related to-dos I guess...`)
 
@@ -268,8 +267,11 @@
        (li `TODO: figure a simple way to batch-import functions in each page (I'm lazy).`)
        (li `TODO: fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
        (li `TODO: tag system: make each word some sort of command. Must be easy to parse though ffs`)
-       (li `TODO: integrate acrylic wiki here... somehow`)
-       )
+       (li `TODO: integrate acrylic wiki here... somehow`))
+
+    '(div {:class "little-cards"}
+          (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
+          (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"})))
     )
   ])
 

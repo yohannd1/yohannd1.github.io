@@ -10,7 +10,12 @@
     --color-link: #A8F;
     --color-link-visited: #94D;
 
-    --sidebar-width: 12em;
+    --sidebar-width: 10em;
+
+    /* https://systemfontstack.com/ */
+    --font-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+    --font-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    --font-monospace: Menlo, Consolas, Monaco, Adwaita Mono, Liberation Mono, Lucida Console, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,7 +50,7 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: var(--font-sans-serif);
     font-size: 1.05em;
     color: var(--color-fg);
 
@@ -93,8 +98,8 @@ summary:hover {
 
 code {
     background-color: var(--color-bg-alt);
-    font-family: monospace;
-    font-size: 1.2em;
+    font-family: var(--font-monospace);
+    font-size: 1.1em;
 }
 
 pre code {
@@ -176,10 +181,6 @@ button:hover {
     0% { background-color: var(--color-bg-hover); }
 }
 
-.little-cards {
-    text-align: center;
-}
-
 .little-cards a {
     margin-left: 0.25em;
     margin-right: 0.25em;
@@ -196,7 +197,7 @@ td {
 
 .sidebar {
     height: 100%;
-    padding: 0em 0.8em 0em 0.8em;
+    padding: 0em 0.5em 0em 0.5em;
     width: var(--sidebar-width);
     top: 0;
     left: 0;
@@ -235,7 +236,7 @@ td {
     main {
         left: var(--sidebar-width);
         position: absolute;
-        padding-left: 3em;
+        padding-left: 2em;
         padding-right: 0.5em;
         max-width: 72em;
     }
