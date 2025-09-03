@@ -34,7 +34,8 @@
                     (get 0))))
   result)
 
-(varfn to-html [x buf] (error "placeholder"))
+(varfn to-html [x buf]
+  (error "[Placeholder]"))
 
 (defn- text-to-html [text buf]
   (buf-push-all buf (escape-html text)))

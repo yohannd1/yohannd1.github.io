@@ -2,10 +2,8 @@
   ['a {:href href} text])
 
 (def- all-pages-sidebar-items
-  [
-   ~(p ,(make-link `index.html` `Index`))
-   ~(p ,(make-link `music.html` `Music`))
-   ])
+  [~(p ,(make-link `index.html` `Index`))
+   ~(p ,(make-link `music.html` `Music`))])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
@@ -38,7 +36,7 @@
 
      (body
        (div {:class "sidebar"}
-         ,;side-final)
+            ,;side-final)
 
        (main
          (button {:id `sidebar-toggle`} `Open sidebar...`)
@@ -49,11 +47,7 @@
            ,;footer
            (noscript
              {:style `font-style: italic;`}
-             `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`))
-         )
-       )
-     )
-  )
+             `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`))))))
 
 (defn make-fold [attrs summary & children]
   (def summary-node
@@ -65,8 +59,7 @@
   ~(details
      ,attrs
      ,summary-node
-     (div {:class "node-contents"} ,;children))
-  )
+     (div {:class "node-contents"} ,;children)))
 
 (defn make-summary [size & content]
   (def attrs @{})
@@ -87,8 +80,7 @@
       [['tr (map |['th ;$] head)]])
    ;(map
       (fn [row] ['tr ;(map |['td $] row)])
-      rows)
-   ])
+      rows)])
 
 (defn make-code-inline [& content]
   ['code ;content])
