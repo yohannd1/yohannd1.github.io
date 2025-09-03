@@ -28,6 +28,7 @@
     "key-tester"
     "sistema-pa"
     "tutorial-c"
+    "projects"
     "music")
 
   (copy-glob "." "../res")

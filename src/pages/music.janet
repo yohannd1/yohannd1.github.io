@@ -1,5 +1,4 @@
 (import ../common)
-(import ../data/updates)
 (import ../utils)
 
 (def -summary common/make-summary)
