@@ -2,36 +2,60 @@
 (import spork/sh)
 (import ./webgen)
 
-(defn main [exec out-path]
-  (def here (path/dirname exec))
+(defn build-page-tree [prog-dir]
+  (def ret @[])
 
-  (def pages-to-gen
-    ["index" "key-tester" "sistema-pa" "tutorial-c" "music"])
+  (defn ap [val]
+    (array/push ret val))
 
-  (def pages-path (path/join here "pages"))
+  (defn make-janet-gen [out-path in-path]
+    [out-path [:janet-gen in-path]])
 
-  (os/mkdir out-path)
+  (defn add-self-pages [& args]
+    (loop [name :in args
+           :let [out-path (string name ".html")
+                 in-path (string "pages/" name ".janet")]]
+      (ap (make-janet-gen out-path in-path))))
 
-  # generate pages
-  (each page pages-to-gen
-    (def jn-filename (string page ".janet"))
-    (def html-filename (string page ".html"))
+  (defn copy-glob [dest-dir src-dir]
+    (each fname (os/dir (path/join prog-dir src-dir))
+      (ap [fname [:copy (path/join src-dir fname)]])))
 
-    (def page-mod
-      (dofile (path/join pages-path jn-filename) :exit true))
+  # TODO: redirects
 
-    (def page-out-path (path/join out-path html-filename))
+  (add-self-pages
+    "index"
+    "key-tester"
+    "sistema-pa"
+    "tutorial-c"
+    "music")
 
-    (:write stderr (string/format "building %s to %s\n" jn-filename page-out-path))
-    (with [fd (file/open page-out-path :w)]
-      (:write fd (webgen/gen (-> page-mod (get 'root) (get :value)))))
-    )
+  (copy-glob "." "../res")
+  (ap ["img" [:copy "../img"]])
 
-  # copy resources
-  (each filename (os/dir (path/join here "../res"))
-    (sh/copy (path/join here "../res" filename)
-             (path/join out-path filename)))
+  ret)
 
-  (sh/copy (path/join here "../img")
-           (path/join out-path "img"))
-  )
+(defn main [arg0 out-dir]
+  (def prog-dir (path/dirname arg0))
+
+  (os/mkdir out-dir)
+
+  (each [out-name value] (build-page-tree prog-dir)
+    (eprintf "processing target %j" out-name)
+    (match value
+      [:janet-gen in-path-pre]
+      (let [in-path (path/join prog-dir in-path-pre)
+            page-mod (dofile in-path :exit true)
+            page-root (-> page-mod (get 'root) (get :value))
+            out-path (path/join out-dir out-name)]
+        (with [fd (file/open out-path :w)]
+          (:write fd (webgen/gen page-root))))
+
+      [:copy in-path]
+      (sh/copy (path/join prog-dir in-path)
+               (path/join out-dir out-name))
+
+      _
+      (error (string/format "unknown format: %j" value))
+      ))
+)

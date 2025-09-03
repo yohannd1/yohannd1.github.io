@@ -3,5 +3,5 @@
 BUILD_DIR := build
 
 run:
-	rm -r $(BUILD_DIR)
+	if [ -d $(BUILD_DIR) ]; then rm -r $(BUILD_DIR); fi
 	janet src/main.janet $(BUILD_DIR)
