@@ -5,7 +5,7 @@
     :tags '(in-progress)}
 
    {:title `ConquestVM`
-    :desc ``32-bit fantasy computer, mostly inspired by Uxn. Includes a compiler and emulator.``
+    :desc ``32-bit fantasy computer, mostly inspired by Uxn. Will eventually include a compiler and emulator.``
     :urls [[`Repo URL` `https://github.com/yohannd1/conquest-vm` `Repo URL`]]
     :tags '(in-progress)}
 
