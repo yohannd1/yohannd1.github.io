@@ -31,15 +31,15 @@
 
    '(p
      `Welcome to my personal website. I want to put most of my stuff here.` (br)
-     `I am a programmer and musician, really invested in low-level programming and chiptune.` (br)
-     `I'm currently pursuing a computer science degree.`)
+     `I am a programmer and musician, currently pursuing a computer science degree.` (br)
+     `I'm currently very invested in low-level programming and chiptune, and a bit of game development.`)
 
    ~(p `You might be interested in ` ,(-link `https://github.com/yohannd1/` `my repositories over on GitHub`)
        ` and my music over ` ,(-link `https://youtube.com/@SwapXFO` `on my YouTube channel`) `.` (br)
-       `(More links at the end of the page)`)
+       `(Some more related links at the end of the page)`)
 
    (-h2 `Latest update`)
-   (-> all-updates (in 0) (common/render-update))
+   (-> all-updates (first) (common/render-update))
 
    (-h2 `Current projects`)
    ~(p `Here are some of the projects I'm publicly working on.` (br)
@@ -53,7 +53,7 @@
 
    (-fold
      {:open true :id "s-apps"} (-summary 2 `Mini apps`)
-     ['p `I'm not the biggest web app enthusiast but I recognize it can be a good tool.`]
+     ['p `I'm not the biggest web app enthusiast but there are a lot of upsides (mostly portability and ease of development).`]
      ['p `Here I am putting forth some small tools (only one at the moment) that I think might be useful.`]
      ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`])
 

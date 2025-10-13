@@ -1,10 +1,17 @@
 (defn- short-message [time msg]
-  # TODO: split by \n, and trim each line; use interpolate function to insert <br/> tags
   {:time time :message ~(div (span ,msg))})
+
 (def- sm short-message)
 
 (def all-updates
   [
+   {:time "2025/10/12 21:42 -03:00"
+    :message
+    ~(div
+       `A few months ago I had to install Vivado 2023.2, and had a library-related issue (missing libtinfo.so.5 or something).` (br)
+       `Installed the 2025.1 version today and I am disappointed but not surprised to learn the issue is still there.` (br)
+       `What saved me was ` (a {:href "https://gist.github.com/klpx/2e1d8a6a3a8b8d4e8407946a3e4cba3e"} `this gist post`) `. I don't know what I would have done without it.`)}
+
    (sm "2025/08/01 17:36 -03:00"
        `Spent quite a while working on Acrylic and cuca(sv) this week. I am terribly exhausted but I'm really proud of what I did managed to do :3`)
 

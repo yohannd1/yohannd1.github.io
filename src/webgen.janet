@@ -1,9 +1,3 @@
-# TODO: figure out "single tags"
-#
-# Or just do something like (for <meta .../>):
-#  (/ meta {...})
-# I guess that kinda conveys it? It's akward but it works.
-
 (defn- buf-push-all [buf & data]
   (each x data
     (buffer/push-string buf (string x))))
