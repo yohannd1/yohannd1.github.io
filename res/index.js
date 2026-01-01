@@ -68,7 +68,7 @@ window.addEventListener("load", () => {
 
     const sidebar = document.querySelector(".sidebar");
     const main = document.querySelector("main");
-    const btn_sidebar = document.querySelector("#sidebar-toggle");
+    const btn_sidebar = document.querySelector("#sidebar-toggle").querySelector("button");
 
     const attr_name = "data-sidebar-on";
     const isSidebarOpen = () => sidebar.getAttribute(attr_name) === "true";

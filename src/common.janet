@@ -42,7 +42,9 @@
             ,;side-final)
 
        (main
-         (button {:id `sidebar-toggle`} `Open sidebar...`)
+         (div {:id "sidebar-toggle"}
+           (button `Open sidebar...`)
+           (br))
 
          ,;body
 

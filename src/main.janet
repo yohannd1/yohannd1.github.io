@@ -21,7 +21,7 @@
     (each fname (os/dir (path/join prog-dir src-dir))
       (ap [fname [:copy (path/join src-dir fname)]])))
 
-  # TODO: redirects
+  # TODO: support redirects (for pages that I've moved around)
 
   (add-self-pages
     "index"
@@ -29,7 +29,8 @@
     "sistema-pa"
     "tutorial-c"
     "projects"
-    "music")
+    "music"
+    "sheel")
 
   (copy-glob "." "../res")
   (ap ["img" [:copy "../img"]])
@@ -58,5 +59,4 @@
 
       _
       (error (string/format "unknown format: %j" value))
-      ))
-)
+      )))
