@@ -29,7 +29,7 @@
     :tags '(music in-progress)}
 
    {:title `Acrylic`
-    :desc ``An... "up-and-coming" file format of mine for plain-text notetaking, trying to combine the convenience of Markdown with the outlining power of org-mode, along with a (somewhat) easy-to understand syntax and (hopefully) consistent rules.``
+    :desc ``A plain-text markup file format for notetaking, trying to combine the convenience of Markdown with the outlining power of org-mode, along with a (somewhat) easy-to understand syntax and (hopefully) consistent rules.``
     :urls [[`Main repository` `https://github.com/yohannd1/acrylic`]
            [`Vim plugin` `https://github.com/yohannd1/acrylic.vim`]]
     :tags '(standard library tool in-progress)}

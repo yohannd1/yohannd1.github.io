@@ -5,6 +5,8 @@
 
 (def all-updates
   [
+   (sm "2025/12/31 23:22 -03:00" `Happy 2026!`)
+
    {:time "2025/10/12 21:42 -03:00"
     :message
     ~(div

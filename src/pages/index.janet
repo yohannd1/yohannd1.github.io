@@ -29,6 +29,8 @@
 (def- body
   ['(h1 {:class "big1" :id "s-start"} `Hey there!`)
 
+   '(hr)
+
    '(p
      `Welcome to my personal website. I want to put most of my stuff here.` (br)
      `I am a programmer and musician, currently pursuing a computer science degree.` (br)
@@ -37,6 +39,8 @@
    ~(p `You might be interested in ` ,(-link `https://github.com/yohannd1/` `my repositories over on GitHub`)
        ` and my music over ` ,(-link `https://youtube.com/@SwapXFO` `on my YouTube channel`) `.` (br)
        `(Some more related links at the end of the page)`)
+
+   '(hr)
 
    (-h2 `Latest update`)
    (-> all-updates (first) (common/render-update))
