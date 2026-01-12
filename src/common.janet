@@ -4,9 +4,9 @@
   ['a {:href href} text])
 
 (def- all-pages-sidebar-items
-  [~(p ,(make-link `index.html` `Index`))
-   ~(p ,(make-link `music.html` `Music`))
-   ~(p ,(make-link `projects.html` `Projects`))])
+  [(make-link `index.html` `index`)
+   (make-link `music.html` `music`)
+   (make-link `projects.html` `projects`)])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
@@ -14,19 +14,15 @@
   (def footer (-> args (get :footer) (or [])))
   (def sidebar-items (-> args (get :sidebar-items) (or [])))
 
-  (def side-final @[])
+  (def side-final
+    [
+     '(li {:class "big2"} "OVERVIEW")
+     ;(if sidebar-items (map |['li $] sidebar-items) '((li "...")))
+     ])
 
-  (array/push side-final '(p {:class "big2"} "OVERVIEW"))
-  (if (empty? sidebar-items)
-    (array/push side-final '(p "..."))
-    (each item sidebar-items
-      (array/push side-final item)))
-
-  (array/push side-final '(p {:class "big2"} "WEBSITE"))
-  (if (empty? all-pages-sidebar-items)
-    (array/push side-final '(p "..."))
-    (each item all-pages-sidebar-items
-      (array/push side-final item)))
+  (def nav-sep ~(a {:class "nav-spacing"} "|"))
+  (def nav-lis (or all-pages-sidebar-items []))
+  (def nav-final (interpose nav-sep nav-lis))
 
   ~(html
      (head
@@ -39,9 +35,11 @@
 
      (body
        (div {:class "sidebar"}
-            ,;side-final)
+         (ul ,;side-final))
 
        (main
+         (nav ,;nav-final)
+
          (div {:id "sidebar-toggle"}
            (button `Open sidebar...`)
            (br))

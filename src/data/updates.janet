@@ -5,6 +5,12 @@
 
 (def all-updates
   [
+   {:time "2026/01/12 13:50 -03:00"
+    :message
+    ~(div
+       `Decided to add a top nav to my website. Why the hell not.` (br)
+       `I'm actually thinking of doing an overhaul on this website, but I'm not fully sure what direction I should go with. All I know is it looks dead af.`)}
+
    (sm "2025/12/31 23:22 -03:00" `Happy 2026!`)
 
    {:time "2025/10/12 21:42 -03:00"

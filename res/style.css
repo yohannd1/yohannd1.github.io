@@ -10,7 +10,7 @@
     --color-link: #A8F;
     --color-link-visited: #94D;
 
-    --sidebar-width: 10em;
+    --sidebar-width: 8em;
 
     /* https://systemfontstack.com/ */
     --font-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
@@ -50,10 +50,9 @@ html {
 }
 
 body {
-    font-family: var(--font-monospace);
-    font-size: 1.05em;
+    font-family: var(--font-sans-serif);
+    font-size: 1.1em;
     color: var(--color-fg);
-
 }
 
 .big1 {
@@ -206,8 +205,36 @@ td {
     position: fixed;
 }
 
+.sidebar > ul {
+    padding: 0em;
+}
+
+.sidebar > ul > li {
+    margin: 0.1em;
+    list-style-type: none;
+}
+
+nav > a.nav-spacing {
+    color: var(--color-fg-alt);
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+.project-search-div {
+    margin: 0.1em;
+    padding: 0.1em;
+}
+
+.project-search-div > button {
+    margin: 0em 0.2em;
+}
+
+.project-search-div > .search-bar {
+    margin: 0.1em 0.2em;
+}
+
 /* small screens */
-@media (max-width: 55em) {
+@media (max-width: 70em) {
     .sidebar {
         display: none;
     }
@@ -223,7 +250,7 @@ td {
 }
 
 /* wide screens */
-@media (min-width: 55em) {
+@media (min-width: 70em) {
     body {
         margin-left: 8%;
         margin-right: 8%;
@@ -234,10 +261,11 @@ td {
     }
 
     main {
-        left: var(--sidebar-width);
-        position: absolute;
-        padding-left: 2em;
-        padding-right: 0.5em;
-        max-width: 72em;
+        margin: auto;
+        /* left: var(--sidebar-width); */
+        /* position: absolute; */
+        /* padding-left: 2em; */
+        /* padding-right: 0.5em; */
+        max-width: 50em;
     }
 }

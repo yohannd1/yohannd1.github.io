@@ -27,7 +27,7 @@
    ~(p ,(-link "#s-social" "Social"))])
 
 (def- body
-  ['(h1 {:class "big1" :id "s-start"} `Hey there!`)
+  ['(h1 {:class "big1" :id "s-start"} `hey there!`)
 
    '(hr)
 

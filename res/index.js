@@ -5,7 +5,7 @@ const initProjectList = () => {
         return;
     }
 
-    const sb_div = proj_list.querySelector("#search-bar-div");
+    const sb_div = proj_list.querySelector(".project-search-div");
 
     const textbox = document.createElement("input");
     textbox.className = "search-bar";
@@ -13,12 +13,16 @@ const initProjectList = () => {
     textbox.placeholder = "Search...";
     sb_div.appendChild(textbox);
 
-    const btn_search = document.createElement("button");
-    btn_search.innerText = "Search";
+    const makeButton = (text) => {
+        const ret = document.createElement("button");
+        ret.innerText = text;
+        return ret;
+    };
+
+    const btn_search = makeButton("Search");
     sb_div.appendChild(btn_search);
 
-    const btn_clear = document.createElement("button");
-    btn_clear.innerText = "Clear";
+    const btn_clear = makeButton("Clear");
     sb_div.appendChild(btn_clear);
 
     const cards = proj_list.querySelectorAll(".project-row");
