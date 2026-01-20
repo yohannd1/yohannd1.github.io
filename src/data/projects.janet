@@ -72,8 +72,8 @@
    {:title `Hopeless Keyshift`
     :year 2022
     :desc ``My first released album.``
-    :urls [[`https://swapxfo.bandcamp.com/album/hopeless-keyshift` `On Bandcamp`]
-           [`https://www.youtube.com/playlist?list=PLs9PG-E1jX2_mE8VgTxBHqLPPCFYauDDz` `On YouTube`]]
+    :urls [[`On Bandcamp` `https://swapxfo.bandcamp.com/album/hopeless-keyshift`]
+           [`On YouTube` `https://www.youtube.com/playlist?list=PLs9PG-E1jX2_mE8VgTxBHqLPPCFYauDDz`]]
     :tags '(music)}
 
    {:title `tq`
