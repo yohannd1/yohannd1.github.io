@@ -6,7 +6,8 @@
 (def- all-pages-sidebar-items
   [(make-link `index.html` `index`)
    (make-link `music.html` `music`)
-   (make-link `projects.html` `projects`)])
+   (make-link `projects.html` `projects`)
+   (make-link `updates.html` `updates`)])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))

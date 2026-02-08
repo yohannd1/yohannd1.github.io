@@ -8,9 +8,6 @@
 (def -link common/make-link)
 (def -script common/make-script)
 
-(def- commits-url
-  `https://github.com/yohannd1/yohannd1.github.io/commits/main/`)
-
 (defn -h1 [& content] ['h1 {:class "big1"} ;content])
 (defn -h2 [& content] ['h2 {:class "big2"} ;content])
 
@@ -66,17 +63,6 @@
      ['p `While I don't have my personal wiki, I guess this suffices?`]
      ['p (-link `tutorial-c.html` `Mini tutorial de C`) ` (wip) (pt-br)`]
      ['p (-link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`])
-
-   (-fold
-     {:id "s-updates"} (-summary 2 `Updates`)
-
-     ~(p `A short update log. I'm lazy so I probably won't update this always.` (br)
-         `If you want a thorough list, check out the ` ,(-link commits-url `git log`) ` instead.`)
-
-     ;(as->
-        all-updates .x
-        (map common/render-update .x)
-        (utils/interpolate .x ~(br))))
 
    (-fold
      {:open true :id "s-todos"} (-summary 2 `To-dos`)

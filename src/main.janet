@@ -30,6 +30,7 @@
     "tutorial-c"
     "projects"
     "music"
+    "updates"
     "sheel")
 
   (copy-glob "." "../res")
