@@ -5,6 +5,8 @@
 
 (def all-updates
   [
+   (sm "2026/02/13 00:20 -03:00" `Updating some things around here, mostly music related. I got a MIDI keyboard recently, btw! A "M-Audio Keystation 49 MK3", more specifically. Struggling a bit with the velocity curve but otherwise it's a really nice keyboard.`)
+
    {:time "2026/01/12 13:50 -03:00"
     :message
     ~(div

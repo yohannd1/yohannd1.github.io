@@ -191,7 +191,7 @@ table {
 
 td {
     background-color: var(--color-bg-alt);
-    padding: 0.65em;
+    padding: 0.4em;
 }
 
 .sidebar {
@@ -231,6 +231,11 @@ nav > a.nav-spacing {
 
 .project-search-div > .search-bar {
     margin: 0.1em 0.2em;
+}
+
+.music-source-button {
+    width: 1em;
+    height: 1em;
 }
 
 /* small screens */

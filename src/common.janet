@@ -22,8 +22,7 @@
      ])
 
   (def nav-sep ~(a {:class "nav-spacing"} "|"))
-  (def nav-lis (or all-pages-sidebar-items []))
-  (def nav-final (interpose nav-sep nav-lis))
+  (def nav-final (->> all-pages-sidebar-items (map |['span " " $ " "]) (interpose nav-sep)))
 
   ~(html
      (head
@@ -41,7 +40,7 @@
        (main
          (nav ,;nav-final)
 
-         (div {:id "sidebar-toggle"}
+         (div {:id "sidebar-toggle" :hidden true}
            (button `Open sidebar...`)
            (br))
 
@@ -51,7 +50,8 @@
            ,;footer
            (noscript
              {:style `font-style: italic;`}
-             `It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.`))))))
+             `(It appears you're not using javascript! That's nice. There are some JS features here but they are not crucial.)`)))
+       )))
 
 (defn make-fold [attrs summary & children]
   (def summary-node
@@ -177,3 +177,28 @@
   (when (not (empty? tags))
     (array/push ret (-project-taglist ;tags)))
   (-project-row ;ret))
+
+(defn render-song [song]
+  (def icons
+    {:archive "img/button-internetarchive.png"
+     :youtube "img/button-youtube.png"})
+
+  (def names
+    {:archive "Internet Archive"
+     :youtube "YouTube"})
+
+  (def avail (get song :avail {}))
+
+  (def buttons
+    (seq [:let [keylist (sorted (keys avail))]
+          key :in keylist
+          :let [url (in avail key)
+                icon (in icons key)
+                name (in names key)]]
+      (assertf (and icon name) "unknown avail type: %j" key)
+      ~(a {:href ,url :title ,name} (img {:src ,icon :alt ,name :class "music-source-button"}))))
+
+  ~(tr
+     (td ,(in song :title) (small ` (` ,(in song :year) `)`))
+     (td ,(in song :medium))
+     (td ,;(interpose ~(span ` `) buttons))))
