@@ -195,7 +195,7 @@
           :let [url (in avail key)
                 icon (in icons key)
                 name (in names key)]]
-      (assertf (and icon name) "unknown avail type: %j" key)
+      (assert (and icon name) (string/format "unknown avail type: %j" key))
       ~(a {:href ,url :title ,name} (img {:src ,icon :alt ,name :class "music-source-button"}))))
 
   ~(tr
