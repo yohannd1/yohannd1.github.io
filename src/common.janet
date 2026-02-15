@@ -199,6 +199,12 @@
       ~(a {:href ,url :title ,name} (img {:src ,icon :alt ,name :class "music-source-button"}))))
 
   ~(tr
-     (td ,(in song :title) (small ` (` ,(in song :year) `)`))
-     (td ,(in song :medium))
+     (td
+       (b ,(in song :title))
+       (small ` (` ,(in song :year) `)`)
+       ,;(if-let [desc (in song :desc)]
+           ['(br) desc]
+           [])
+       )
+     (td ,;(interpose ~(br) (in song :medium)))
      (td ,;(interpose ~(span ` `) buttons))))

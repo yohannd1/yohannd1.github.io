@@ -19,8 +19,15 @@
 (def all-songs
   [
 
-   {:title "This is a somewhat long title, as these can have"
-    :medium "YM2612+PCMD8"
+   {:title "Needleman theme (Arrange)"
+    :medium ["2A03 + 4-N163" "Dn-FamiTracker"]
+    :desc `I call this song "needle grove" in my head cuz that was the filename. :)`
+    :avail {:youtube "https://www.youtube.com/watch?v=BY1qFNIZnTI"}
+    :year "2026"
+    }
+
+   {:title "This is a somewhat long title, as these can have (this is a placeholder)"
+    :medium ["YM2612 + PCMD8" "FurnaceTracker"]
     :avail {:archive "https://archive.org/details/yonkagor-singles"
             :youtube "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
     :year "2027"}
@@ -37,14 +44,14 @@
    ~(p `My music is at my ` ,(-link "https://youtube.com/@SwapXFO" "youtube channel")
        `, and I upload them (in due time) to my ` ,(-link "" "internet archive account") `. I wanna host them elsewhere more practical as well in the future, but for now this is alright, I think.`)
 
-   '(p `TODO: Talk about bandcamp,newgrounds,botb`)
+   '(p `TODO: talk about bandcamp,newgrounds,botb`)
    '(p `TODO: list all songs and albums here, with links to where they are uploaded`)
 
    ~(div
       {:id "music-list"}
       (div {:class "project-search-div"})
       (table
-        (tr (th "Title") (th "Medium") (th "Available"))
+        # (tr (th "Title") (th "Medium") (th "Available"))
         ,;(map common/render-song all-songs)))
    ])
 
