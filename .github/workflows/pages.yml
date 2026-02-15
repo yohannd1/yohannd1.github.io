@@ -36,7 +36,7 @@ jobs:
       - name: Setup Janet
         uses: ./.github/actions/janet_run
         with:
-          janet-ver: 'v1.33.0'
+          janet-ver: 'v1.40.1'
           os: 'linux'
           cmd: jpm install spork
 
