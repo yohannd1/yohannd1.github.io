@@ -1,5 +1,6 @@
 (import ../common)
 (import ../utils)
+(use ../data/music)
 
 (def -summary common/make-summary)
 (def -link common/make-link)
@@ -16,32 +17,16 @@
    ~(p ,(-link "#s-start" "Start"))
    ])
 
-(def all-songs
-  [
-
-   {:title "Needleman theme (Arrange)"
-    :medium ["2A03 + 4-N163" "Dn-FamiTracker"]
-    :desc `I call this song "needle grove" in my head cuz that was the filename. :)`
-    :avail {:youtube "https://www.youtube.com/watch?v=BY1qFNIZnTI"}
-    :year "2026"
-    }
-
-   {:title "This is a somewhat long title, as these can have (this is a placeholder)"
-    :medium ["YM2612 + PCMD8" "FurnaceTracker"]
-    :avail {:archive "https://archive.org/details/yonkagor-singles"
-            :youtube "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
-    :year "2027"}
-
-   ])
-
-
 (def- body
   [
    '(h1 {:class "big1" :id "s-start"} `music`)
 
-   '(p `So yeah, I'm also a musician. It's really fun! I started doing "okay" music in late 2021, I think.`)
-   '(p `At the moment I mostly use Furnace and LMMS to make music. Really powerful open source tools, despite their flaws (man LMMS is odd...).`)
-   ~(p `My music is at my ` ,(-link "https://youtube.com/@SwapXFO" "youtube channel")
+   '(p `So yeah, I'm also a musician. It's a rather fun activity.`)
+   ~(p `I started doing "okay" music in late 2021, I think. `
+       `At the moment I mostly use ` ,(-link "https://github.com/tildearrow/furnace" "Furnace") ` and `
+       (a {:href "https://lmms.io/" :title "quite the odd piece..."} "LMMS")
+       ` to make music. Really powerful open source tools, despite their flaws.`)
+   ~(p `Most of my music is at my ` ,(-link "https://youtube.com/@SwapXFO" "youtube channel")
        `, and I upload them (in due time) to my ` ,(-link "" "internet archive account") `. I wanna host them elsewhere more practical as well in the future, but for now this is alright, I think.`)
 
    '(p `TODO: talk about bandcamp,newgrounds,botb`)
@@ -50,9 +35,7 @@
    ~(div
       {:id "music-list"}
       (div {:class "project-search-div"})
-      (table
-        # (tr (th "Title") (th "Medium") (th "Available"))
-        ,;(map common/render-song all-songs)))
+      (table ,;(map common/render-song all-songs)))
    ])
 
 (def root

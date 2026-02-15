@@ -53,9 +53,20 @@
 (defn- void-tag? [tag]
   (-> void-tags (in tag) (truthy?)))
 
+(defn- valid-tag? [tag]
+  (def compiled-peg
+    (comptime
+      (peg/compile '(* :a+ (any (+ :a :d (set "-_"))) -1))))
+  (and
+    (symbol? tag)
+    (truthy? (peg/match compiled-peg tag))))
+
 (defn node-to-html [node buf]
   (def tag (get node 0))
-  (assert (symbol? tag) (string/format "Provided value %j is not a symbol" tag))
+
+  (unless (valid-tag? tag)
+    (-> "Invalid tag: %j - it should be a symbol and a valid HTML identifier (I might be wrong about this)"
+        (string/format tag) (error)))
 
   # get attributes if we have them. whether we have them will affect where the children index starts, so we have to calculate that as well.
   (def [children-start-idx attrs]
@@ -83,8 +94,7 @@
       (to-html (get node i) buf))
 
     # close tag
-    (buf-push-all buf "</" tag ">")
-    )
+    (buf-push-all buf "</" tag ">"))
   )
 
 (varfn to-html [x buf]
@@ -97,8 +107,7 @@
       (-> x (get 0) (= :raw))
       (buf-push-all buf (in x 1))
 
-      (node-to-html x buf)
-      )
+      (node-to-html x buf))
 
     (-> "Expected string, array or tuple, found %j" (string/format x) (error))
     ))
