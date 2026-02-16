@@ -35,7 +35,7 @@
    ~(div
       {:id "music-list"}
       (div {:class "project-search-div"})
-      (table ,;(map common/render-song all-songs)))
+      (table ,;(map common/render-song songs-published)))
    ])
 
 (def root

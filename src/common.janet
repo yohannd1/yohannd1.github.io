@@ -198,6 +198,15 @@
       (assert (and icon name) (string/format "unknown avail type: %j" key))
       ~(a {:href ,url :title ,name} (img {:src ,icon :alt ,name :class "music-source-button"}))))
 
+  (def medium-cell
+    (match (in song :medium)
+      [nil software] ~((small ,software))
+      [tech nil] [tech]
+      [tech software] ~(,tech (br) (small ,software))
+      [tech] [tech]
+      nil []
+      other (error (string/format "unexpected: %j" other))))
+
   ~(tr
      (td
        (b ,(in song :title))
@@ -206,5 +215,5 @@
            ['(br) desc]
            [])
        )
-     (td ,;(interpose ~(br) (in song :medium)))
+     (td ,;medium-cell)
      (td ,;(interpose ~(span ` `) buttons))))
