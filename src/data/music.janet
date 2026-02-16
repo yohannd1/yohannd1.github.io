@@ -12,12 +12,6 @@
     :avail {:youtube "https://www.youtube.com/watch?v=BY1qFNIZnTI"}
     :year "2026"}
 
-   {:title "Sand Hell (Arrange, v2) [Thunder Force IV]"
-    :medium ["YM2612 + SNES" "FurnaceTracker"]
-    :avail {:youtube "https://www.youtube.com/watch?v=bSOlU0uRrf8"
-            :archive "https://archive.org/details/xfo-sand-hell-v2"}
-    :year "2026"}
-
    {:title "Expectancy"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=vhH_NdXrvMM"
