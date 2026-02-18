@@ -1,9 +1,16 @@
 (def songs-published
   [
+   {:title "Raise Up Your Bat (Arrange) [Deltarune CH3]"
+    :medium ["YM2612 + SN76489 + RF5C68" "FurnaceTracker"]
+    :desc "Love me some deltarune. This song specially, damn. It does have a lot of good competitors though."
+    :avail {:youtube "https://www.youtube.com/watch?v=7vCAqkXVRvA"}
+    :year "2026"}
+
    {:title "Sand Hell (Arrange, v2) [Thunder Force IV]"
     :medium ["YM2612 + SNES" "FurnaceTracker"]
     :desc `Re-covering this song because I wanted to practice some stuff, and my old version sucks ass.`
-    :avail {:youtube "https://www.youtube.com/watch?v=bSOlU0uRrf8"}
+    :avail {:youtube "https://www.youtube.com/watch?v=bSOlU0uRrf8"
+            :archive "https://archive.org/details/xfo-sand-hell-v2"}
     :year "2026"}
 
    {:title "Needle Man Theme (Arrange) [Megaman 3] ft. GroovinGood"
