@@ -3,7 +3,8 @@
    {:title "Raise Up Your Bat (Arrange) [Deltarune CH3]"
     :medium ["YM2612 + SN76489 + RF5C68" "FurnaceTracker"]
     :desc "Love me some deltarune. This song specially, damn. It does have a lot of good competitors though."
-    :avail {:youtube "https://www.youtube.com/watch?v=7vCAqkXVRvA"}
+    :avail {:youtube "https://www.youtube.com/watch?v=7vCAqkXVRvA"
+            :archive "https://archive.org/details/xfo-raise-up-your-bat"}
     :year "2026"}
 
    {:title "Sand Hell (Arrange, v2) [Thunder Force IV]"
