@@ -1,5 +1,11 @@
 (def songs-published
   [
+   {:title "Esaka (Arrange) [KoF 96]"
+    :medium ["ES5506" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=01NyEGW_yMg"
+            :archive "https://archive.org/details/xfo-esaka-v2"}
+    :year "2026"}
+
    {:title "Raise Up Your Bat (Arrange) [Deltarune CH3]"
     :medium ["YM2612 + SN76489 + RF5C68" "FurnaceTracker"]
     :desc "Love me some deltarune. This song specially, damn. It does have a lot of good competitors though."
