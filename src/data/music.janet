@@ -1,5 +1,11 @@
 (def songs-published
   [
+   {:title "Apparitions Stalk the Night [Touhou 06]"
+    :medium ["Nintendo DS" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=zm3lGHd5MYo"
+            :archive "https://archive.org/details/xfo-apparitions-stalk-the-night"}
+    :year "2026"}
+
    {:title "Esaka (Arrange) [KoF 96]"
     :medium ["ES5506" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=01NyEGW_yMg"
