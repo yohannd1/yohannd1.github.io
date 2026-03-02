@@ -80,10 +80,10 @@
         (li `TODO: portfolio (probably better as a separate page, yeah)`)
         (li `TODO: contact info`)
         (li `TODO: blog`)
-        (li `TODO: RSS feed`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
         (li `TODO: make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
         (li `TODO: make a favicon`)
-        (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`))
+        (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`)
+        (li `TODO: sitemap`))
 
      '(p `And here's also a list of more codebase-related to-dos I guess...`)
 

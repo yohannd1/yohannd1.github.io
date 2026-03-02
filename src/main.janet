@@ -15,7 +15,7 @@
     (loop [name :in args
            :let [out-path (string name ".html")
                  in-path (string "pages/" name ".janet")]]
-      (ap [out-path [:janet-gen in-path]])))
+      (ap [out-path [:html-gen in-path]])))
 
   (defn copy-glob [dest-dir src-dir]
     (each fname (os/dir (path/join prog-dir src-dir))
@@ -36,19 +36,30 @@
   (copy-glob "." "../res")
   (ap ["img" [:copy "../img"]])
 
+  (ap ["rss.xml" [:xml-gen "misc/updates-rss.janet"]])
+
   ret)
 
 (defn process-page-entry [out-name action]
   (eprintf "processing target %j" out-name)
   (match action
     # generate a HTML page by running janet code
-    [:janet-gen in-path-pre]
+    [:html-gen in-path-pre]
     (let [in-path (path/join prog-dir in-path-pre)
           page-mod (dofile in-path :exit true)
           page-root (-> page-mod (get 'root) (get :value))
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
         (:write fd (webgen/gen-html page-root))))
+
+    # generate a HTML page by running janet code
+    [:xml-gen in-path-pre]
+    (let [in-path (path/join prog-dir in-path-pre)
+          page-mod (dofile in-path :exit true)
+          page-root (-> page-mod (get 'root) (get :value))
+          out-path (path/join out-dir out-name)]
+      (with [fd (file/open out-path :w)]
+        (:write fd (webgen/gen-xml-1.0 page-root))))
 
     # copy a file
     [:copy in-path]

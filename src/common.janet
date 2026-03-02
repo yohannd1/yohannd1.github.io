@@ -1,13 +1,14 @@
 (use ./utils)
 
 (defn make-link [href text]
-  ['a {:href href} text])
+  ~(a {:href ,href} ,text))
 
-(def- all-pages-sidebar-items
+(def- nav-items
   [(make-link `index.html` `index`)
    (make-link `music.html` `music`)
    (make-link `projects.html` `projects`)
-   (make-link `updates.html` `updates`)])
+   (make-link `updates.html` `updates`)
+   (make-link `rss.xml` `rss feed (wip)`)])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
@@ -22,7 +23,7 @@
      ])
 
   (def nav-sep ~(a {:class "nav-spacing"} "|"))
-  (def nav-final (->> all-pages-sidebar-items (map |['span " " $ " "]) (interpose nav-sep)))
+  (def nav-final (->> nav-items (map |['span " " $ " "]) (interpose nav-sep)))
 
   ~(html
      (head
