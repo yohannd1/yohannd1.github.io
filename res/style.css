@@ -189,6 +189,10 @@ table {
     width: 100%;
 }
 
+table.transparent > td {
+    background-color: #FFFFFF00;
+}
+
 td {
     background-color: var(--color-bg-alt);
     padding: 0.4em;

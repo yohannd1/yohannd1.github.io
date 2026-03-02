@@ -23,19 +23,25 @@
    ~(p ,(-link "#s-todos" "To-dos"))
    ~(p ,(-link "#s-social" "Social"))])
 
+(def- pfp-image
+  '(img {:src "https://avatars.githubusercontent.com/u/23298480" :width "100px"}))
+
 (def- body
   ['(h1 {:class "big1" :id "s-start"} `hey there!`)
 
    '(hr)
 
-   '(p
-     `Welcome to my personal website. I want to put most of my stuff here.` (br)
-     `I am a programmer and musician, currently pursuing a computer science degree.` (br)
-     `I'm currently very invested in low-level programming and chiptune, and a bit of game development.`)
+   ~(table
+      {:class "transparent"}
+      (tr
+        (td
+         `Welcome to my personal website & main home page!` (br)
+         `I am a programmer and musician, currently pursuing a computer science degree.` (br)
+         `My main interests at the moment are low-level programming, digital circuits (FPGAs, specially) and game development.`)
+        (td ,pfp-image)))
 
-   ~(p `You might be interested in ` ,(-link `https://github.com/yohannd1/` `my repositories over on GitHub`)
-       ` and my music over ` ,(-link `https://youtube.com/@SwapXFO` `on my YouTube channel`) `.` (br)
-       `(Some more related links at the end of the page)`)
+   ~(p `You might be interested in ` ,(-link `https://github.com/yohannd1/` `repositories I've worked on`)
+       `, ` ,(-link `music.html` `my music`) ` or ` ,(-link `#s-social` `other places I visit`) `.`)
 
    '(hr)
 
