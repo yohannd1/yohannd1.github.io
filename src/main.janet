@@ -2,20 +2,20 @@
 (import spork/sh)
 (import ./webgen)
 
+(var prog-dir nil)
+(var out-dir nil)
+
 (defn build-page-tree [prog-dir]
   (def ret @[])
 
   (defn ap [val]
     (array/push ret val))
 
-  (defn make-janet-gen [out-path in-path]
-    [out-path [:janet-gen in-path]])
-
   (defn add-self-pages [& args]
     (loop [name :in args
            :let [out-path (string name ".html")
                  in-path (string "pages/" name ".janet")]]
-      (ap (make-janet-gen out-path in-path))))
+      (ap [out-path [:janet-gen in-path]])))
 
   (defn copy-glob [dest-dir src-dir]
     (each fname (os/dir (path/join prog-dir src-dir))
@@ -38,26 +38,31 @@
 
   ret)
 
-(defn main [arg0 out-dir]
-  (def prog-dir (path/dirname arg0))
+(defn process-page-entry [out-name action]
+  (eprintf "processing target %j" out-name)
+  (match action
+    # generate a HTML page by running janet code
+    [:janet-gen in-path-pre]
+    (let [in-path (path/join prog-dir in-path-pre)
+          page-mod (dofile in-path :exit true)
+          page-root (-> page-mod (get 'root) (get :value))
+          out-path (path/join out-dir out-name)]
+      (with [fd (file/open out-path :w)]
+        (:write fd (webgen/gen-html page-root))))
 
+    # copy a file
+    [:copy in-path]
+    (sh/copy
+      (path/join prog-dir in-path)
+      (path/join out-dir out-name))
+
+    _
+    (error (string/format "unknown format: %j" action))))
+
+(defn main [arg0 & args]
+  (set prog-dir (path/dirname arg0))
+  (set out-dir (in args 0))
   (os/mkdir out-dir)
 
-  (each [out-name value] (build-page-tree prog-dir)
-    (eprintf "processing target %j" out-name)
-    (match value
-      [:janet-gen in-path-pre]
-      (let [in-path (path/join prog-dir in-path-pre)
-            page-mod (dofile in-path :exit true)
-            page-root (-> page-mod (get 'root) (get :value))
-            out-path (path/join out-dir out-name)]
-        (with [fd (file/open out-path :w)]
-          (:write fd (webgen/gen page-root))))
-
-      [:copy in-path]
-      (sh/copy (path/join prog-dir in-path)
-               (path/join out-dir out-name))
-
-      _
-      (error (string/format "unknown format: %j" value))
-      )))
+  (each [out-name action] (build-page-tree prog-dir)
+    (process-page-entry out-name action)))

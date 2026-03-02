@@ -77,10 +77,10 @@
          `Well, here's a general list of stuff I need to do:`)
 
      '(ul
-        (li `TODO: dedicated music page (with info about songs and filtering the project list)`)
-        (li `TODO: dedicated programming page (could be kind of a portfolio ig)`)
-        (li `TODO: blog + RSS feed + count them in the updates list`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
-        (li `TODO: add contact info`)
+        (li `TODO: portfolio (probably better as a separate page, yeah)`)
+        (li `TODO: contact info`)
+        (li `TODO: blog`)
+        (li `TODO: RSS feed`) # see https://www.w3schools.com/XML/xml_rss.asp and https://www.pwndrenard.net/nouvelles.xml
         (li `TODO: make a list of old projects! ` (small `yeah this is also inspired by em's website lol`))
         (li `TODO: make a favicon`)
         (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`))

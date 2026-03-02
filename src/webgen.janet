@@ -1,3 +1,5 @@
+# HTML/XML generator
+
 (defn- buf-push-all [buf & data]
   (each x data
     (buffer/push-string buf (string x))))
@@ -12,14 +14,12 @@
 
 (defn escape-html [x]
   (def replace-patterns
-    '(
-      ("&" "&amp;")
+    '(("&" "&amp;")
       ("<" "&lt;")
       (">" "&gt;")
       (`"` "&quot;")
       (`'` "&#39;")
-      ("`" "&#96;")
-    ))
+      ("`" "&#96;")))
 
   (var result x)
   (each [patt sub] replace-patterns
@@ -109,12 +109,15 @@
 
       (node-to-html x buf))
 
-    (-> "Expected string, array or tuple, found %j" (string/format x) (error))
-    ))
+    (-> "Expected string, array or tuple, found %j" (string/format x) (error))))
 
-(defn gen [node]
-  "Generates..."
-
+(defn gen-html [root-node]
   (def buf @"<!DOCTYPE html>\n")
-  (to-html node buf)
+  (to-html root-node buf)
+  buf)
+
+(defn gen-xml-1.0 [root-node]
+  # FIXME: void tags shouldn't be handled here, yk. think more about that
+  (def buf @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+  (to-html root-node buf)
   buf)
