@@ -50,7 +50,7 @@
           page-root (-> page-mod (get 'root) (get :value))
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
-        (:write fd (webgen/gen-html page-root))))
+        (:write fd (webgen/html/render-doc page-root {}))))
 
     # generate a HTML page by running janet code
     [:xml-gen in-path-pre]
@@ -59,7 +59,7 @@
           page-root (-> page-mod (get 'root) (get :value))
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
-        (:write fd (webgen/gen-xml-1.0 page-root))))
+        (:write fd (webgen/xml/render-doc page-root {}))))
 
     # copy a file
     [:copy in-path]
