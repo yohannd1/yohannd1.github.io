@@ -1,13 +1,16 @@
 (import ../utils)
+(import ../webgen/html)
 (use ../data/updates)
 
 (defn to-item [u]
   (def {:time u-time :message u-msg} u)
 
+  (def msg-html (html/render-node u-msg))
+
   ~(item
      (title ,(string/format "Update from %s" u-time))
-     (pubDate ,u-time)
-     (description ,(string/format "SORRY, I NEED TO UPDATE THIS:\n\n%j" u-msg))))
+     (pubDate ,u-time) # TODO: (os/strftime "%A, %d %b %Y %H:%M:%S -0300")
+     (description (:cdata-raw ,msg-html))))
 
 (def- items
   (map to-item all-updates))
