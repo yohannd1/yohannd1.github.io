@@ -1,6 +1,7 @@
 (import spork/path)
 (import spork/sh)
 (import ./webgen)
+(import ./common)
 
 (var prog-dir nil)
 (var out-dir nil)
@@ -41,6 +42,9 @@
   ret)
 
 (defn process-page-entry [out-name action]
+  (def html-config
+    {:specials common/html-specials})
+
   (eprintf "processing target %j" out-name)
   (match action
     # generate a HTML page by running janet code
@@ -50,7 +54,7 @@
           page-root (-> page-mod (get 'root) (get :value))
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
-        (:write fd (webgen/html/render-doc page-root {}))))
+        (:write fd (webgen/html/render-doc page-root html-config))))
 
     # generate a HTML page by running janet code
     [:xml-gen in-path-pre]

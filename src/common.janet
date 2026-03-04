@@ -1,14 +1,14 @@
 (use ./utils)
 
+(def- nav-items
+  ['($link `index.html` `index`)
+   '($link `music.html` `music`)
+   '($link `projects.html` `projects`)
+   '($link `updates.html` `updates`)
+   '($link `rss.xml` `rss feed (wip)`)])
+
 (defn make-link [href text]
   ~(a {:href ,href} ,text))
-
-(def- nav-items
-  [(make-link `index.html` `index`)
-   (make-link `music.html` `music`)
-   (make-link `projects.html` `projects`)
-   (make-link `updates.html` `updates`)
-   (make-link `rss.xml` `rss feed (wip)`)])
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
@@ -218,3 +218,17 @@
        )
      (td ,;medium-cell)
      (td ,;(interpose ~(span ` `) buttons))))
+
+(def- special-map
+  {'$link make-link
+   '$fold make-fold
+   '$summary make-summary
+   '$script make-script
+   '$table-simple make-table-simple
+   '$code-inline make-code-inline
+   '$code-block make-code-block
+   '$small-note-p make-small-note-p})
+
+(def html-specials @{})
+(eachp [sym func] special-map
+  (set (html-specials sym) (fn [[_ & args]] (func ;args))))
