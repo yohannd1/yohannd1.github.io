@@ -5,7 +5,7 @@
    '($link `music.html` `music`)
    '($link `projects.html` `projects`)
    '($link `updates.html` `updates`)
-   '($link `rss.xml` `rss feed (wip)`)])
+   '($link `rss.xml` `rss feed`)])
 
 (defn make-link [href text]
   ~(a {:href ,href} ,text))

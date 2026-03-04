@@ -1,11 +1,10 @@
-(defn- short-message [time msg]
+(defn- sm "short mesage" [time msg]
   {:time time :message ~(div (span ,msg))})
-
-(def- sm short-message)
 
 (def all-updates
   [
-   (sm "2026/02/13 00:20 -03:00" `Updating some things around here, mostly music related. I got a MIDI keyboard recently, btw! A "M-Audio Keystation 49 MK3", more specifically. Struggling a bit with the velocity curve but otherwise it's a really nice keyboard.`)
+   {:time "2026/02/13 00:20 -03:00"
+    :message  `Updating some things around here, mostly music related. I got a MIDI keyboard recently, btw! A "M-Audio Keystation 49 MK3", more specifically. Struggling a bit with the velocity curve but otherwise it's a really nice keyboard.`}
 
    {:time "2026/01/12 13:50 -03:00"
     :message
@@ -47,6 +46,6 @@
        `Design inspired by ` (a {:href "https://msx.horse/"} `em's website`) ` cuz it looked really cool.`
        )}
 
-   (sm "2025/01/15 20:12 -03:00"
-       `Trying to make this work`)
+   {:time "2025/01/15 20:12 -03:00"
+    :message `Trying to make this work`}
    ])

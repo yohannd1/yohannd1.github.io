@@ -133,4 +133,4 @@
     (indexed? x)
     (render-node x buf config)
 
-    (-> "Expected string, buffer or indexed, found %j" (string/format x) (error))))
+    (-> "Expected string, buffer or indexed, found %s" (string/format x) (error))))
