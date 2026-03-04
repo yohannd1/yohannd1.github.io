@@ -3,80 +3,73 @@
 (use ../data/updates)
 (use ../data/projects)
 
-(def -fold common/make-fold)
-(def -summary common/make-summary)
-(def -link common/make-link)
-(def -script common/make-script)
-
-(defn -h1 [& content] ['h1 {:class "big1"} ;content])
-(defn -h2 [& content] ['h2 {:class "big2"} ;content])
-
 (def- head
-  ['(title `yohannd1...`)
-   (-script `index.js`)])
+  '((title `yohannd1...`)
+    ($script `index.js`)))
 
 (def- sidebar
-  [~(p ,(-link "#s-start" "Start"))
-   ~(p ,(-link "#s-apps" "Mini apps"))
-   ~(p ,(-link "#s-documents" "Notes & documents"))
-   ~(p ,(-link "#s-updates" "Updates"))
-   ~(p ,(-link "#s-todos" "To-dos"))
-   ~(p ,(-link "#s-social" "Social"))])
+  '((p ($link "#s-start" "Start"))
+    (p ($link "#s-apps" "Mini apps"))
+    (p ($link "#s-documents" "Notes & documents"))
+    (p ($link "#s-updates" "Updates"))
+    (p ($link "#s-todos" "To-dos"))
+    (p ($link "#s-social" "Social"))))
 
 (def- pfp-image
   '(img {:src "https://avatars.githubusercontent.com/u/23298480" :width "100px"}))
 
 (def- body
-  ['(h1 {:class "big1" :id "s-start"} `hey there!`)
+  ~(
+    (h1 {:class "big1" :id "s-start"} `hey there!`)
 
-   '(hr)
+    (hr)
 
-   ~(table
+    (table
       {:class "transparent"}
       (tr
         (td
-         `Welcome to my personal website & main home page!` (br)
-         `I am a programmer and musician, currently pursuing a computer science degree.` (br)
-         `My main interests at the moment are low-level programming, digital circuits (FPGAs, specially) and game development.`)
+          `Welcome to my personal website & main home page!` (br)
+          `I am a programmer and musician, currently pursuing a computer science degree.` (br)
+          `My main interests at the moment are low-level programming, digital circuits (FPGAs, specially) and game development.`)
         (td ,pfp-image)))
 
-   ~(p `You might be interested in ` ,(-link `https://github.com/yohannd1/` `repositories I've worked on`)
-       `, ` ,(-link `music.html` `my music`) ` or ` ,(-link `#s-social` `other places I visit`) `.`)
+    (p `You might be interested in ` ($link `https://github.com/yohannd1/` `repositories I've worked on`)
+       `, ` ($link `music.html` `my music`) ` or ` ($link `#s-social` `other places I visit`) `.`)
 
-   '(hr)
+    (hr)
 
-   (-h2 `Latest update`)
-   (-> all-updates (first) (common/render-update))
+    ($h2 `Latest update`)
+    ,(-> all-updates (first) (common/render-update))
 
-   (-h2 `Current projects`)
-   ~(p `Here are some of the projects I'm publicly working on.` (br)
-       `See the ` ,(-link `projects.html` `full projects page`) ` for other projects I've worked on.`)
+    ($h2 `Current projects`)
+    (p `Here are some of the projects I'm publicly working on.` (br)
+       `See the ` ($link `projects.html` `full projects page`) ` for other projects I've worked on.`)
 
-   ['table
-    ;(as->
-       all-projects .x
-       (filter |(common/project/has-tag? 'in-progress $) .x)
-       (map common/render-project .x))]
+    (table
+      ,;(as->
+          all-projects .x
+          (filter |(common/project/has-tag? 'in-progress $) .x)
+          (map common/render-project .x)))
 
-   (-fold
-     {:open true :id "s-apps"} (-summary 2 `Mini apps`)
-     ['p `I'm not the biggest web app enthusiast but there are a lot of upsides (mostly portability and ease of development).`]
-     ['p `Here I am putting forth some small tools (only one at the moment) that I think might be useful.`]
-     ['p (-link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`])
+    ($fold
+      {:open true :id "s-apps"} ($summary 2 `Mini apps`)
+      (p `I'm not the biggest web app enthusiast but there are a lot of upsides (mostly portability and ease of development).`)
+      (p `Here I am putting forth some small tools (only one at the moment) that I think might be useful.`)
+      (p ($link `key-tester.html` `Key tester`) ` (uses JS to track key presses)`))
 
-   (-fold
-     {:open true :id "s-documents"} (-summary 2 `Notes and documents`)
-     ['p `While I don't have my personal wiki, I guess this suffices?`]
-     ['p (-link `tutorial-c.html` `Mini tutorial de C`) ` (wip) (pt-br)`]
-     ['p (-link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`])
+    ($fold
+      {:open true :id "s-documents"} ($summary 2 `Notes and documents`)
+      (p `While I don't have my personal wiki, I guess this suffices?`)
+      (p ($link `tutorial-c.html` `Mini tutorial de C`) ` (wip) (pt-br)`)
+      (p ($link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`))
 
-   (-fold
-     {:open true :id "s-todos"} (-summary 2 `To-dos`)
+    ($fold
+      {:open true :id "s-todos"} ($summary 2 `To-dos`)
 
-     '(p `Turns out I still have a lot to do with this website. I plan to make it one of my main "outlets" to the internet, though I'm still not fully sure if I'd make it the main one.` (br)
+      (p `Turns out I still have a lot to do with this website. I plan to make it one of my main "outlets" to the internet, though I'm still not fully sure if I'd make it the main one.` (br)
          `Well, here's a general list of stuff I need to do:`)
 
-     '(ul
+      (ul
         (li `TODO: portfolio (probably better as a separate page, yeah)`)
         (li `TODO: contact info`)
         (li `TODO: blog`)
@@ -85,28 +78,27 @@
         (li `TODO: figure out a better way to place the small website cards (maybe make what friend did @ https://www.pwndrenard.net/about/liens.htm)`)
         (li `TODO: sitemap`))
 
-     '(p `And here's also a list of more codebase-related to-dos I guess...`)
+      (p `And here's also a list of more codebase-related to-dos I guess...`)
 
-     '(ul
+      (ul
         (li `TODO: restructure the page code so each page exposes a single function that takes some export info and returns the contents`)
         (li `TODO: make the page list a map with the name and its info. Would help with page titles and automatic sidebar.`)
         (li `TODO: figure a simple way to batch-import functions in each page (I'm lazy).`)
         (li `TODO: fetch some font from the internet at build time (PLEASE CACHE IT WHEN DOING IT LOCALLY)`)
         (li `TODO: tag system: make each word some sort of command. Must be easy to parse though ffs`)
-        (li `TODO: integrate acrylic wiki here... somehow`))
-     )
+        (li `TODO: integrate acrylic wiki here... somehow`)))
 
-   '(h2 {:class "big2" :id "s-social"} `Social`)
-   ~(ul
-      (li ,(-link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp - organized + you can pay me if you want!!1)`))
-      (li ,(-link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
+    (h2 {:class "big2" :id "s-social"} `Social`)
+    (ul
+      (li ($link `https://swapxfo.bandcamp.com/music` `My music (on Bandcamp - organized + you can pay me if you want!!1)`))
+      (li ($link `https://archive.org/search?query=creator%3A%22SwapXFO%22`
                  `My music (on Archive.org - inconsistent uploads but I put module/project files over there)`))
-      (li ,(-link `https://swapxfo.newgrounds.com/` `Newgrounds page (at the moment it's mostly music as well)`)))
+      (li ($link `https://swapxfo.newgrounds.com/` `Newgrounds page (at the moment it's mostly music as well)`)))
 
-   '(div {:class "little-cards"}
-         (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
-         (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"})))
-   ])
+    (div {:class "little-cards"}
+      (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
+      (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"})))
+    ))
 
 (def root
   (common/make-page

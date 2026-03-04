@@ -673,7 +673,7 @@
     # TODO: typedefs
     # TODO: aplicação de números aleatórios: dados (sorteio)
     # TODO: aplicação de números aleatórios: números dentro de um intervalo
-    # TODO: arrays ("vetores") (o que são, para que servem, como inicializar, exemploes, pointers, out of bounds, subscript, cálculo alternativo sem [])
+    # TODO: arrays ("vetores") (o que são, para que servem, como inicializar, exemplos, pointers, out of bounds, subscript, cálculo alternativo sem [])
     # TODO: documentação - a importância de comentar e fazer headers
     # TODO: documentação - pesquisando (online, man pages etc.)
     # TODO: expressões separada por vírgula (é desde C89? parece tão alien...)

@@ -214,10 +214,12 @@
        (small ` (` ,(in song :year) `)`)
        ,;(if-let [desc (in song :desc)]
            ['(br) desc]
-           [])
-       )
+           []))
      (td ,;medium-cell)
      (td ,;(interpose ~(span ` `) buttons))))
+
+(defn make-h1 [& content] ['h1 {:class "big1"} ;content])
+(defn make-h2 [& content] ['h2 {:class "big2"} ;content])
 
 (def- special-map
   {'$link make-link
@@ -227,7 +229,9 @@
    '$table-simple make-table-simple
    '$code-inline make-code-inline
    '$code-block make-code-block
-   '$small-note-p make-small-note-p})
+   '$small-note-p make-small-note-p
+   '$h1 make-h1
+   '$h2 make-h2})
 
 (def html-specials @{})
 (eachp [sym func] special-map
