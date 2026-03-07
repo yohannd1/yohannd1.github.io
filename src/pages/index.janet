@@ -2,6 +2,7 @@
 (import ../utils)
 (use ../data/updates)
 (use ../data/projects)
+(use ../data/music)
 
 (def- head
   '((title `yohannd1...`)
@@ -50,6 +51,9 @@
           all-projects .x
           (filter |(common/project/has-tag? 'in-progress $) .x)
           (map common/render-project .x)))
+
+    ($h2 `Latest song`)
+    (table ,(common/render-song (first songs-published)))
 
     ($fold
       {:open true :id "s-apps"} ($summary 2 `Mini apps`)
