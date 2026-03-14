@@ -67,6 +67,34 @@
     :avail {:youtube "https://www.youtube.com/watch?v=VQo_dLj3Mc8"
             :archive "https://archive.org/details/xfo-death-egg-zone-act-1"}
     :year "2025"}
+
+   {:title "Spirit Of"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=Bt00WHdVdn8"
+            :archive "https://archive.org/details/mus-spirit-of"}
+    :desc `Bit of practice and trying out a style that uses a lot of MSGS sounds. This was previously a very inexeperienced cover fo "Spirit of Avarice" from Touhou 13.`
+    :year "2025"}
+
+   {:title "A Bird's Last Look (Arrange)"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=x_b-ihp0dkQ"
+            :archive "https://archive.org/details/mus-a-birds-last-look"}
+    :desc `Had quite a bit of fun working on this one.`
+    :year "2025"}
+
+   {:title "jornaldaglobo (Arrange)"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=nYx5ZoP4OdU"
+            :archive "https://archive.org/details/mus-jornaldaglobo"}
+    :desc `Jornal da Globo. :) Projeto desde 2020/2021 eu acho`
+    :year "2025"}
+
+   {:title "Seahorse Scrutiny (Arrange) [Calamity Mod]"
+    :medium ["YM2151 + PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=Q9DsPPRrRVE"
+            :archive "https://archive.org/details/mus-seahorse-scrutiny"}
+    :desc `An extension of the original very short april fools theme that DM DOKURO made for the Cnidron (is that how you write the name?)`
+    :year "2025"}
    ])
 
 (def songs-crap [])
