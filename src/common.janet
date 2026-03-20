@@ -96,6 +96,7 @@
 (defn make-small-note-p [& content]
   ['p ['small ['i ;content]]])
 
+# TODO: move this to the project data file?? why is this here
 (def valid-project-tags
   (make-set
     ["music" "tool" "library" "game" "game-jam"

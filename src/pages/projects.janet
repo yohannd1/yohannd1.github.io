@@ -21,6 +21,7 @@
    '(p `Here is an attempt at a somewhat comprehensible list of projects I've worked on.` (br)
        `As I've already worked in many, there will probably a lot of them not included here.` (br)
        `But I'll be trying to put the most important ones.`)
+   # TODO: add tags list here! so you can at least know which tags there are...
    ~(div
       {:id "projects-list"}
       (div {:class "project-search-div"})

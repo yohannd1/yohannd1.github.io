@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "WAKE UP"
+    :medium ["YM2612 + PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=wTq941hHObA"
+            :archive "https://archive.org/details/xfo-wakeup"}
+    :desc "Second alarm ringtone I've made... it's an alarm because of thes drums."
+    :year "2026"}
+
    {:title "Apparitions Stalk the Night [Touhou 06]"
     :medium ["Nintendo DS" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=zm3lGHd5MYo"
