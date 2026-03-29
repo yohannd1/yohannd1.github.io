@@ -3,6 +3,9 @@
 
 (def all-updates
   [
+   {:time "2026/03/29 10:59 -03:00"
+    :message `Kinda funny how it took me more than a year (maybe two?) to realize GeneralUser_GS.sf2 was updated. I love the new snares...`}
+
    {:time "2026/02/13 00:20 -03:00"
     :message  `Updating some things around here, mostly music related. I got a MIDI keyboard recently, btw! A "M-Audio Keystation 49 MK3", more specifically. Struggling a bit with the velocity curve but otherwise it's a really nice keyboard.`}
 

@@ -1,5 +1,11 @@
 (def songs-published
   [
+   {:title "STEEL"
+    :medium [nil "LMMS"]
+    :avail {:archive "https://archive.org/details/xfo-steel"}
+    :desc "i watched steel ball run ep.1. so good."
+    :year "2026"}
+
    {:title "WAKE UP"
     :medium ["YM2612 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=wTq941hHObA"
