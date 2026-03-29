@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "Because You Are the Number One [Thunder Force IV]"
+    :medium ["YM2151 + PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=1jekup_v21g"
+            :archive "https://archive.org/details/xfo-because-you-are-the-number-one"}
+    :desc "beautiful song. Tried to make it even more epic, hoping I did that lol"
+    :year "2026"}
+
    {:title "STEEL"
     :medium [nil "LMMS"]
     :avail {:archive "https://archive.org/details/xfo-steel"}
