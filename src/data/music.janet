@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "GUARDIAN [Deltarune CH4]"
+    :medium ["2xYM2151 + C140" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=fZLxJje43Z8"
+            :archive "https://archive.org/details/xfo-guardian"}
+    :desc "vs evil baby"
+    :year "2026"}
+
    {:title "Because You Are the Number One [Thunder Force IV]"
     :medium ["YM2151 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=1jekup_v21g"
