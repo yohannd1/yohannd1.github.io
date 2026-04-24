@@ -1,20 +1,27 @@
 (def songs-published
   [
-   {:title "GUARDIAN [Deltarune CH4]"
+   {:title "Stage 02 (Arrange) [Tokuichi Tiger 2+]"
+    :medium ["YM2151 + SegaPCM" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=y_Pw5B6UlkY"
+            :archive "https://archive.org/details/xfo-tokuichi-stage2"}
+    :desc "I don't know what is it about this obscure game's OST but I feel like covering a bunch of songs from it."
+    :year "2026"}
+
+   {:title "GUARDIAN (Arrange) [Deltarune CH4]"
     :medium ["2xYM2151 + C140" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=fZLxJje43Z8"
             :archive "https://archive.org/details/xfo-guardian"}
     :desc "vs evil baby"
     :year "2026"}
 
-   {:title "Because You Are the Number One [Thunder Force IV]"
+   {:title "Because You Are the Number One (Arrange) [Thunder Force IV]"
     :medium ["YM2151 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=1jekup_v21g"
             :archive "https://archive.org/details/xfo-because-you-are-the-number-one"}
     :desc "beautiful song. Tried to make it even more epic, hoping I did that lol"
     :year "2026"}
 
-   {:title "STEEL"
+   {:title "STEEL (Arrange)"
     :medium [nil "LMMS"]
     :avail {:archive "https://archive.org/details/xfo-steel"}
     :desc "i watched steel ball run ep.1. so good."
@@ -27,7 +34,7 @@
     :desc "Second alarm ringtone I've made... it's an alarm because of thes drums."
     :year "2026"}
 
-   {:title "Apparitions Stalk the Night [Touhou 06]"
+   {:title "Apparitions Stalk the Night (Arrange) [Touhou 06]"
     :medium ["Nintendo DS" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=zm3lGHd5MYo"
             :archive "https://archive.org/details/xfo-apparitions-stalk-the-night"}
@@ -83,7 +90,7 @@
             :archive "https://archive.org/details/xfo-maniacal-princess"}
     :year "2025"}
 
-   {:title "Stage 01 (Arrange) [Tokuichi Tiger]"
+   {:title "Stage 01 (Arrange) [Tokuichi Tiger 2+]"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=UCYJyjuxl8o"
             :archive "https://archive.org/details/xfo-tokuichi-tiger-stage-01"}
