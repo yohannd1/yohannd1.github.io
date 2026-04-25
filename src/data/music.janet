@@ -1,10 +1,18 @@
 (def songs-published
   [
+
+   {:title "2 Week Class Ending (Arrange) [DoDonPachi]"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=WpEvLQzSLRc"
+            :archive "https://archive.org/details/xfo-2-week-class-ending"}
+    :desc "Tried to follow the original's glory but I'm not good enough yet. Was fun though."
+    :year "2026"}
+
    {:title "Bahamas / Cape Town (Arrange) [Asphalt 6 Adrenaline]"
     :medium ["YM2612 + SN76489 + RF5C68" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=Vy12Ly7gh-E"
             :archive "https://archive.org/details/xfo-cape-town"}
-    :desc "cover made for a dear friend, happy birthday :))"
+    :desc "Cover made for a dear friend, happy birthday :))"
     :year "2026"}
 
    {:title "Stage 02 (Arrange) [Tokuichi Tiger 2+]"
