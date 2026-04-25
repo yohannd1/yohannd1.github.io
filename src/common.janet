@@ -7,8 +7,11 @@
    '($link `updates.html` `updates`)
    '($link `rss.xml` `rss feed`)])
 
-(defn make-link [href text]
-  ~(a {:href ,href} ,text))
+(defn make-link [href text &opt tooltip]
+  (def attrs @{:href href})
+  (when tooltip
+    (set (attrs :title) tooltip))
+  ~(a ,attrs ,text))
 
 (defn make-page [&keys args]
   (def head (-> args (get :head) (or [])))
