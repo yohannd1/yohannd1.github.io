@@ -1,5 +1,11 @@
 (def songs-published
   [
+   {:title "will time come to a halt"
+    :medium ["OPL4" "FurnaceTracker"]
+    :avail {:youtube "https://youtube.com/watch?v=ZdgzwZNXR1M"
+            :archive "https://archive.org/details/xfo-will-time-come-to-a-halt"}
+    :desc "failed arrange of Lunar Dial / Horlorge. Idk."
+    :year "2026"}
 
    {:title "2 Week Class Ending (Arrange) [DoDonPachi]"
     :medium [nil "LMMS"]
