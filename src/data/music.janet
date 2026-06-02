@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "Etched Into the Mind [J.C. Experiment OST]"
+    :medium ["YM2151+PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=YrIHHbpZT0E"
+            :archive nil} # TODO
+    :desc "making tense music is fun as hell"
+    :year "2026"}
+
    {:title "will time come to a halt"
     :medium ["OPL4" "FurnaceTracker"]
     :avail {:youtube "https://youtube.com/watch?v=ZdgzwZNXR1M"
