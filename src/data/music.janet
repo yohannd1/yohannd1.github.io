@@ -1,7 +1,7 @@
 (def songs-published
   [
    {:title "Etched Into the Mind [J.C. Experiment OST]"
-    :medium ["YM2151+PCMD8" "FurnaceTracker"]
+    :medium ["YM2151 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=YrIHHbpZT0E"
             :archive nil} # TODO
     :desc "making tense music is fun as hell"
@@ -68,7 +68,7 @@
             :archive "https://archive.org/details/xfo-apparitions-stalk-the-night"}
     :year "2026"}
 
-   {:title "Esaka (Arrange) [KoF 96]"
+   {:title "Esaka (Arrange II) [KoF 96]"
     :medium ["ES5506" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=01NyEGW_yMg"
             :archive "https://archive.org/details/xfo-esaka-v2"}
@@ -157,6 +157,35 @@
             :archive "https://archive.org/details/mus-seahorse-scrutiny"}
     :desc `An extension of the original very short april fools theme that DM DOKURO made for the Cnidron (is that how you write the name?)`
     :year "2025"}
+
+   {:title "Mist(y) Lake (Arrange) [Touhou 14]"
+    :medium ["2A03 + N163" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=ya8_hm9oHdQ"
+            :archive "https://archive.org/details/mus-misty-lake"}
+    :desc ""
+    :year "2025"}
+
+   {:title "Megalovania (Arrange) [Undertale]"
+    :medium ["2A03 + N163" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=9HVA_E1uVcs"
+            :archive "https://archive.org/details/mus-megalovania"}
+    :desc ""
+    :year "2025"}
+
+   {:title "Esaka (Arrange I) [KoF 96]"
+    :medium ["T6W28 + VirtualBoy + PCM" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=ov5Lalzg_5k"
+            :archive "https://archive.org/details/mus-esaka"}
+    :desc `"Made this a while ago as a practice cover for a project."`
+    :year "2025"}
+
+   {:title "Devoid of Light [J.C. Experiment OST]"
+    :medium ["YM2151 + PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=YzM3bap3JYI"
+            :archive nil} # TODO
+    :desc ""
+    :year "2025"}
+
    ])
 
 (def songs-crap [])
