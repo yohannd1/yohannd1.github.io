@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "Scrap Brain Zone (Arrange) [Sonic the Hedgehog]"
+    :medium ["OPL3" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=9G_8Bexu8so"
+            :archive "https://archive.org/details/xfo-scrap-brain-zone"}
+    :desc "WHY DID YOUTUBE MAKE THIS INTO A SHORT??"
+    :year "2026"}
+
    {:title "Etched Into the Mind [J.C. Experiment OST]"
     :medium ["YM2151 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=YrIHHbpZT0E"
