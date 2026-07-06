@@ -1,5 +1,13 @@
 (def songs-published
   [
+   {:title "Hilltop Zone (Arrange) [Sonic the Hedgehog 2]"
+    :medium ["OPL3 + PCMD8" "FurnaceTracker"]
+    :avail {:youtube "https://youtube.com/watch?v=l6AUIO37V8g"
+            :archive "" # TODO: archive.org is 503-ing me for some reason
+            }
+    :desc "nice little song I love it"
+    :year "2026"}
+
    {:title "Scrap Brain Zone (Arrange) [Sonic the Hedgehog]"
     :medium ["OPL3" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=9G_8Bexu8so"
