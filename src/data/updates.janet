@@ -3,6 +3,14 @@
 
 (def all-updates
   [
+   {:time "2026/07/18 02:33 -03:00"
+    :message
+    ~(div
+       `Been playing End of Starchild this month, it's really damn good - ` (a {:href "https://msx.horse/eos/"} `go check it out!`) (br)
+       `It's a... I guess Doom-like game. With a lot of style, banger OST, and a story that I still haven't figured out but is told in a really cool way.` (br)
+       (small `I must say I looked at the wiki a lot for guidance after my first playthrough. Got impatient lol`)
+       )}
+
    {:time "2026/03/29 10:59 -03:00"
     :message `Kinda funny how it took me more than a year (maybe two?) to realize GeneralUser_GS.sf2 was updated. I love the new snares...`}
 
