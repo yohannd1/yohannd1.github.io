@@ -8,7 +8,7 @@
     --color-fg-alt: #444;
 
     --color-link: #A8F;
-    --color-link-visited: #94D;
+    --color-link-visited: #98D;
 
     --sidebar-width: 8em;
 
@@ -28,7 +28,7 @@
         --color-fg-alt: #AAA;
 
         --color-link: #88F;
-        --color-link-visited: #F8F;
+        --color-link-visited: #98E;
     }
 }
 
@@ -66,6 +66,7 @@ body {
 }
 
 nav {
+    border-radius: 0.8em;
     margin: 0.5em 0em;
     background-color: var(--color-bg-alt);
     overflow: hidden;
@@ -194,6 +195,7 @@ table.transparent > td {
 }
 
 td {
+    border-radius: 0.5em;
     background-color: var(--color-bg-alt);
     padding: 0.4em;
 }

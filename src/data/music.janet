@@ -3,7 +3,7 @@
    {:title "smart race (LMMS Arrange) [Deltarune CH2]"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=pDgujBd8hhE&feature=youtu.be"
-            :archive nil} # TODO
+            :archive "https://archive.org/details/xfo-smart-race"}
     :desc "This started with me experimenting some things on my (back then) recently-arrived MIDI controller."
     :year "2026"}
 
