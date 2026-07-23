@@ -1,10 +1,23 @@
 (def songs-published
   [
+   {:title "smart race (LMMS Arrange) [Deltarune CH2]"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=pDgujBd8hhE&feature=youtu.be"
+            :archive nil} # TODO
+    :desc "This started with me experimenting some things on my (back then) recently-arrived MIDI controller."
+    :year "2026"}
+
+   {:title "Network Terminal, Interior (LMMS Arrange) [Sonic Forces]"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=E_4UgULrFlk"
+            :archive "https://archive.org/details/xfo-network-terminal-interior"}
+    :desc "good song,,"
+    :year "2026"}
+
    {:title "Hilltop Zone (Arrange) [Sonic the Hedgehog 2]"
     :medium ["OPL3 + PCMD8" "FurnaceTracker"]
     :avail {:youtube "https://youtube.com/watch?v=l6AUIO37V8g"
-            :archive "" # TODO: archive.org is 503-ing me for some reason
-            }
+            :archive "https://archive.org/details/xfo-hilltop-zone_202607"}
     :desc "nice little song I love it"
     :year "2026"}
 
