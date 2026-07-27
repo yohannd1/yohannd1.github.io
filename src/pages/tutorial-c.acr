@@ -1,0 +1,19 @@
+%% TODO: this is a test. Not working yet!!!!
+
+@setBlock{head}{
+  @title{Tutorial de C}
+}
+
+@setBlock{body}{
+  @fold[open true level 1]{Tutorial de C}{
+    @p{Olá! Aqui eu vou tentar ajudar com algumas coisas de C.}
+    @p{Não é muita coisa. É mais um ponto de referência p/ algumas dúvidas que eu já tirei.}
+  }
+
+  @fold[level 2]: {int main()} {
+    @p{ @c{main()} é o nome do "ponto de entrada" de um programa, geralmente. Então o que você quer que rode você coloca ali. }
+    @p{ Isso na verdade é o que chamamos de @b{função} (@link{#s-funcoes}{um pouco mais avançado - leia mais em baixo}), mas basicamente é um pedaço de código que você pode rodar várias vezes. Outras coisas que veremos mais na frente, como @c{printf()}, @c{scanf()} e @c{sqrt()}, são funções também, mas elas meio que... "já são definidas pelo compilador". }
+    @p{ O @c{main()}, porém, deve ser definido por nós, e é nele onde deve ficar o nosso código. }
+    @p{ A partir daqui, a maioria dos códigos vai omitir o @c{int main()}, mas você precisa colocar o código dentro dele. }
+  };
+}
