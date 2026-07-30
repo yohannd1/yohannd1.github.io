@@ -3,6 +3,10 @@
 
 (def all-updates
   [
+   # TODO: uncomment
+   # {:time "2026/07/30 11:25 -03:00"
+   #  :message "My dog has passed away. I'll miss him so, so fucking much. He made my days better and now he's not here."}
+
    {:time "2026/07/18 02:33 -03:00"
     :message
     ~(div
