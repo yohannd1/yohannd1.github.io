@@ -1,20 +1,27 @@
 (def songs-published
   [
-   {:title "Selection (YM2612+RF5C68 Arrange) [end of starchild]"
+   {:title "Rude Buster (Arrange) [Deltarune CH1]"
+    :medium ["YM2610B" "FurnaceTracker"]
+    :avail {:youtube "https://www.youtube.com/watch?v=jIZO4Pf5rvM"
+            :archive "https://archive.org/details/xfo-rude-buster"}
+    :desc "this was really fun to make."
+    :year "2026"}
+
+   {:title "Selection (Arrange) [end of starchild]"
     :medium ["YM2612 + RF5C68" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=567FweReHmo"
             :archive "https://archive.org/details/xfo-eos-selection"}
     :desc "i love this game ghrhg018"
     :year "2026"}
 
-   {:title "smart race (LMMS Arrange) [Deltarune CH2]"
+   {:title "smart race (Arrange) [Deltarune CH2]"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=pDgujBd8hhE"
             :archive "https://archive.org/details/xfo-smart-race"}
     :desc "This started with me experimenting some things on my (back then) recently-arrived MIDI controller."
     :year "2026"}
 
-   {:title "Network Terminal, Interior (LMMS Arrange) [Sonic Forces]"
+   {:title "Network Terminal, Interior (Arrange) [Sonic Forces]"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=E_4UgULrFlk"
             :archive "https://archive.org/details/xfo-network-terminal-interior"}
