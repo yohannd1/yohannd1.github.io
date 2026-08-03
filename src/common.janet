@@ -172,7 +172,7 @@
     (array/push ret (apply -project-title args)))
   (when (def desc (in project :desc))
     (def value
-      (if (array-or-tuple? desc)
+      (if (indexed? desc)
         (apply -project-description desc)
         (-project-description desc)))
     (array/push ret value))

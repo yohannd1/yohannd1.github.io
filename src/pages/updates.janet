@@ -26,7 +26,7 @@
    ;(as->
       all-updates .x
       (map common/render-update .x)
-      (utils/interpolate .x ~(br)))])
+      (interpose ~(br) .x))])
 
 (def root
   (common/make-page

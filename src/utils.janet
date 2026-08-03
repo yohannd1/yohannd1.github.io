@@ -17,9 +17,6 @@
        ,;(map make-decl syms))
     ))
 
-(defn array-or-tuple? [x]
-  (or (array? x) (tuple? x)))
-
 (defn make-set
   "Turn a data structure into a set of its elements."
   [ds]

@@ -1,8 +1,14 @@
 (def all-projects
-  [{:title `cuca(sv)`
-    :desc ``Attempt at a SystemVerilog implementation of a set of architectures created by a teacher of mine.``
-    :urls [[`Repo URL` `https://github.com/yohannd1/cuca-sv`]]
+  [
+   {:title `computers`
+    :desc ``A collection of experiments on making computers and processors.``
+    :urls [[`Repo URL` `https://github.com/yohannd1/computers`]]
     :tags '(in-progress)}
+
+   {:title `cuca(sv)`
+    :desc ``Attempt at a SystemVerilog implementation of a set of architectures created by a teacher of mine. Superseded by the "computers" project.``
+    :urls [[`Repo URL` `https://github.com/yohannd1/cuca-sv`]]
+    :tags '(abandoned)}
 
    {:title `ConquestVM`
     :desc ``32-bit fantasy computer, mostly inspired by Uxn. Will eventually include a compiler and emulator.``
