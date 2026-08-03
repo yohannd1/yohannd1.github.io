@@ -1,6 +1,6 @@
 (def songs-published
   [
-   {:title "Rude Buster (Arrange) [Deltarune CH1]"
+   {:title "Rude Buster (Arrange) [Deltarune CH1] ft. GroovinGood"
     :medium ["YM2610B" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=jIZO4Pf5rvM"
             :archive "https://archive.org/details/xfo-rude-buster"}
