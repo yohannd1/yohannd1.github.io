@@ -36,6 +36,13 @@
       (li "I also have a " ($link "https://swapxfo.newgrounds.com/" "newgrounds") " account but I haven't used that very often;"))
    '(p `This page is supposed to eventually mention all songs I've published, and for now I'm focusing on uploading them to the internet archive. I'd like to host them close to the website as well but I don't think putting the files on a GitHub repo is a good idea, and that might get the repo deleted...`)
 
+   '(p `Song names here usually follow a specific format, composed of these, in order:`)
+   '(ul
+      (li `song name;`)
+      (li `"(Arrange)" if the song is a rearrangement/remix/cover;`)
+      (li `Source of the song, if applicable, in square brackets (e.g. "[Deltarune CH2]");`)
+      (li `other people who worked on the song (e.g. "ft. SwapXFO");`))
+
    ~(div
       {:id "music-list"}
       (div {:class "project-search-div"})
