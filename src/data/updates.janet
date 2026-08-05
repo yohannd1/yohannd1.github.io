@@ -3,9 +3,11 @@
 
 (def all-updates
   [
-   # TODO: uncomment
-   # {:time "2026/07/30 11:25 -03:00"
-   #  :message "My dog has passed away. I'll miss him so, so fucking much. He made my days better and now he's not here."}
+   {:time "2026/08/05 15:35 -03:00"
+    :message "I've been trying to figure out for a while now how Firefox picks what to open files with on Linux. Sometimes it seems to pick up the right MIME association, but today I noticed that it seems to prefer to pick 'x-scheme-handler/file' for even zip files..?? Well - I had that pointing to my file manager so it was bothering me, but now hopefully it should be fixed."}
+
+   {:time "2026/07/30 11:25 -03:00"
+    :message "My dog has passed away. I'll miss him so, so fucking much. He made my days better and now he's not here."}
 
    {:time "2026/07/18 02:33 -03:00"
     :message
