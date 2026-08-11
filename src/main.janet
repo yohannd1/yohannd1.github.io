@@ -25,20 +25,23 @@
 
   # TODO: support redirects (for pages that I've moved around)
 
-  (add-self-pages
-    "index"
-    "key-tester"
-    "sistema-pa"
-    "tutorial-c"
-    "projects"
-    "music"
-    "updates"
-    "sheel")
+  (def self-pages
+    ["index"
+     "key-tester"
+     "sistema-pa"
+     "tutorial-c"
+     "projects"
+     "music"
+     "updates"
+     "sheel"])
+
+  (add-self-pages ;self-pages)
 
   (copy-glob "." "../res")
   (ap ["img" [:copy "../img"]])
 
   (ap ["rss.xml" [:xml-gen "misc/updates-rss.janet"]])
+  (ap ["sitemap.xml" [:xml-gen "misc/sitemap.janet" "https://yohannd1.github.io" self-pages]])
 
   ret)
 
@@ -46,22 +49,27 @@
   (def html-config
     {:specials common/html-specials})
 
+  (defn get-root [page-mod args]
+    (if (def build-root (get page-mod 'build-root))
+      ((get build-root :value) ;args)
+      (-> page-mod (get 'root) (get :value))))
+
   (eprintf "processing target %j" out-name)
   (match action
     # generate a HTML page by running janet code
-    [:html-gen in-path-pre]
+    [:html-gen in-path-pre & args]
     (let [in-path (path/join prog-dir in-path-pre)
           page-mod (dofile in-path :exit true)
-          page-root (-> page-mod (get 'root) (get :value))
+          page-root (get-root page-mod args)
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
         (:write fd (webgen/html/render-doc page-root html-config))))
 
     # generate a HTML page by running janet code
-    [:xml-gen in-path-pre]
+    [:xml-gen in-path-pre & args]
     (let [in-path (path/join prog-dir in-path-pre)
           page-mod (dofile in-path :exit true)
-          page-root (-> page-mod (get 'root) (get :value))
+          page-root (get-root page-mod args)
           out-path (path/join out-dir out-name)]
       (with [fd (file/open out-path :w)]
         (:write fd (webgen/xml/render-doc page-root {}))))
