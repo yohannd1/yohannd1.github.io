@@ -1,5 +1,12 @@
 (def songs-published
   [
+   {:title "She's Playing the Piano (Arrange) [Undertale]"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=UM9lqhO_f5Q"
+            :archive "https://archive.org/details/xfo-shes-playing-the-piano"}
+    :desc "Ever since I heard this the first time I think the chords got stuck on my head."
+    :year "2026"}
+
    {:title "Rude Buster (Arrange) [Deltarune CH1] ft. GroovinGood"
     :medium ["YM2610B" "FurnaceTracker"]
     :avail {:youtube "https://www.youtube.com/watch?v=jIZO4Pf5rvM"
