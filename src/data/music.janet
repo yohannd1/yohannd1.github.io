@@ -235,6 +235,21 @@
     :desc ""
     :year "2025"}
 
+   {:title "ball song (im sorry) (Arrange)"
+    :medium [nil "LMMS"]
+    :avail {:youtube "https://www.youtube.com/watch?v=5PD7H05RKfk"
+            :archive "https://archive.org/details/mus-ball-song"}
+    :desc "that one meme song from like... 3 years prior? maybe more."
+    :year "2025"}
+
+   {:title "GetReady! [J.C. Experiment OST]"
+    :medium ["YM2151 + PCMD8" "Furnace"]
+    :avail {:youtube "https://www.youtube.com/watch?v=lbvwHfufxzk"
+            :archive nil} # TODO
+    :desc ""
+    :year "2025"}
+
    ])
 
+# TODO: fill this with songs that uh. are wips or discarded things.
 (def songs-crap [])
