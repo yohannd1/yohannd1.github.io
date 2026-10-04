@@ -68,7 +68,7 @@
       (p ($link `sistema-pa.html` `Sistema Pa`) ` (lógica) (pt-br)`))
 
     ($fold
-      {:open true :id "s-todos"} ($summary 2 `To-dos`)
+      {:open false :id "s-todos"} ($summary 2 `To-dos`)
 
       (p `Turns out I still have a lot to do with this website. I plan to make it one of my main "outlets" to the internet, though I'm still not fully sure if I'd make it the main one.` (br)
          `Well, here's a general list of stuff I need to do:`)

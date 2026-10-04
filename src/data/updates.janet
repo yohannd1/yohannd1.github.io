@@ -3,6 +3,9 @@
 
 (def all-updates
   [
+   {:time "2026/10/04 10:14 -03:00"
+    :message "Wagyan Paradise OST - Smiley Tree. Seriously this OST is a banger, I feel lucky coming across this game as a child in an emulator games collection."}
+
    {:time "2026/08/05 15:35 -03:00"
     :message "I've been trying to figure out for a while now how Firefox picks what to open files with on Linux. Sometimes it seems to pick up the right MIME association, but today I noticed that it seems to prefer to pick 'x-scheme-handler/file' for even zip files..?? Well - I had that pointing to my file manager so it was bothering me, but now hopefully it should be fixed."}
 
