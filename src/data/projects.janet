@@ -1,5 +1,12 @@
 (def all-projects
   [
+   {:title `Operation Apeduction`
+    :desc ``A Subway Surfers-inspired game I've been making with friends. Started as an uni project.``
+    :urls [[`itch.io page` `https://ythmxz.itch.io/operation-apeduction`]]
+    :tags '(in-progress game)
+    # TODO: more info about this one, plus maybe post the OST
+    }
+
    {:title `computers`
     :desc ``A collection of experiments on making computers and processors.``
     :urls [[`Repo URL` `https://github.com/yohannd1/computers`]]
