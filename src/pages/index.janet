@@ -101,7 +101,8 @@
     (div {:class "little-cards"}
       (a {:href "https://openmpt.org/"} (img {:src "img/button-openmpt.png"}))
       (a {:href "https://pwndrenard.net/"} (img {:src "img/button-pwndrenard.png"})))
-    ))
+
+    (p "𓃦 ")))
 
 (def root
   (common/make-page

@@ -1,10 +1,11 @@
 (def all-projects
   [
    {:title `Operation Apeduction`
-    :desc ``A Subway Surfers-inspired game I've been making with friends. Started as an uni project.``
-    :urls [[`itch.io page` `https://ythmxz.itch.io/operation-apeduction`]]
+    :desc ``A Subway Surfers-inspired game made in Godot that I've been making with friends. Started as an uni project, and is also paired with a movement-based control system (which is available separate... TODO: where?). Codenamed "Project Subway".``
+    :urls [[`itch.io page` `https://ythmxz.itch.io/operation-apeduction`]
+           [`Repo URL` `https://github.com/ythmxz/project-subway`]]
     :tags '(in-progress game)
-    # TODO: more info about this one, plus maybe post the OST
+    # TODO: post the OST once finished
     }
 
    {:title `computers`
