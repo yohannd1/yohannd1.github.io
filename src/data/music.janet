@@ -1,5 +1,13 @@
 (def songs-published
   [
+   {:title "Natural Cavern (Arrange) [Brain Lord]"
+    :medium ["PC-Engine" "Furnace"]
+    :avail {:youtube "https://www.youtube.com/watch?v=Y2CNdvPUObY"
+            :archive "https://archive.org/details/xfo-natural-cavern"}
+    :desc `[...] this is a cover I've been wanting to do for a long while, and I finally got the time and motivation to do it. I like how this is an opportunity to study the techniques some composers and styles have, and in this song specifically I loved the arpeggios, which I didn't quite transcribe well but hopefully the idea should be close enough.
+I also am loving playing around with wavetables. The fact that the PC-Engine has 6 homogenous channels kinda makes me compose like how I was composing on the Amiga: juggling sounds between channels. It's a bit exhausting at times but the result is often satisfying. Feels like I'm making the chip do more than what it was supposed to.`
+    :year "2026"}
+
    {:title "She's Playing the Piano (Arrange) [Undertale]"
     :medium [nil "LMMS"]
     :avail {:youtube "https://www.youtube.com/watch?v=UM9lqhO_f5Q"

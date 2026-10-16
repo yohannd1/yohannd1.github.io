@@ -212,13 +212,15 @@
       nil []
       other (error (string/format "unexpected: %j" other))))
 
+  (def desc-data
+    (when (def desc (in song :desc))
+      (interpose '(br) (string/split "\n" desc))))
+
   ~(tr
      (td
        (b ,(in song :title))
        (small ` (` ,(in song :year) `)`)
-       ,;(if-let [desc (in song :desc)]
-           ['(br) desc]
-           []))
+       ,;(if desc-data ['(br) ;desc-data] []))
      (td ,;medium-cell)
      (td ,;(interpose ~(span ` `) buttons))))
 
